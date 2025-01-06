@@ -1,6 +1,8 @@
+import styles from './style.module.scss';
+
 const Home = () => {
   return (
-    <div>
+    <div className={styles.container}>
       otrapagina
     </div>
   );

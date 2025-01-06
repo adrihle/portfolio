@@ -1,8 +1,9 @@
 import { Playground } from "@/containers";
+import styles from './style.module.scss';
 
 const Home = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <Playground />
     </div>
   );

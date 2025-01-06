@@ -1,7 +1,5 @@
 @use 'animations/fade-in';
 
 .container {
-  padding: 30px;
-
   @extend %fade-in;
 }

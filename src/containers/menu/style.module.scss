@@ -1,5 +1,5 @@
 @use 'screen';
-@use 'animations';
+@use 'animations/press';
 @use 'theme/colors' as colors;
 @use 'theme/schema' as schema;
 
@@ -12,7 +12,6 @@
   margin: 15px;
   padding: 10px;
   min-height: 30px;
-  height: 30px;
   background-color: colors.$color;
 
   @include screen.xs {
@@ -23,5 +22,6 @@
     color: white;
   }
 
-  @extend %fade-in;
+  @extend %press
 }
+
