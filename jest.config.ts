@@ -10,6 +10,7 @@ const config: Config = {
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: "coverage",
+  coverageReporters: ['text', 'text-summary', 'html', 'json', 'clover'],
   coverageProvider: "v8",
   testEnvironment: "jsdom",
   moduleNameMapper: {
