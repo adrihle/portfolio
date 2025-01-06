@@ -1,16 +1,14 @@
-import { Grid, Key } from '@/components';
+import { Grid } from '@/components';
+import styles from './style.module.scss';
 
 const Playground = () => {
   return (
     <Grid>
-      <Grid.Item span={6}>
-        <Key>Ctrl</Key>
-        <Key>Shift</Key>
-        <Key>o</Key>
-      </Grid.Item>
-      <Grid.Item span={6}>
-        col2
-      </Grid.Item>
+      <div className={styles.typewriter}>
+        <span className={styles.text}>
+          hola que ase
+        </span>
+      </div>
     </Grid>
   );
 };
