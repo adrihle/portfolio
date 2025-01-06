@@ -5,6 +5,8 @@
 
 .container {
   padding: 30px;
+  overflow-y: hidden;
+  max-height: 100vh;
 }
 
 .link {

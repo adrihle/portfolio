@@ -4,7 +4,6 @@ import styles from './style.module.scss';
 type Div = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 type ItemProps = {
-  children: React.ReactNode;
   span?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 } & Div;
 
@@ -21,7 +20,6 @@ const Item = ({ children, span = 1, style, ...divProps }: ItemProps) => {
 };
 
 type GridProps = {
-  children: React.ReactNode;
   gap?: number;
 } & Div;
 
