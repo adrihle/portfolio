@@ -1,4 +1,4 @@
-import { Grid, Key } from "@/components";
+import { Grid, Key } from '@/components';
 
 const Playground = () => {
   return (

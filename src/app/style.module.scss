@@ -1,0 +1,8 @@
+@use 'animations/fade-in';
+
+.container {
+  @extend %fade-in;
+
+  height: 1000px;
+  overflow-y: scroll;
+}

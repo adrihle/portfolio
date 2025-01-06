@@ -1,0 +1,14 @@
+@use 'screen';
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  @include screen.xs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  width: 100%;
+}

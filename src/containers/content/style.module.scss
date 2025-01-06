@@ -1,0 +1,9 @@
+@use 'animations/fade-in';
+
+.container {
+  @extend %fade-in;
+
+  padding: 30px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
