@@ -2,6 +2,8 @@
 
 .container {
   padding: 30px;
+  overflow-y: auto;
+  height: 1000px;
 
   @extend %fade-in;
 }
