@@ -1,4 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
+import styles from './style.module.scss';
 
 type Div = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
@@ -8,9 +9,14 @@ type ItemProps = {
 } & Div;
 
 const Item = ({ children, span = 1, style, ...divProps }: ItemProps) => {
-  const gridStyles: React.CSSProperties = { gridColumn: `span ${span}`, ...style };
   return (
-    <div {...{ style: gridStyles, ...divProps }}>{children}</div>
+    <div
+      className={styles.item}
+      style={{ gridColumn: `span ${span}`, ...style }}
+      {...divProps}
+    >
+      {children}
+    </div>
   );
 };
 
@@ -20,13 +26,15 @@ type GridProps = {
 } & Div;
 
 const Grid = ({ children, gap = 5, style, ...divProps }: GridProps) => {
-  const gridStyles: React.CSSProperties = {
-    ...style,
-    display: 'grid',
-    gridTemplateColumns: `repeat(12, 1fr)`,
-    gap: `${gap}px`
-  };
-  return <div {...{ style: gridStyles, ...divProps}}>{children}</div>;
+  return (
+    <div
+      className={styles.grid}
+      style={{ gap: `${gap}px`, ...style }}
+      {...divProps}
+    >
+      {children}
+    </div>
+  );
 };
 
 Grid.Item = Item;
