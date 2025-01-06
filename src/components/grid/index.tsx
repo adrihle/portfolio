@@ -32,3 +32,4 @@ const Grid = ({ children, gap = 5, style, ...divProps }: GridProps) => {
 Grid.Item = Item;
 
 export { Grid };
+

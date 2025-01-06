@@ -1,0 +1,20 @@
+@use 'screen';
+@use 'animations';
+@use 'theme/colors' as colors;
+@use 'theme/schema' as schema;
+
+.container {
+  padding: 10px;
+  color: black;
+  background-color: colors.$color;
+
+  @include screen.xs {
+    background-color: green;
+  }
+
+  @include schema.dark {
+    color: white;
+  }
+
+  @extend %fade-in;
+}

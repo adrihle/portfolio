@@ -13,7 +13,8 @@
     "@adrihfly/reducer-form": "^1.0.0-beta.3",
     "next": "15.1.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sass": "^1.83.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
