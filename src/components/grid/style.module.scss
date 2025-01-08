@@ -5,7 +5,7 @@
   grid-template-columns: repeat(12, 1fr);
 
   @include screen.xs {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(9, 1fr);
   }
 }
 

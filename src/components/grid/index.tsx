@@ -23,10 +23,10 @@ type GridProps = {
   gap?: number;
 } & Div;
 
-const Grid = ({ children, gap = 5, style, ...divProps }: GridProps) => {
+const Grid = ({ children, gap = 5, style, className, ...divProps }: GridProps) => {
   return (
     <div
-      className={styles.grid}
+      className={`${styles.grid} ${className}`}
       style={{ gap: `${gap}px`, ...style }}
       {...divProps}
     >

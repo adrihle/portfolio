@@ -24,10 +24,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Grid>
-          <Grid.Item span={4}>
+          <Grid.Item span={15}>
             <Menu />
           </Grid.Item>
-          <Grid.Item span={8}>
+          <Grid.Item span={12}>
             <Content>
               {children}
             </Content>
