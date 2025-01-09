@@ -21,14 +21,17 @@ const Item = ({ children, span = 1, style, ...divProps }: ItemProps) => {
 
 type GridProps = {
   gap?: number;
+  minWidth?: string;
 } & Div;
 
-const Grid = ({ children, gap = 5, style, className, ...divProps }: GridProps) => {
+const Grid = ({ children, minWidth = '50px', gap }: GridProps) => {
   return (
     <div
-      className={`${styles.grid} ${className}`}
-      style={{ gap: `${gap}px`, ...style }}
-      {...divProps}
+      className={styles.grid}
+      style={{
+        gridTemplateColumns: `repeat(auto-fit, minmax(${minWidth}, 1fr))`,
+        gridGap: gap,
+      }}
     >
       {children}
     </div>
