@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/styles/global.scss';
+import { Grid } from "@/components";
+import { Content, Menu } from "@/containers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +23,16 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Grid minWidth="220px">
+          <Grid.Item span={1}>
+            <Menu />
+          </Grid.Item>
+          <Grid.Item span={2}>
+            <Content>
               {children}
+            </Content>
+          </Grid.Item>
+        </Grid>
       </body>
     </html>
   );

@@ -49,9 +49,9 @@ const Menu = () => {
           <p>holaaaa</p>
         </Widget>
       </div>
-      <Grid className={styles.container}>
+      <Grid className={styles.container} minWidth='95px'>
         {Object.values(PAGES).map(({ image, label, href, background }, i) => (
-          <Grid.Item span={3} key={i}>
+          <Grid.Item key={i}>
             <AppIcon {...{ image, label, href, background }} />
           </Grid.Item>
         ))}
