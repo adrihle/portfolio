@@ -23,7 +23,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Grid minWidth="220px">
+        <Grid minWidth="220px" gap={15}>
           <Grid.Item span={1}>
             <Menu />
           </Grid.Item>

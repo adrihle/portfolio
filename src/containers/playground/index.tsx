@@ -1,4 +1,4 @@
-import { Grid } from "./grid";
+import { Grid } from "@/components";
 
 const Menu = () => {
   return (
@@ -25,10 +25,10 @@ const Menu = () => {
 const Playground = () => {
   return (
     <Grid minWidth="220px">
-      <Grid.Item span={1} xs={12} sm={12} md={6} lg={4}>
+      <Grid.Item span={1}>
         <Menu />
       </Grid.Item>
-      <Grid.Item span={2} xs={12} sm={12} md={6} lg={8}>
+      <Grid.Item span={2}>
         Content
       </Grid.Item>
     </Grid>

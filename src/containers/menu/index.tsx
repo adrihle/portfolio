@@ -43,16 +43,16 @@ const PAGES = {
 const Menu = () => {
   return (
     <>
-      <div style={{ padding: '20px' }}>
+      <div>
         <Widget>
           <div style={{ width: '60px', height: '60px', backgroundColor: 'red' }}></div>
           <p>holaaaa</p>
         </Widget>
       </div>
       <Grid className={styles.container} minWidth='95px'>
-        {Object.values(PAGES).map(({ image, label, href, background }, i) => (
+        {Object.values(PAGES).map((props, i) => (
           <Grid.Item key={i}>
-            <AppIcon {...{ image, label, href, background }} />
+            <AppIcon {...props} />
           </Grid.Item>
         ))}
       </Grid>

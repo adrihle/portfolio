@@ -11,10 +11,7 @@ type AppIconProps = {
 
 const AppIcon = ({ image, label, href, background }: AppIconProps) => {
   return (
-    <Link
-      className={styles.container}
-      href={href}
-    >
+    <Link className={styles.container} href={href}>
       <Image src={image}
         alt={label}
         width={60}
