@@ -5,7 +5,7 @@
 }
 
 @mixin light {
-  @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: light) {
     @content
   }
 }
