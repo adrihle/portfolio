@@ -1,30 +1,17 @@
 import { Playground } from "@/containers";
-import { exec } from 'child_process';
-import cache from 'memory-cache';
-import util from 'util';
+import { getColaborations } from './action';
 
-const execPromise = util.promisify(exec);
-const PACKAGES = 'root#packages';
-
-const getFilteredPackages = async (): Promise<string[]> => {
-  try {
-    const cached = cache.get(PACKAGES);
-    if (cached) return cached;
-    const { stdout } = await execPromise('npm search @adrihfly --json');
-    const result = JSON.parse(stdout);
-    cache.put(PACKAGES, result, 1000 * 10);
-    return result;
-  } catch (error) {
-    console.error('Error al obtener los paquetes:', error);
-    return [];
-  }
-};
 
 const Home = async () => {
-  const packages = await getFilteredPackages();
+  const collaborations = await getColaborations();
+  console.log({ collaborations });
   return (
-    <Playground packages={packages} />
+    <>
+      <Playground />
+      <svg viewBox="0 0 780 250" aria-hidden="true"><path fill="#231F20" d="M240,250h100v-50h100V0H240V250z M340,50h50v100h-50V50z M480,0v200h100V50h50v150h50V50h50v150h50V0H480z M0,200h100V50h50v150h50V0H0V200z" strokeWidth="5" stroke="#f7f7f7"></path></svg>
+    </>
   );
 };
 
 export default Home;
+

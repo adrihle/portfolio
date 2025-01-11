@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     includePaths: [path.join(__dirname, 'src', 'styles')]
   },
   images: {
-    domains: ['cdn.pixabay.com', 'cdn.iconscout.com']
+    domains: ['cdn.pixabay.com', 'cdn.iconscout.com', 'www.npmjs.com']
   },
 };
 

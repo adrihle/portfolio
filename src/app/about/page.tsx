@@ -1,12 +1,10 @@
-import styles from './style.module.scss';
-
-const Home = () => {
+const Page = () => {
   return (
-    <div className={styles.container}>
+    <>
       otrapagina
-    </div>
+    </>
   );
 }
 
-export default Home;
+export default Page;
 

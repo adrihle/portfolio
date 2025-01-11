@@ -1,16 +1,12 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
-import styles from './style.module.scss';
+import { ComponentProps } from '@/interfaces';
 import { Widget } from "@/components";
+import styles from './style.module.scss';
 
-type Div = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
-
-const Content = ({ children, ...props }: Div) => {
+const Content = ({ children, ...props }: ComponentProps) => {
   return (
-    <div className={styles.container} {...props}>
-      <Widget height="2000px" >
-        {children}
-      </Widget>
-    </div>
+    <Widget height="2000px" className={styles.container} {...props}>
+      {children}
+    </Widget>
   );
 };
 

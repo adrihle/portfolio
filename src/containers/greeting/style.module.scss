@@ -1,0 +1,64 @@
+@use 'screen';
+
+.type {
+  font-weight: bold;
+}
+
+.photo {
+  padding: 0;
+  display: inline-block;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.presentation {
+  font-size: clamp(0.85rem, 1.5vw, 1.5rem);
+}
+
+.presentationItem {
+  margin-bottom: 8px;
+}
+
+.social {
+  min-width: 100%;
+  padding: 12px;
+  display: flex;
+  min-height: 95%;
+  max-height: 132px;
+}
+
+.socialItem {
+  @include screen.md {
+    order: 3;
+    grid-column: span 2 !important;
+  }
+}
+
+.socialGrid {
+  place-items: center;
+  @include screen.md {
+    gap: 0 !important;
+  }
+}
+
+.socialIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color: rgb(28, 28, 30, 0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
