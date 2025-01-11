@@ -4,6 +4,7 @@ import styles from './style.module.scss';
 import Image from 'next/image';
 
 const ME = 'https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci9jNmY3MzEyMDQwYjAxZGVmMTBhN2JlYmQ1ZjFiYjM1OT9zaXplPTQ5NiZkZWZhdWx0PXJldHJvIn0.xNYRPSHvhcS8ISzY5PID96v3j39uPLV2Od14wYgSDrs';
+const MIN_COL_WIDTH = 150;
 
 const Photo = () => {
   return (
@@ -15,7 +16,7 @@ const Photo = () => {
 
 const Presentation = () => {
   return (
-    <Widget>
+    <Widget className={styles.presentation}>
       <Text>Hi! My name is <strong>Adrian</strong> 👋</Text>
       <Text>
         I´m&nbsp;
@@ -45,7 +46,7 @@ const Social = () => {
 
 const Greeting = () => {
   return (
-    <Grid gap={5} minWidth='85px'>
+    <Grid gap={5} minWidth={MIN_COL_WIDTH}>
       <Grid.Item span={1}>
         <Photo />
       </Grid.Item>

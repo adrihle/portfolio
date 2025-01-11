@@ -6,3 +6,7 @@
   padding: 0;
   display: inline-block;
 }
+
+.presentation {
+  font-size: clamp(0.85rem, 1.5vw, 1.5rem);
+}
