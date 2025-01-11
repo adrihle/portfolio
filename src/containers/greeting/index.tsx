@@ -4,11 +4,11 @@ import styles from './style.module.scss';
 import Image from 'next/image';
 
 const ME = 'https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci9jNmY3MzEyMDQwYjAxZGVmMTBhN2JlYmQ1ZjFiYjM1OT9zaXplPTQ5NiZkZWZhdWx0PXJldHJvIn0.xNYRPSHvhcS8ISzY5PID96v3j39uPLV2Od14wYgSDrs';
-const MIN_COL_WIDTH = 150;
+const MIN_COL_WIDTH = 100;
 
 const Photo = () => {
   return (
-    <Widget className={styles.reset}>
+    <Widget className={styles.photo}>
       <Image src={ME} width={100} height={100} alt='me' />
     </Widget>
   );
@@ -38,7 +38,7 @@ const Presentation = () => {
 
 const Social = () => {
   return (
-    <Widget>
+    <Widget className={styles.social}>
       hola
     </Widget>
   );
