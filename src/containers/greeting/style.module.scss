@@ -4,30 +4,9 @@
   font-weight: bold;
 }
 
-.trickItem {
-  display: none;
-  @include screen.md {
-    display: block;
-    max-width: 128px;
-  }
-
-  @include screen.xxl {
-    display: block;
-    max-width: 128px;
-    margin-left: 15px;
-    grid-row: span 2;
-  }
-}
-
 .photo {
   padding: 0;
   display: inline-block;
-}
-
-.photoItem {
-  @include screen.md {
-    max-height: 90px;
-  }
 }
 
 .image {
@@ -40,8 +19,7 @@
 }
 
 .presentationItem {
-  margin-top: 10px;
-
+  margin-bottom: 8px;
 }
 
 .social {
@@ -49,16 +27,21 @@
   padding: 12px;
   display: flex;
   min-height: 95%;
+  max-height: 132px;
 }
 
 .socialItem {
   @include screen.md {
-    grid-row: span 2;
+    order: 3;
+    grid-column: span 2 !important;
   }
 }
 
 .socialGrid {
   place-items: center;
+  @include screen.md {
+    gap: 0 !important;
+  }
 }
 
 .socialIcon {
@@ -78,9 +61,4 @@
   &:active {
     transform: scale(0.95);
   }
-}
-
-.socailIconImage {
-  color: red;
-  filter: invert(42%) sepia(47%) saturate(2617%) hue-rotate(173deg);
 }

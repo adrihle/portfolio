@@ -64,25 +64,14 @@ const Social = () => {
   );
 };
 
-const Trick = () => {
-  return (
-    <Widget style={{ height: '100%' }}>
-      hola
-    </Widget>
-  )
-};
-
 const Greeting = () => {
   return (
     <Grid gap={5} minWidth={SETTINGS.MIN_COLUMN_WIDTH}>
-      <Grid.Item span={1} className={styles.photoItem}>
+      <Grid.Item span={1}>
         <Photo />
       </Grid.Item>
       <Grid.Item span={1} className={styles.socialItem}>
         <Social />
-      </Grid.Item>
-      <Grid.Item span={1} className={styles.trickItem}>
-        <Trick />
       </Grid.Item>
       <Grid.Item span={2} className={styles.presentationItem}>
         <Presentation />
