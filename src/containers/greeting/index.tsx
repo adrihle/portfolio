@@ -4,32 +4,27 @@ import styles from './style.module.scss';
 import Image from 'next/image';
 import { SETTINGS } from './settings';
 
-const Photo = () => {
-  return (
-    <Widget className={styles.photo}>
-      <Image src={SETTINGS.PROFILE_IMAGE} width={100} height={100} alt='me' className={styles.image} priority/>
-    </Widget>
-  );
-};
-
 const Presentation = () => {
   return (
     <Widget className={styles.presentation}>
-      <Text>Hi! My name is <strong>Adrian</strong> 👋</Text>
-      <Text>
-        I´m&nbsp;
-        <Text.Type
-          sequence={[
-            'Full Stack Developer',
-            1000,
-            'Software Engineer',
-            1000
-          ]}
-          repeat={Infinity}
-          speed={50}
-          className={styles.type}
-        />
-      </Text>
+      <Image src={SETTINGS.PROFILE_IMAGE} width={90} height={90} alt='me' className={styles.image} priority />
+      <div className={styles.presentationTextContainer}>
+        <Text>Hi! My name is <strong>Adrian</strong> 👋</Text>
+        <Text>
+          I´m&nbsp;
+          <Text.Type
+            sequence={[
+              'Full Stack Developer',
+              1000,
+              'Software Engineer',
+              1000
+            ]}
+            repeat={Infinity}
+            speed={50}
+            className={styles.type}
+          />
+        </Text>
+      </div>
     </Widget>
   );
 };
@@ -66,11 +61,8 @@ const Social = () => {
 
 const Greeting = () => {
   return (
-    <Grid gap={5} minWidth={SETTINGS.MIN_COLUMN_WIDTH}>
-      <Grid.Item span={1}>
-        <Photo />
-      </Grid.Item>
-      <Grid.Item span={1} className={styles.socialItem}>
+    <Grid gap={5} minWidth={'200px'}>
+      <Grid.Item span={2} className={styles.socialItem}>
         <Social />
       </Grid.Item>
       <Grid.Item span={2} className={styles.presentationItem}>

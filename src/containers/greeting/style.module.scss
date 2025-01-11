@@ -4,22 +4,20 @@
   font-weight: bold;
 }
 
-.photo {
-  padding: 0;
-  display: inline-block;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-}
-
 .presentation {
   font-size: clamp(0.85rem, 1.5vw, 1.5rem);
+  padding: 10px;
+  display: flex;
+  width: 100%;
+}
+
+.presentationTextContainer {
+  padding: 5px;
 }
 
 .presentationItem {
   margin-bottom: 8px;
+  display: flex;
 }
 
 .social {
@@ -31,14 +29,13 @@
 }
 
 .socialItem {
-  @include screen.md {
-    order: 3;
-    grid-column: span 2 !important;
-  }
+  grid-column: span 2 !important;
+  order: 3;
 }
 
 .socialGrid {
   place-items: center;
+
   @include screen.md {
     gap: 0 !important;
   }
@@ -61,4 +58,9 @@
   &:active {
     transform: scale(0.95);
   }
+}
+
+.image {
+  border-radius: 50%;
+  margin-right: 10px;
 }

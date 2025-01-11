@@ -6,7 +6,7 @@ const execPromise = util.promisify(exec);
 const KEY = 'root#packages';
 const TTL = 1000 * 10;
 
-const getColaborations = async (): Promise<string[]> => {
+const getColaborations = async (): Promise<any[]> => {
   try {
     const cached = cache.get(KEY);
     if (cached) return cached;
