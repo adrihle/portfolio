@@ -1,6 +1,0 @@
-@use 'animations/fade-in';
-
-.container {
-  @extend %fade-in;
-  height: 2000px;
-}

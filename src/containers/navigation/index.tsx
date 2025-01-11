@@ -1,7 +1,16 @@
-import { AppIcon, Grid, Widget } from '@/components';
+import { AppIcon, Grid } from "@/components"
 import styles from './style.module.scss';
 
-const PAGES = {
+type Routes = Record<string, {
+  image: string;
+  label: string;
+  href: string;
+  background: string;
+}>;
+
+const ICON_SIZE = 60;
+
+const ROUTES: Routes = {
   HOME: {
     image: 'https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-6896827_1280.png',
     label: 'Home',
@@ -40,25 +49,16 @@ const PAGES = {
   },
 };
 
-const Menu = () => {
+const Navigation = () => {
   return (
-    <>
-      <div>
-        <Widget>
-          <div style={{ width: '60px', height: '60px', backgroundColor: 'red' }}></div>
-          <p>holaaaa</p>
-        </Widget>
-      </div>
-      <Grid className={styles.container} minWidth='95px'>
-        {Object.values(PAGES).map((props, i) => (
-          <Grid.Item key={i}>
-            <AppIcon {...props} />
-          </Grid.Item>
-        ))}
-      </Grid>
-    </>
+    <Grid className={styles.container} minWidth={ICON_SIZE} gap={15}>
+      {Object.values(ROUTES).map((props, i) => (
+        <Grid.Item key={i}>
+          <AppIcon {...props} size={ICON_SIZE} />
+        </Grid.Item>
+      ))}
+    </Grid>
   );
 };
 
-export { Menu };
-
+export { Navigation };

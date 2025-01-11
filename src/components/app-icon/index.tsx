@@ -7,15 +7,18 @@ type AppIconProps = {
   label: string;
   href: string;
   background: string;
+  size?: number;
 };
 
-const AppIcon = ({ image, label, href, background }: AppIconProps) => {
+const DEFAULT_SIZE = 60;
+
+const AppIcon = ({ image, label, href, background, size = DEFAULT_SIZE }: AppIconProps) => {
   return (
     <Link className={styles.container} href={href}>
       <Image src={image}
         alt={label}
-        width={60}
-        height={60}
+        width={size}
+        height={size}
         className={styles.image}
         style={{ background }}
       />

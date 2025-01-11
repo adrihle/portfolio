@@ -1,13 +1,13 @@
+import { ComponentProps } from '@/interfaces';
 import styles from './style.module.scss';
 
 type WidgetProps = {
-  children: React.ReactNode;
   height?: string;
-};
+} & ComponentProps;
 
-const Widget = ({ children, height }: WidgetProps) => {
+const Widget = ({ children, className, height, ...props }: WidgetProps) => {
   return  (
-    <div className={styles.container} style={{ height }}>
+    <div className={`${styles.container} ${className}`} style={{ height }} {...props}>
       {children}
     </div>
   );
