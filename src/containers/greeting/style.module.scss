@@ -4,7 +4,7 @@
   font-weight: bold;
 }
 
-.trick {
+.trickItem {
   display: none;
   @include screen.md {
     display: block;
@@ -17,7 +17,6 @@
     margin-left: 15px;
     grid-row: span 2;
   }
-
 }
 
 .photo {
@@ -52,7 +51,7 @@
   min-height: 95%;
 }
 
-.socialtrick {
+.socialItem {
   @include screen.md {
     grid-row: span 2;
   }

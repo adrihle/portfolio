@@ -78,10 +78,10 @@ const Greeting = () => {
       <Grid.Item span={1} className={styles.photoItem}>
         <Photo />
       </Grid.Item>
-      <Grid.Item span={1} className={styles.socialtrick}>
+      <Grid.Item span={1} className={styles.socialItem}>
         <Social />
       </Grid.Item>
-      <Grid.Item span={1} className={styles.trick}>
+      <Grid.Item span={1} className={styles.trickItem}>
         <Trick />
       </Grid.Item>
       <Grid.Item span={2} className={styles.presentationItem}>
