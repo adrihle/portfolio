@@ -11,3 +11,24 @@
 %fade-in {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
+
+@keyframes popin {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// Mixin for reusable animation
+@mixin popinn($duration: 0.6s, $timing: ease-out) {
+  animation: popin $duration $timing;
+  transform-origin: center;
+}

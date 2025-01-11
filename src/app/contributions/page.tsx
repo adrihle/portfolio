@@ -1,6 +1,10 @@
+import { Layout } from "@/components";
+
 const Page = () => {
   return (
-    <>contributions page</>
+    <Layout>
+      contributions page
+    </Layout>
   );
 };
 
