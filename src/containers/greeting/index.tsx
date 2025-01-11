@@ -35,12 +35,17 @@ const Presentation = () => {
 };
 
 const Social = () => {
+  const overlay = SETTINGS.SOCIAL_ICON_WIDTH + SETTINGS.SOCIAL_ICON_OVERLAY;
   return (
     <Widget className={styles.social}>
-      <Grid minWidth={40} gap={10} className={styles.socialGrid}>
+      <Grid minWidth={overlay} gap={10} className={styles.socialGrid}>
         {Object.values(SETTINGS.SOCIAL).map(({ href, icon }) => {
           return (
-            <Grid.Item className={styles.socialIcon} key={href}>
+            <Grid.Item
+              key={href}
+              className={styles.socialIcon}
+              style={{ width: `${overlay}px`, height: `${overlay}px` }}
+            >
               <a href={href} target='_blank'>
                 <Image
                   style={{ filter: 'brightness(1.2) contrast(90%)' }}
@@ -59,16 +64,27 @@ const Social = () => {
   );
 };
 
+const Trick = () => {
+  return (
+    <Widget style={{ height: '100%' }}>
+      hola
+    </Widget>
+  )
+};
+
 const Greeting = () => {
   return (
     <Grid gap={5} minWidth={SETTINGS.MIN_COLUMN_WIDTH}>
-      <Grid.Item span={1}>
+      <Grid.Item span={1} className={styles.photoItem}>
         <Photo />
       </Grid.Item>
-      <Grid.Item span={1}>
+      <Grid.Item span={1} className={styles.socialtrick}>
         <Social />
       </Grid.Item>
-      <Grid.Item span={2}>
+      <Grid.Item span={1} className={styles.trick}>
+        <Trick />
+      </Grid.Item>
+      <Grid.Item span={2} className={styles.presentationItem}>
         <Presentation />
       </Grid.Item>
     </Grid>
