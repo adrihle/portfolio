@@ -1,0 +1,9 @@
+@use 'theme/colors' as colors;
+
+@mixin hover() {
+  transition: all 0.3s ease;
+   &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px colors.$shadow-dark;
+  }
+}

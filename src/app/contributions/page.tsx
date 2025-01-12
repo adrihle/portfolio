@@ -1,8 +1,7 @@
-import { Layout, Text } from "@/components";
+import { Badge, Layout, Text } from "@/components";
 import { Package } from '@/containers';
 import { getColaborations } from './action';
 import styles from './style.module.scss';
-import Image from "next/image";
 
 const Page = async () => {
   const collaborations = await getColaborations();
@@ -20,6 +19,7 @@ const Page = async () => {
           React to Python, these projects are my little gifts to the coding
           community—no gift wrap, but plenty of utility.
         </Text>
+        <Badge>version</Badge>
       </div>
       <div className={styles.container}>
         {collaborations.map(({ name, links, ...rest }, i) => {
@@ -30,13 +30,6 @@ const Page = async () => {
           )
         })}
       </div>
-       <Image
-        src={`https://ghchart.rshah.org/${"adrihle"}`}
-        alt={`${"adrihle"}'s GitHub Contributions`}
-        width={100} 
-        height={120}
-        layout="responsive"
-      />
     </Layout>
   );
 };

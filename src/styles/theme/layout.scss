@@ -1,0 +1,11 @@
+@use 'theme/colors' as colors;
+
+$page-padding: 15px;
+$card-border_radius: 20%;
+
+@mixin box() {
+  border-radius: $card-border_radius;
+  box-shadow: colors.$shadow-dark;
+  overflow: hidden;
+  padding: 10px;
+}

@@ -1,0 +1,16 @@
+@use 'theme/typography' as typography;
+@use 'theme/colors' as colors;
+@use 'animations/hover' as anim;
+
+.badge {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  font-size: typography.$size-small;
+  font-weight: 600;
+  color: #fff;
+  background-color: colors.$accent;
+  border-radius: 12px;
+  
+  @include anim.hover;
+}

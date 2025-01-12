@@ -27,7 +27,6 @@
   }
 }
 
-// Mixin for reusable animation
 @mixin popinn($duration: 0.6s, $timing: ease-out) {
   animation: popin $duration $timing;
   transform-origin: center;

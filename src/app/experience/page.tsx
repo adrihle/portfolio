@@ -1,9 +1,11 @@
-import { Layout } from "@/components";
+import { Layout, Spinner } from "@/components";
 
 const Page = () => {
   return (
     <Layout>
-      experience page
+      <div>
+        <Spinner />
+      </div>
     </Layout>
   );
 };
