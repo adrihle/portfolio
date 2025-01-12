@@ -1,16 +1,14 @@
 @use 'animations/stagger' as anim;
 
-.container {
+.packages {
   gap: 20px;
 }
 
-.item {
-  opacity: 0;
-
+.package {
   @include anim.stagger;
 }
 
-.header {
+.section {
   padding: 10px;
 }
 
@@ -18,4 +16,10 @@
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   line-height: 1.6;
   margin-top: 20px;
+}
+
+.footer {
+  padding: 10px;
+  padding-top: 20px;
+  margin-bottom: 40px;
 }
