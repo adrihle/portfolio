@@ -1,29 +1,30 @@
 import styles from './style.module.scss';
-import Link from 'next/link';
 import { Grid, Text } from '@/components';
 import Image from 'next/image';
 
 type PackageProps = {
   name: string;
   source?: 'npm';
+  version: string;
   href: string;
+  description: string;
+  date: string;
+  license: string;
 };
 
 const PACKAGE_ICONS = {
   npm: '/npm.svg',
 };
 
-const Package = ({ name, source = 'npm', href, ...props }: any) => {
+const Package = ({ source = 'npm', ...props }: PackageProps) => {
   return (
     <div className={styles.container}>
       <Grid minWidth={50} className={styles.title}>
-        <Link href={href} target='_blank'>
-          <Grid.Item span={1} className={styles.logo}>
-            <Image src={PACKAGE_ICONS[source]} width={50} height={50} alt={source} />
-          </Grid.Item>
-        </Link>
+        <Grid.Item span={1} className={styles.logo}>
+          <Image src={PACKAGE_ICONS[source]} width={50} height={50} alt={source} />
+        </Grid.Item>
         <Grid.Item span={5}>
-          <Text>{name}</Text>
+          <Text>{props.name}</Text>
         </Grid.Item>
         <Grid.Item span={3} className={styles.version}>
           <Text>{props.version}</Text>
@@ -41,3 +42,4 @@ const Package = ({ name, source = 'npm', href, ...props }: any) => {
 };
 
 export { Package };
+export type { PackageProps };
