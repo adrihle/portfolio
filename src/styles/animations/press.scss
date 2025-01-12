@@ -1,28 +1,11 @@
-@use 'screen';
-
-@keyframes press {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(0.8);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-%press {
-  display: inline-block;
+@mixin press() {
   transition: transform 0.3s ease;
   cursor: pointer;
   &:hover {
-    transform: scale(1.03); /* Slight zoom on hover */
+    transform: scale(1.03);
   }
 
   &:active {
-    transform: scale(0.97); /* Shrink effect when clicked */
+    transform: scale(0.97);
   }
 }

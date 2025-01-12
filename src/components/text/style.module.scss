@@ -1,3 +1,6 @@
+@use 'theme/typography' as typography;
+@use 'theme/colors' as colors;
+
 .title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: bold;
@@ -10,7 +13,7 @@
   font-style: italic;
   margin: 20px 0;
   padding: 10px 20px;
-  border-left: 4px solid #6c63ff;
+  border-left: 4px solid colors.$secondary;
   background: rgba(108, 99, 255, 0.05);
   position: relative;
   display: inline-block;
@@ -18,7 +21,7 @@
 
   span {
     font-weight: bold;
-    color: #999;
+    color: colors.$muted-text;
   }
 }
 

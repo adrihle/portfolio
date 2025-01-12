@@ -1,10 +1,9 @@
 @use 'screen';
+@use 'utils';
 
 .loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
+  @include utils.flex-center;
 
   @include screen.xs {
     padding-top: 50px;

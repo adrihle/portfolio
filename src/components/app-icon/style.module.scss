@@ -1,11 +1,11 @@
-@use 'animations/press';
+@use 'animations/press' as anim;
 @use 'theme/colors' as colors;
 @use 'theme/layout' as layout;
 @use 'theme/typography' as typography;
 @use 'utils' as utils;
 
 .container {
-  @extend %press;
+  @include anim.press;
   @include utils.flex-center(column);
 }
 

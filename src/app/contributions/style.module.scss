@@ -1,18 +1,4 @@
-@keyframes fade-in-up {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@mixin stagger-animation($index: 0, $delay: 0.1s) {
-  animation: fade-in-up 0.6s ease-out forwards;
-  animation-delay: calc(#{$index} * #{$delay});
-}
+@use 'animations/stagger' as anim;
 
 .container {
   gap: 20px;
@@ -21,7 +7,7 @@
 .item {
   opacity: 0;
 
-  @include stagger-animation();
+  @include anim.stagger;
 }
 
 .header {
@@ -32,43 +18,4 @@
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   line-height: 1.6;
   margin-top: 20px;
-}
-
-.badge {
-  cursor: pointer;
-  display: inline-block;
-  padding: 0.2em 0.5em;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #fff;
-  background-color: #52c41a;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease;
-
-  &.badge-danger {
-    background-color: #f5222d;
-  }
-
-  &.badge-warning {
-    background-color: #faad14;
-  }
-
-  &.badge-info {
-    background-color: #1890ff;
-  }
-
-  &.badge-light {
-    background-color: #f0f0f0;
-    color: #000;
-  }
-
-  &.badge-small {
-    font-size: 0.75rem;
-    padding: 0.1em 0.4em;
-  }
-
-  &:hover {
-    background-color: darken(#52c41a, 10%);
-  }
 }

@@ -1,4 +1,7 @@
 @use 'screen';
+@use 'utils';
+@use 'theme/colors' as colors;
+@use 'animations/hover' as anim;
 
 .type {
   font-weight: bold;
@@ -42,22 +45,12 @@
 }
 
 .socialIcon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include utils.flex-center;
   padding: 15px;
-  background-color: rgb(28, 28, 30, 0.6);
+  background-color: colors.$bg;
   border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
 
-  &:hover {
-    transform: scale(1.2);
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
+  @include anim.hover(1.2);
 }
 
 .image {
