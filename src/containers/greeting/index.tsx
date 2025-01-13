@@ -1,5 +1,5 @@
 'use client'
-import { Grid, Text, Widget } from '@/components';
+import { Grid, Icon, Text, Widget } from '@/components';
 import styles from './style.module.scss';
 import Image from 'next/image';
 import { SETTINGS } from './settings';
@@ -41,16 +41,13 @@ const Social = () => {
               className={styles.socialIcon}
               style={{ width: `${overlay}px`, height: `${overlay}px` }}
             >
-              <a href={href} target='_blank'>
-                <Image
-                  style={{ filter: 'brightness(1.2) contrast(90%)' }}
-                  src={`/social/${icon}.svg`}
-                  height={SETTINGS.SOCIAL_ICON_WIDTH}
-                  width={SETTINGS.SOCIAL_ICON_WIDTH}
-                  alt={icon}
-                  className={styles.socialIconImage}
-                />
-              </a>
+              <Icon.Link
+                src={icon as any}
+                size={SETTINGS.SOCIAL_ICON_WIDTH}
+                href={href}
+                className={styles.socialIconImage}
+                style={{ filter: 'brightness(1.2) contrast(90%)' }}
+              />
             </Grid.Item>
           )
         })}

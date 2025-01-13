@@ -5,3 +5,4 @@ export { Layout } from './layout';
 export { Text } from './text';
 export { Spinner } from './spinner';
 export { Badge } from './badge';
+export { Icon } from './icon';

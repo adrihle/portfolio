@@ -1,6 +1,5 @@
 import styles from './style.module.scss';
-import { Badge, Text } from '@/components';
-import Image from 'next/image';
+import { Badge, Icon, Text } from '@/components';
 
 type PackageInfo = {
   name: string;
@@ -16,15 +15,11 @@ type PackageProps = {
   source?: 'npm';
 } & PackageInfo;
 
-const PACKAGE_ICONS = {
-  npm: '/npm.svg',
-};
-
 const Header = ({ source = 'npm', name, version }: Pick<PackageProps, 'source' | 'name' | 'version'>) => {
   return (
     <div className={styles.header}>
       <div className={styles.title}>
-        <Image src={PACKAGE_ICONS[source]} width={50} height={50} alt={source} />
+        <Icon src={source} size={50} />
         <Text>{name}</Text>
       </div>
       <div>
@@ -34,14 +29,14 @@ const Header = ({ source = 'npm', name, version }: Pick<PackageProps, 'source' |
   );
 };
 
-const Footer = ({ date, license, href }: Pick<PackageProps, 'date' | 'license' | 'href' | 'homepage'>) => {
+const Footer = ({ date, license, href, homepage }: Pick<PackageProps, 'date' | 'license' | 'href' | 'homepage'>) => {
   return (
     <div className={styles.footer}>
       <Text>{license}</Text>
       <Text>{date}</Text>
       <div className={styles.links}>
-        <Image src={'/web.svg'} width={25} height={25} alt='web' />
-        <Image src={'/social/github.svg'} width={25} height={25} alt='github' />
+        <Icon.Link src='web' href={href}/>
+        <Icon.Link src='github' href={homepage}/>
       </div>
     </div>
   );
