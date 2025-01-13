@@ -1,45 +1,69 @@
 import styles from './style.module.scss';
-import { Grid, Text } from '@/components';
+import { Badge, Text } from '@/components';
 import Image from 'next/image';
 
-type PackageProps = {
+type PackageInfo = {
   name: string;
-  source?: 'npm';
   version: string;
   href: string;
+  homepage: string;
   description: string;
   date: string;
   license: string;
 };
 
+type PackageProps = {
+  source?: 'npm';
+} & PackageInfo;
+
 const PACKAGE_ICONS = {
   npm: '/npm.svg',
 };
 
-const Package = ({ source = 'npm', ...props }: PackageProps) => {
+const Header = ({ source = 'npm', name, version }: Pick<PackageProps, 'source' | 'name' | 'version'>) => {
+  return (
+    <div className={styles.header}>
+      <div className={styles.title}>
+        <Image src={PACKAGE_ICONS[source]} width={50} height={50} alt={source} />
+        <Text>{name}</Text>
+      </div>
+      <div>
+        <Badge>v{version}</Badge>
+      </div>
+    </div>
+  );
+};
+
+const Footer = ({ date, license, href }: Pick<PackageProps, 'date' | 'license' | 'href' | 'homepage'>) => {
+  return (
+    <div className={styles.footer}>
+      <Text>{license}</Text>
+      <Text>{date}</Text>
+      <div className={styles.links}>
+        <Image src={'/web.svg'} width={25} height={25} alt='web' />
+        <Image src={'/social/github.svg'} width={25} height={25} alt='github' />
+      </div>
+    </div>
+  );
+};
+
+const Body = ({ description }: Pick<PackageProps, 'description'>) => {
+  return (
+    <div className={styles.body}>
+      <Text>{description}</Text>
+    </div>
+  );
+};
+
+const Package = ({ source = 'npm', version, name, date, license, href, description, homepage }: PackageProps) => {
   return (
     <div className={styles.container}>
-      <Grid minWidth={50} className={styles.title}>
-        <Grid.Item span={1} className={styles.logo}>
-          <Image src={PACKAGE_ICONS[source]} width={50} height={50} alt={source} />
-        </Grid.Item>
-        <Grid.Item span={5}>
-          <Text>{props.name}</Text>
-        </Grid.Item>
-        <Grid.Item span={3} className={styles.version}>
-          <Text>{props.version}</Text>
-        </Grid.Item>
-      </Grid>
-      <Grid className={styles.description}>
-        <Text>{props.description}</Text>
-      </Grid>
-      <Grid className={styles.footer}>
-        <Grid.Item>{props.date}</Grid.Item>
-        <Grid.Item className={styles.version}>{props.license}</Grid.Item>
-      </Grid>
+      <Header {...{ source, name, version }} />
+      <Body {...{ description }} />
+      <Footer {...{ date, license, href, homepage }} />
     </div>
   );
 };
 
 export { Package };
-export type { PackageProps };
+export type { PackageProps, PackageInfo };

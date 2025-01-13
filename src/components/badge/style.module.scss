@@ -9,7 +9,7 @@
   font-size: typography.$size-small;
   font-weight: 600;
   color: #fff;
-  background-color: colors.$accent;
+  background-color: colors.$secondary;
   border-radius: 12px;
   
   @include anim.hover;
