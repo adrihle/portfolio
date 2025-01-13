@@ -1,8 +1,8 @@
 const SETTINGS = {
   PROFILE_IMAGE: '/me.png',
   MIN_COLUMN_WIDTH: 120,
-  SOCIAL_ICON_WIDTH: 25,
-  SOCIAL_ICON_OVERLAY: 25,
+  SOCIAL_ICON_WIDTH: 22,
+  SOCIAL_ICON_OVERLAY: 22,
   SOCIAL: {
     INSTAGRAM: {
       href: 'https://www.instagram.com/adrihfly/',

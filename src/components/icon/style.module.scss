@@ -1,0 +1,5 @@
+@use 'animations/hover' as anim;
+
+.icon {
+  @include anim.hover;
+}

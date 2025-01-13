@@ -1,0 +1,62 @@
+@use 'theme/colors' as colors;
+@use 'theme/typography' as typography;
+@use 'animations/hover' as anim;
+@use 'screen';
+
+.container {
+  border-radius: 12px;
+  margin: 15px 0;
+  box-shadow: colors.$shadow-dark;
+  padding: 20px;
+  background: colors.$primary;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  @include screen.xs {
+    display: block;
+  }
+
+  @include screen.md {
+    display: block;
+  }
+}
+
+.title {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.body {
+  width: 100%;
+  padding: 25px 0;
+}
+
+.update {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  @include screen.xs {
+    span {
+      display: none;
+    }
+  }
+}
+
+.links {
+  display: flex;
+  gap: 15px;
+}

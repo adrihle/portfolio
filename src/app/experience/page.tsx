@@ -1,8 +1,12 @@
+import { Layout, Spinner } from "@/components";
+
 const Page = () => {
   return (
-    <>
-      experience page
-    </>
+    <Layout>
+      <div>
+        <Spinner />
+      </div>
+    </Layout>
   );
 };
 

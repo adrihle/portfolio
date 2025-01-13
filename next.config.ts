@@ -6,7 +6,8 @@ const nextConfig: NextConfig = {
     includePaths: [path.join(__dirname, 'src', 'styles')]
   },
   images: {
-    domains: ['cdn.pixabay.com', 'cdn.iconscout.com', 'www.npmjs.com']
+    dangerouslyAllowSVG: true,
+    domains: ['cdn.pixabay.com', 'cdn.iconscout.com', 'www.npmjs.com', 'ghchart.rshah.org']
   },
 };
 

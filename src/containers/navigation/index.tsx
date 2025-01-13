@@ -43,7 +43,7 @@ const ROUTES: Routes = {
   },
   MAS: {
     image: 'https://cdn.iconscout.com/icon/free/png-256/free-google-fotos-2981833-2476486.png?f=webp',
-    label: 'Contributions',
+    label: 'Libraries',
     href: '/contributions',
     background: 'linear-gradient(135deg, #3a1c71 0%, #d76d77 50%, #ffaf7b 100%)', // Música: creatividad y ritmo
   },
