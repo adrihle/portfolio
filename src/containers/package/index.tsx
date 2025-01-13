@@ -21,7 +21,7 @@ const Header = ({ source = 'npm', name, version }: Pick<PackageProps, 'source' |
     <div className={styles.header}>
       <div className={styles.title}>
         <Icon src={source} size={50} />
-        <Text size='large'>{name}</Text>
+        <Text size='medium' bold>{name}</Text>
       </div>
       <div>
         <Badge>v{version}</Badge>
