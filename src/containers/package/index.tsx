@@ -1,3 +1,4 @@
+import { ProviderDate } from '@/providers';
 import styles from './style.module.scss';
 import { Badge, Icon, Text } from '@/components';
 
@@ -20,7 +21,7 @@ const Header = ({ source = 'npm', name, version }: Pick<PackageProps, 'source' |
     <div className={styles.header}>
       <div className={styles.title}>
         <Icon src={source} size={50} />
-        <Text>{name}</Text>
+        <Text size='large'>{name}</Text>
       </div>
       <div>
         <Badge>v{version}</Badge>
@@ -32,11 +33,13 @@ const Header = ({ source = 'npm', name, version }: Pick<PackageProps, 'source' |
 const Footer = ({ date, license, href, homepage }: Pick<PackageProps, 'date' | 'license' | 'href' | 'homepage'>) => {
   return (
     <div className={styles.footer}>
-      <Text>{license}</Text>
-      <Text>{date}</Text>
+      <div className={styles.update}>
+        <Text size='small' bold>Last update: {ProviderDate.fromNow(date)}</Text>
+        <Badge type='alert'>{license}</Badge>
+      </div>
       <div className={styles.links}>
-        <Icon.Link src='web' href={href}/>
-        <Icon.Link src='github' href={homepage}/>
+        <Icon.Link src='web' href={href} size={30} />
+        <Icon.Link src='github' href={homepage} size={30} />
       </div>
     </div>
   );
@@ -45,7 +48,7 @@ const Footer = ({ date, license, href, homepage }: Pick<PackageProps, 'date' | '
 const Body = ({ description }: Pick<PackageProps, 'description'>) => {
   return (
     <div className={styles.body}>
-      <Text>{description}</Text>
+      <Text italic>{description}</Text>
     </div>
   );
 };

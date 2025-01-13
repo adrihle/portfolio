@@ -29,3 +29,22 @@
   font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
 
+.small {
+  font-size: typography.$size-small;
+}
+
+.medium {
+  font-size: typography.$size-medium;
+}
+
+.large {
+  font-size: typography.$size-large;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}

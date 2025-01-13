@@ -2,7 +2,7 @@
 @use 'theme/colors' as colors;
 @use 'animations/hover' as anim;
 
-.badge {
+.base {
   cursor: pointer;
   display: inline-block;
   padding: 0.2em 0.5em;
@@ -13,4 +13,12 @@
   border-radius: 12px;
   
   @include anim.hover;
+}
+
+.primary {
+  background-color: colors.$secondary;
+}
+
+.alert {
+    background-color: colors.$highlight;
 }

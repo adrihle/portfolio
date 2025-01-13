@@ -2,11 +2,22 @@ import styles from './style.module.scss';
 import { DetailedHTMLProps, HTMLAttributes } from "react"
 import { TypeAnimation } from "react-type-animation";
 
-type TextProps = {} & DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>
+type TextProps = {
+  size?: 'small' | 'medium' | 'large' | 'default';
+  italic?: boolean;
+  bold?: boolean;
+} & DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
 
-const Text = ({ children, className, ...props }: TextProps) => {
+const Text = ({ children, className, size = 'default', italic, bold, ...props }: TextProps) => {
+  const styleClass = [
+    styles.description,
+    styles[size],
+    italic ? styles.italic : '',
+    bold ? styles.bold : '',
+    className,
+  ].join(' ');
   return (
-    <p className={`${styles.description} ${className}`} {...props}>
+    <p className={styleClass} {...props}>
       {children}
     </p>
   );
@@ -18,9 +29,13 @@ const TextType = (props: React.ComponentProps<typeof TypeAnimation>) => {
   );
 };
 
-const Quote = (props: TextProps & { by: string }) => {
+type QuoteProps = {
+  by: string
+} &  DetailedHTMLProps<HTMLAttributes<HTMLQuoteElement>, HTMLQuoteElement>;
+
+const Quote = (props: QuoteProps) => {
   return (
-    <blockquote {...props as any} className={`${styles.quote} ${props.className}`}>
+    <blockquote {...props} className={`${styles.quote} ${props.className}`}>
       {props.children}
       <span>{'- '}{props.by}</span>
     </blockquote>

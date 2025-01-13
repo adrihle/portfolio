@@ -7,22 +7,6 @@
   box-shadow: colors.$shadow-dark;
   padding: 20px;
   background: colors.$primary;
-  place-items: center;
-}
-
-
-.description {
-  margin: 15px 0;
-}
-
-
-.version {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.logo {
-  @include anim.hover(1.3);
 }
 
 .header {
@@ -50,6 +34,13 @@
   padding: 25px 0;
 }
 
-.links {
+.update {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
+.links {
+  display: flex;
+  gap: 15px;
 }
