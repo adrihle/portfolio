@@ -1,5 +1,6 @@
 import Image from "next/image"
 import NextLink from "next/link";
+import styles from './style.module.scss';
 
 const ICONS = {
   web: '/web.svg',
@@ -15,9 +16,16 @@ type IconProps = {
   size?: number;
 } & Omit<React.ComponentProps<typeof Image>, 'src' | 'height' | 'width' | 'alt'>;
 
-const Icon = ({ src, size = 24, ...props }: IconProps) => {
+const Icon = ({ src, size = 24, className, ...props }: IconProps) => {
   return (
-    <Image src={ICONS[src]} width={size} height={size} alt={src} {...props} />
+    <Image
+      src={ICONS[src]}
+      width={size}
+      height={size}
+      alt={src}
+      className={`${styles.icon} ${className}`}
+      {...props}
+    />
   );
 };
 

@@ -3,6 +3,7 @@ import { Grid, Icon, Text, Widget } from '@/components';
 import styles from './style.module.scss';
 import Image from 'next/image';
 import { SETTINGS } from './settings';
+import { IconProps } from '@/components/icon';
 
 const Presentation = () => {
   return (
@@ -36,13 +37,9 @@ const Social = () => {
       <Grid minWidth={overlay} gap={10} className={styles.socialGrid}>
         {Object.values(SETTINGS.SOCIAL).map(({ href, icon }) => {
           return (
-            <Grid.Item
-              key={href}
-              className={styles.socialIcon}
-              style={{ width: `${overlay}px`, height: `${overlay}px` }}
-            >
+            <Grid.Item key={href} className={styles.socialIcon} style={{ width: `${overlay}px`, height: `${overlay}px` }}>
               <Icon.Link
-                src={icon as any}
+                src={icon as IconProps['src']}
                 size={SETTINGS.SOCIAL_ICON_WIDTH}
                 href={href}
                 className={styles.socialIconImage}
