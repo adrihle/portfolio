@@ -1,11 +1,14 @@
-import { Layout, Spinner } from "@/components";
+import { Layout, Text } from "@/components";
+import { ExperienceTimeline } from "@/containers";
+import { TEXT } from './text';
 
 const Page = () => {
   return (
     <Layout>
-      <div>
-        <Spinner />
-      </div>
+      <Text.Title>{TEXT.title}</Text.Title>
+      <Text>{TEXT.description}</Text>
+      <ExperienceTimeline experiences={TEXT.experiences}/>
+      <Text>{TEXT.footer}</Text>
     </Layout>
   );
 };

@@ -1,37 +1,117 @@
-import { Grid } from "@/components";
+'use client'
+import { useMemo } from 'react';
+import { IntersectionProvider, useIntersection } from "@adrihfly/intersection-hook";
+import { ProviderDate } from '@/providers';
+import styles from './style.module.scss';
 
-const Menu = () => {
+const SECTIONS = {
+  1: {
+    label: 'section 1',
+    from: '2015-02-14',
+    to: '2016-06-16',
+  },
+  2: {
+    label: 'section 2',
+    from: '2016-06-16',
+    to: '2017-08-03',
+  },
+  3: {
+    label: 'section 3',
+    from: '2017-08-03',
+    to: '2019-03-05',
+  },
+  4: {
+    label: 'section 4',
+    from: '2019-03-05',
+    to: '2020-04-27',
+  },
+  5: {
+    label: 'section 5',
+    from: '2020-04-27',
+    to: '2022-07-12',
+  },
+  6: {
+    label: 'section 6',
+    from: '2022-08-18',
+    to: '',
+  },
+};
+
+const Header = () => {
+  return (
+    <div className={styles.header}>
+    </div>
+  );
+};
+
+const getOlderSection = () => {
+  const values = Object.values(SECTIONS);
+  return values.reduce((acc, section) => {
+    return ProviderDate.isBefore(acc.from, section.from) ? acc : section;
+  }, values[0]);
+}
+
+const useTimeline = () => {
+  const { activeSection } = useIntersection();
+  const { from, to } = SECTIONS[activeSection as unknown as keyof typeof SECTIONS || 1];
+
+  const timelinePercentage = useMemo(() => {
+    const total = ProviderDate.diffDaysToNow(SECTIONS[1].from);
+    const fromBegining = getOlderSection().from;
+
+    const currentSectionDuration = ProviderDate.diffDays({ from: from, to: to || new Date() });
+    const daysFromBegining = ProviderDate.diffDays({ from: fromBegining, to: to || new Date() });
+
+    const result = ((total - (daysFromBegining - currentSectionDuration)) / total) * 100;
+    return result;
+  }, [from, to]);
+
+  return {
+    timelinePercentage: activeSection ? timelinePercentage : 0,
+    yearFrom: from.split('-')[0],
+  };
+};
+
+const Dates = () => {
+  const { timelinePercentage, yearFrom } = useTimeline();
+  return (
+    <div className={styles.dates} style={{ width: `${timelinePercentage}%` }}>
+      <div>Today</div>
+      <div>{yearFrom}</div>
+    </div>
+  );
+};
+
+const Timeline = () => {
+  const { timelinePercentage } = useTimeline();
+  return (
+    <div className={styles.timelineContainer}>
+      <div className={styles.timeline}>
+        <div className={styles.fillTimeline} style={{ width: `${timelinePercentage}%` }} />
+      </div>
+    </div>
+  );
+};
+
+const Sections = () => {
+  const { register } = useIntersection();
   return (
     <>
-      <div style={{ backgroundColor: 'red', minHeight: '100px', minWidth: '100px' }} />
-      <Grid minWidth="100px">
-        <Grid.Item>col1</Grid.Item>
-        <Grid.Item>col2</Grid.Item>
-        <Grid.Item>col3</Grid.Item>
-        <Grid.Item>col4</Grid.Item>
-        <Grid.Item>col5</Grid.Item>
-        <Grid.Item>col6</Grid.Item>
-        <Grid.Item>col7</Grid.Item>
-        <Grid.Item>col8</Grid.Item>
-        <Grid.Item>col9</Grid.Item>
-        <Grid.Item>col10</Grid.Item>
-        <Grid.Item>col11</Grid.Item>
-        <Grid.Item>col12</Grid.Item>
-      </Grid>
+      {Object.entries(SECTIONS).reverse().map(([id, { label }]) => {
+        return <div key={id} ref={register({ id, label })} className={styles.section}>{label}</div>
+      })}
     </>
   );
 };
 
 const Playground = () => {
   return (
-    <Grid minWidth="220px">
-      <Grid.Item span={1}>
-        <Menu />
-      </Grid.Item>
-      <Grid.Item span={2}>
-        Content
-      </Grid.Item>
-    </Grid>
+    <IntersectionProvider config={{ threshold: 0.7, scrollBehavior: 'smooth' }}>
+      <Header />
+      <Dates />
+      <Timeline />
+      <Sections />
+    </IntersectionProvider>
   );
 };
 

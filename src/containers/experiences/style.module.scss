@@ -7,13 +7,21 @@
   flex: 1;
 }
 
-.timelineContainer {
+.timeline {
+  margin: 15px;
   position: sticky;
   top: 0;
   overflow: hidden;
+  transition: height 1s ease;
+  padding: 10px;
+  border-radius: 8px;
+  background: transparent;
+  backdrop-filter: blur(3px); /* Applies the blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.timeline {
+.bar {
   height: 10px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.2);
@@ -32,7 +40,7 @@
   width: 100%;
 }
 
-.fillTimeline {
+.fill {
   height: 100%;
   width: 0%;
   background-color: #00bcd4;
@@ -40,11 +48,8 @@
   transition: width 0.3s ease;
 }
 
-.dates {
+.date {
   display: flex;
   justify-content: space-between;
   width: 15%;
-  position: sticky;
-  top: 15px;
-  overflow: hidden;
 }
