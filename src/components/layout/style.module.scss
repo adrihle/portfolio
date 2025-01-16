@@ -1,5 +1,0 @@
-@use 'animations/fade-in' as animation;
-
-.container {
-  @include animation.popin;
-}

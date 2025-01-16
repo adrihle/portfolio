@@ -1,6 +1,6 @@
 import { ProviderDate } from '@/providers';
 import styles from './style.module.scss';
-import { Badge, Icon, Text } from '@/components';
+import { Badge, Card, Icon, Text } from '@/components';
 
 type PackageInfo = {
   name: string;
@@ -55,13 +55,27 @@ const Body = ({ description }: Pick<PackageProps, 'description'>) => {
 
 const Package = ({ source = 'npm', version, name, date, license, href, description, homepage }: PackageProps) => {
   return (
-    <div className={styles.container}>
+    <Card className={styles.container}>
       <Header {...{ source, name, version }} />
       <Body {...{ description }} />
       <Footer {...{ date, license, href, homepage }} />
-    </div>
+    </Card>
   );
 };
 
-export { Package };
-export type { PackageProps, PackageInfo };
+const PackageList = ({ contributions }: { contributions: PackageProps[] }) => {
+  return (
+    <div className={styles.packages}>
+      {contributions.map((pkg, i) => {
+        return (
+          <div key={i} className={styles.package} style={{ animationDelay: `${i * 0.3}s` }}>
+            <Package {...pkg} />
+          </div>
+        )
+      })}
+    </div>
+  )
+};
+
+export { PackageList };
+export type { PackageInfo };

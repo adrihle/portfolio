@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/styles/global.scss';
 import { Grid } from "@/components";
-import { Content, Greeting, Navigation } from "@/containers";
+import { Page, Greeting, Navigation } from "@/containers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,9 +29,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <Navigation />
           </Grid.Item>
           <Grid.Item span={2}>
-            <Content>
+            <Page.Container>
               {children}
-            </Content>
+            </Page.Container>
           </Grid.Item>
         </Grid>
       </body>

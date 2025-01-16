@@ -1,12 +1,11 @@
-import { Playground } from "@/containers";
-import { Layout } from "@/components";
+import { Playground, Page } from "@/containers";
 
 
 const Home = async () => {
   return (
-    <Layout>
+    <Page.Layout>
       <Playground />
-    </Layout>
+    </Page.Layout>
   );
 };
 

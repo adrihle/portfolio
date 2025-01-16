@@ -1,25 +1,7 @@
-@use 'animations/stagger' as anim;
-
-.packages {
-  gap: 20px;
-}
-
-.package {
-  @include anim.stagger;
-}
-
-.section {
-  padding: 10px;
-}
-
 .description {
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
-  line-height: 1.6;
   margin-top: 20px;
 }
 
 .footer {
-  padding: 10px;
   padding-top: 20px;
-  margin-bottom: 40px;
 }

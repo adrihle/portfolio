@@ -1,17 +1,17 @@
-import { Layout, Text } from "@/components";
-import { ExperienceTimeline } from "@/containers";
+import { Text } from "@/components";
+import { ExperienceTimeline, Page } from "@/containers";
 import { TEXT } from './text';
 
-const Page = () => {
+const Experience = () => {
   return (
-    <Layout>
+    <Page.Layout>
       <Text.Title>{TEXT.title}</Text.Title>
       <Text>{TEXT.description}</Text>
       <ExperienceTimeline experiences={TEXT.experiences}/>
       <Text>{TEXT.footer}</Text>
-    </Layout>
+    </Page.Layout>
   );
 };
 
-export default Page;
+export default Experience;
 

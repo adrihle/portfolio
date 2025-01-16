@@ -3,6 +3,8 @@ import { useMemo } from 'react';
 import { IntersectionProvider, useIntersection } from "@adrihfly/intersection-hook";
 import { ProviderDate } from '@/providers';
 import styles from './style.module.scss';
+import { ComponentProps } from '@/interfaces';
+import { Card, Icon, Text } from '@/components';
 
 type Experience = {
   company: string;
@@ -50,7 +52,7 @@ const useTimeline = ({ experiences }: ExperienceTimelineProps) => {
 const Timeline = ({ experiences }: ExperienceTimelineProps) => {
   const { timelinePercentage, yearFrom } = useTimeline({ experiences });
   return (
-    <div className={styles.timeline} style={{ ...(!timelinePercentage && { height: 0, padding: 0 })}}>
+    <div className={styles.timeline} style={{ ...(!timelinePercentage && { height: 0, padding: 0 }) }}>
       <div className={styles.bar}>
         <div className={styles.fill} style={{ width: `${timelinePercentage}%` }} />
       </div>
@@ -62,13 +64,37 @@ const Timeline = ({ experiences }: ExperienceTimelineProps) => {
   );
 };
 
-const Sections = ({ experiences }: { experiences: Record<string, Experience> }) => {
+const Section = ({ company, id, position, ...props }: Experience & ComponentProps & { id: string }) => {
   const { register } = useIntersection();
+  return (
+    <Card
+      ref={register({ id, label: company })}
+      className={styles.section}
+      {...props}
+    >
+      <div className={styles.header}>
+        <Icon src='npm' size={100} />
+        <div>
+          <Text>{company}</Text>
+          <Text>{position}</Text>
+        </div>
+      </div>
+      <div>
+
+      </div>
+      <div>
+
+      </div>
+    </Card>
+  );
+};
+
+const Sections = ({ experiences }: { experiences: Record<string, Experience> }) => {
   const sortedExperiences = Object.entries(experiences).sort(([, a], [, b]) => ProviderDate.isBefore(a.from, b.from) ? 1 : 0);
   return (
     <>
-      {sortedExperiences.map(([id, { company }]) => {
-        return <div key={id} ref={register({ id, label: company })} className={styles.section}>{company}</div>
+      {sortedExperiences.map(([id, experience]) => {
+        return <Section key={id} {...experience} id={id} />
       })}
     </>
   );
