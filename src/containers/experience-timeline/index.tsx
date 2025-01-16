@@ -64,7 +64,7 @@ const Timeline = ({ experiences }: ExperienceTimelineProps) => {
   );
 };
 
-const Section = ({ company, id, position, ...props }: Experience & ComponentProps & { id: string }) => {
+const Section = ({ company, id, position, from, to, description, stack, location, ...props }: Experience & ComponentProps & { id: string }) => {
   const { register } = useIntersection();
   return (
     <Card
@@ -72,18 +72,31 @@ const Section = ({ company, id, position, ...props }: Experience & ComponentProp
       className={styles.section}
       {...props}
     >
-      <div className={styles.header}>
+      <div className={styles.flexGap}>
         <Icon src='npm' size={100} />
-        <div>
-          <Text>{company}</Text>
-          <Text>{position}</Text>
+        <div style={{ width: '100%' }}>
+          <div className={styles.title}>
+            <Text size='medium'>{company}</Text>
+            <Text size='small'>
+              {to !== '-' ? ProviderDate.format({ date: to, format: 'MMM yy' }) : 'Present'}
+              -
+              {ProviderDate.format({ date: from, format: 'MMM yy' })}
+            </Text>
+          </div>
+          <Text bold size='medium' color='secondary'>{position}</Text>
         </div>
       </div>
-      <div>
-
+      <div className={styles.description}>
+        <Text italic size='large'>{description}</Text>
       </div>
-      <div>
-
+      <div className={styles.spaceBetween}>
+        <div className={styles.flexGap}>
+          <Icon src='mail' />
+          <Text size='small'>{location}</Text>
+        </div>
+        <div>
+          {stack.map((i) => <Icon src='github' key={i} />)}
+        </div>
       </div>
     </Card>
   );
@@ -93,8 +106,8 @@ const Sections = ({ experiences }: { experiences: Record<string, Experience> }) 
   const sortedExperiences = Object.entries(experiences).sort(([, a], [, b]) => ProviderDate.isBefore(a.from, b.from) ? 1 : 0);
   return (
     <>
-      {sortedExperiences.map(([id, experience]) => {
-        return <Section key={id} {...experience} id={id} />
+      {sortedExperiences.map(([id, experience], i) => {
+        return <Section key={id} {...experience} id={id} style={{ animationDelay: `${i * 0.3}s` }} />
       })}
     </>
   );

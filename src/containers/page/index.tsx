@@ -8,7 +8,7 @@ const Page = () => {
 
 const Container = ({ children, className, ...props }: ComponentProps) => {
   return (
-    <Widget height="2000px" className={ `${styles.container} ${className}`} {...props}>
+    <Widget height="2000px" className={ `${styles.container} ${className}`} {...props} id='content'>
       {children}
     </Widget>
   );

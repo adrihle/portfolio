@@ -6,14 +6,16 @@ type TextProps = {
   size?: 'small' | 'medium' | 'large' | 'default';
   italic?: boolean;
   bold?: boolean;
+  color?: 'primary' | 'secondary' | 'highlight' | 'accent';
 } & DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
 
-const Text = ({ children, className, size = 'default', italic, bold, ...props }: TextProps) => {
+const Text = ({ children, className, size = 'default', italic, bold, color, ...props }: TextProps) => {
   const styleClass = [
     styles.description,
     styles[size],
     italic ? styles.italic : '',
     bold ? styles.bold : '',
+    color ? styles[`color-${color}`] : '',
     className,
   ].join(' ');
   return (

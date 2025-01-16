@@ -1,4 +1,4 @@
-import { differenceInDays, formatDistanceToNow, isBefore as fnsIsBefore } from "date-fns";
+import { differenceInDays, formatDistanceToNow, isBefore as fnsIsBefore, format as fnsFormat } from "date-fns";
 
 const fromNow = (date: string) => {
   return formatDistanceToNow(date, {addSuffix: true });
@@ -12,6 +12,10 @@ const diffDaysToNow = (from: string): number => {
   return differenceInDays(new Date(), from);
 };
 
+const format = ({ date, format }: { date: string, format: string }) => {
+  return fnsFormat(date, format);
+}
+
 const isBefore = fnsIsBefore;
 
 const ProviderDate = {
@@ -19,6 +23,7 @@ const ProviderDate = {
   diffDays,
   diffDaysToNow,
   isBefore,
+  format,
 };
 
 export { ProviderDate };

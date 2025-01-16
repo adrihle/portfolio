@@ -10,8 +10,8 @@ const Presentation = () => {
     <Widget className={styles.presentation}>
       <Image src={SETTINGS.PROFILE_IMAGE} width={90} height={90} alt='me' className={styles.image} priority />
       <div className={styles.presentationTextContainer}>
-        <Text size='large'>Hi! My name is <strong>Adrian</strong> 👋</Text>
-        <Text size='large'>
+        <Text size='medium'>Hi! My name is <strong>Adrian</strong> 👋</Text>
+        <Text size='medium'>
           I´m&nbsp;
           <Text.Type
             sequence={[

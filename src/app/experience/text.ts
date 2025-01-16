@@ -1,4 +1,4 @@
-import { Experience } from "@/containers/experiences";
+import { Experience } from "@/containers/experience-timeline";
 
 type ExperiencePage = {
   title: string;
@@ -19,7 +19,7 @@ const TEXT: ExperiencePage = {
       description: 'Currently building high-performance ad tech solutions that reach millions of users. It’s like being a magician, but instead of pulling rabbits out of hats, I’m pulling data out of algorithms.',
       location: 'Madrid, Spain',
       logopath: '/npm.svg',
-      stack: [],
+      stack: ['a', 'b', 'c'],
     },
     ufounders: {
       company: 'Ufounders',
