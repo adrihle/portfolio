@@ -1,8 +1,11 @@
 import { Text } from "@/components";
 import { ExperienceTimeline, Page } from "@/containers";
 import { TEXT } from './text';
+import { translate } from "./action";
 
-const Experience = () => {
+const Experience = async () => {
+  const texts = await translate<typeof TEXT>(TEXT, 'hi-IN');
+  console.log('testlog>', { texts });
   return (
     <Page.Layout>
       <Text.Title>{TEXT.title}</Text.Title>
