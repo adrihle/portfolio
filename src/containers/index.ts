@@ -1,6 +1,6 @@
 export { default as Playground } from './playground';
-export { Content } from './content';
+export { Page } from './page';
 export { Greeting } from './greeting';
 export { Navigation } from './navigation';
-export { Package } from './package';
-export type { PackageProps } from './package';
+export { PackageList } from './package-list';
+export { ExperienceTimeline } from './experience-timeline';

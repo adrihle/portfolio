@@ -1,12 +1,12 @@
-import { Layout } from "@/components";
+import { Page } from '@/containers';
 
-const Page = () => {
+const Projects = () => {
   return (
-    <Layout>
+    <Page.Layout>
       projects page
-    </Layout>
+    </Page.Layout>
   );
 };
 
-export default Page;
+export default Projects;
 

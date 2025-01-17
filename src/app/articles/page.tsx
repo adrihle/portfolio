@@ -1,12 +1,12 @@
-import { Layout } from "@/components";
+import { Page } from '@/containers';
 
-const Page = () => {
+const Articles = () => {
   return (
-    <Layout>
+    <Page.Layout>
       articles page
-    </Layout>
+    </Page.Layout>
   );
 };
 
-export default Page;
+export default Articles;
 

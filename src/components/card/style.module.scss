@@ -1,0 +1,8 @@
+@use 'theme/colors' as colors;
+
+.container {
+  border-radius: 12px;
+  box-shadow: colors.$shadow-dark;
+  padding: 20px;
+  background: colors.$primary;
+}

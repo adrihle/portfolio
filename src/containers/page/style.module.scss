@@ -1,0 +1,15 @@
+@use 'animations/fade-in' as animation;
+
+.layout {
+  @include animation.popin;
+
+  padding-bottom: 30px;
+}
+
+.container {
+
+}
+
+.section {
+  padding: 10px;
+}

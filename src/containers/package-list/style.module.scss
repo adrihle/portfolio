@@ -1,6 +1,8 @@
 @use 'theme/colors' as colors;
 @use 'theme/typography' as typography;
+// fix this
 @use 'animations/hover' as anim;
+@use 'animations/stagger' as animation;
 @use 'screen';
 
 .container {
@@ -59,4 +61,12 @@
 .links {
   display: flex;
   gap: 15px;
+}
+
+.packages {
+  gap: 20px;
+}
+
+.package {
+  @include animation.stagger;
 }
