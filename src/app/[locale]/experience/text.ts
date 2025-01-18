@@ -51,7 +51,7 @@ const TEXT: ExperiencePage = {
         height: 50,
         width: 100,
       },
-      stack: ['javascript', 'typescript', 'java', 'angular', 'rxjs', 'react', 'nextjs', 'css', 'sass', 'vertx', 'nestjs', 'node', 'jenkins', 'aws', 'postgres', 'mysql', 'auth0', 'tailwind', 'git', 'paypal', 'applepay', 'googlepay', 'electron'],
+      stack: ['javascript', 'typescript', 'java', 'angular', 'rxjs', 'react', 'nextjs', 'css', 'sass', 'vertx', 'nestjs', 'node', 'jenkins', 'aws', 'postgres', 'mysql', 'auth0', 'tailwind', 'git', 'paypal', 'applepay', 'googlepay', 'electron', 'gitlab'],
     },
     basantani: {
       company: 'Basantani Holdings SL',

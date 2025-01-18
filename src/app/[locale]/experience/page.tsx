@@ -1,11 +1,10 @@
 import { Text, Page } from "@/components";
 import { ExperienceTimeline } from "@/containers";
-import { ServiceContent } from "@/services";
-import { ExperiencePage, TEXT } from './text';
+import { getContent } from "./action";
 
 const Experience = async ({ params }: any) => {
   const locale = (await params).locale;
-  const texts = await ServiceContent.getTexts<ExperiencePage>({ text: TEXT, locale, page: 'home' })
+  const texts = await getContent({ locale });
   return (
     <Page.Layout>
       <Text.Title>{texts.title}</Text.Title>

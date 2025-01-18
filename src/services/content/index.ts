@@ -10,7 +10,7 @@ type TextPage<T> = {
   translate?: boolean;
 };
 
-const getTexts = async <T>({ page, locale, text, translate = false }: TextPage<T>) => {
+const getTexts = async <T>({ page, locale, text, translate = true }: TextPage<T>) => {
   if (!translate) return text;
   const texts = await RepositoryTranslation.get({ page, locale });
 

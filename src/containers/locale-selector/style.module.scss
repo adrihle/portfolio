@@ -1,3 +1,5 @@
+@use 'theme/colors' as colors;
+
 .selectios {
   display: inline-block;
   width: 100%;
@@ -11,8 +13,8 @@
     border: 1px solid #444;
     border-radius: 12px;
     padding: 12px 16px;
-    font-size: 16px;
-    background-color: #333;
+    font-size: 14px;
+    background-color: colors.$primary;
     color: #f0f0f0;
     cursor: pointer;
     width: 100%;
@@ -41,9 +43,8 @@
 .form {
   display: flex;
   align-items: center;
+  margin-top: 10px;
   gap: 15px;
-  margin-top: 5px;
 }
 
-.container {
-}
+.container {}

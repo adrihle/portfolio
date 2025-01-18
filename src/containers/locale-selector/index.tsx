@@ -17,17 +17,21 @@ const LocaleSelector = () => {
 
   return (
     <Widget className={styles.container}>
-      <Text size="medium" bold>🌍 Try IA Auto Translate!</Text>
+      <Text size="medium" bold style={{ textAlign: 'end' }}>Try AI Translations!</Text>
       <form onSubmit={onsubmit} className={styles.form}>
         <div className={styles.selectios}>
-                  <select {...register({ name: 'locale' })}>
-          {Object.entries(LOCALES).map(([key, value]) => {
-            return <option key={key} value={key}>{value}</option>;
-          })}
-        </select>
+          <select {...register({ name: 'locale' })}>
+            {Object.entries(LOCALES).map(([key, value]) => {
+              return (
+                <option key={key} value={key}>
+                  {value}
+                </option>
+              );
+            })}
+          </select>
         </div>
         <button type="submit" style={{ all: 'unset' }}>
-          <Icon src="web" size={30}/>
+          <Icon src="translation" size={25} />
         </button>
       </form>
     </Widget>

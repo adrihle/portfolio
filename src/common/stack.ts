@@ -56,6 +56,7 @@ const TECH_STACK = {
   linux: 'linux',
   springboot: 'springboot',
   vertx: 'eclipsevertdotx',
+  gitlab: 'gitlab',
   java: '',
 } as const;
 

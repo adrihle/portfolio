@@ -10,6 +10,7 @@ const ICONS = {
   linkedin: '/social/linkedin.svg',
   mail: '/social/mail.svg',
   npm: '/npm.svg',
+  translation: '/translation.svg',
 } as const;
 
 const COLORED_BRANDS: (keyof typeof TECH_STACK)[] = ['express', 'nextjs', 'github', 'pandas', 'aws', 'angular', 'applepay'];
