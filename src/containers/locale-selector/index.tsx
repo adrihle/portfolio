@@ -1,8 +1,9 @@
 'use client'
 import { LOCALES } from "@/common";
-import { Widget } from "@/components";
+import { Icon, Text, Widget } from "@/components";
 import { useForm } from '@adrihfly/reducer-form';
 import { redirect, useParams, usePathname } from "next/navigation";
+import styles from './style.module.scss';
 ;
 const LocaleSelector = () => {
   const { locale } = useParams();
@@ -15,14 +16,19 @@ const LocaleSelector = () => {
   const { onsubmit, register } = useForm<{ locale: string }>({ onSubmit, initial: { locale: locale as string || 'en-US' } });
 
   return (
-    <Widget>
-      <form onSubmit={onsubmit}>
-        <select {...register({ name: 'locale' })}>
+    <Widget className={styles.container}>
+      <Text size="medium" bold>🌍 Try IA Auto Translate!</Text>
+      <form onSubmit={onsubmit} className={styles.form}>
+        <div className={styles.selectios}>
+                  <select {...register({ name: 'locale' })}>
           {Object.entries(LOCALES).map(([key, value]) => {
             return <option key={key} value={key}>{value}</option>;
           })}
         </select>
-        <button type="submit">submit</button>
+        </div>
+        <button type="submit" style={{ all: 'unset' }}>
+          <Icon src="web" size={30}/>
+        </button>
       </form>
     </Widget>
   );

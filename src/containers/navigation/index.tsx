@@ -1,6 +1,7 @@
+'use client'
 import { AppIcon, Grid } from "@/components"
-import { headers } from 'next/headers';
 import styles from './style.module.scss';
+import { useParams } from "next/navigation";
 
 type Routes = Record<string, {
   image: string;
@@ -8,18 +9,6 @@ type Routes = Record<string, {
   href: string;
   background: string;
 }>;
-
-const getLocale = async () => {
-  const header = await headers();
-
-  const referer = header.get('referer') || '';
-  
-  const path = referer ? new URL(referer).pathname : '/';
-
-  const locale = path.split('/')[1];
-
-  return locale || 'en-US';
-};
 
 const ICON_SIZE = 60;
 
@@ -62,8 +51,8 @@ const ROUTES: Routes = {
   },
 };
 
-const Navigation = async () => {
-  const locale = await getLocale();
+const Navigation = () => {
+  const { locale } = useParams();
   
   return (
     <Grid className={styles.container} minWidth={ICON_SIZE} gap={15}>
