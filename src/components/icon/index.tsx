@@ -11,10 +11,18 @@ const ICONS = {
   npm: '/npm.svg',
 } as const;
 
+const BRAND_ICONS = {
+  javascript: 'javascript',
+}
+
 type IconProps = {
   src: keyof typeof ICONS;
   size?: number;
 } & Omit<React.ComponentProps<typeof Image>, 'src' | 'height' | 'width' | 'alt'>;
+
+const getBrandIconUrl = (icon: keyof typeof ICONS) => {
+  return `https://cdn.simpleicons.org/${icon}/${"e5e5e5"}?viewbox=auto`;
+};
 
 const Icon = ({ src, size = 24, className, ...props }: IconProps) => {
   return (
