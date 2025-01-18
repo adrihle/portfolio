@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import '@/styles/global.scss';
 import { Grid, Page } from "@/components";
 import { Greeting, Navigation, LocaleSelector, Social } from "@/containers";
+import styles from './style.module.scss';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,16 +28,16 @@ export default async function RootLayout({ children, params }: any) {
         <Grid minWidth="220px" gap={15}>
           <Grid.Item span={1}>
             <Grid minWidth="220px" gap={15}>
-              <Grid.Item>
+              <Grid.Item className={styles.greeting}>
                 <Greeting />
               </Grid.Item>
-              <Grid.Item>
+              <Grid.Item className={styles.social}>
                 <Social />
               </Grid.Item>
-              <Grid.Item>
+              <Grid.Item className={styles.navigation}>
                 <Navigation />
               </Grid.Item>
-              <Grid.Item>
+              <Grid.Item className={styles.locale}>
                 <LocaleSelector />
               </Grid.Item>
             </Grid>
