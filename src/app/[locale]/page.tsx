@@ -1,4 +1,5 @@
-import { Playground, Page } from "@/containers";
+import { Page } from '@/components';
+import { Playground } from "@/containers";
 
 
 const Home = async () => {

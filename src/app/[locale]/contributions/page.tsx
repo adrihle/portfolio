@@ -1,5 +1,5 @@
-import { Text } from "@/components";
-import { PackageList, Page } from '@/containers';
+import { Text, Page } from "@/components";
+import { PackageList } from '@/containers';
 import { getContributions } from './action';
 import { TEXT } from './text';
 import styles from './style.module.scss';

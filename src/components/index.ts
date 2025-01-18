@@ -6,3 +6,4 @@ export { Spinner } from './spinner';
 export { Badge } from './badge';
 export { Icon } from './icon';
 export { Card } from './card';
+export { Page } from './page';

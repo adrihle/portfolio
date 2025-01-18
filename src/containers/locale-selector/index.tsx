@@ -1,25 +1,30 @@
+'use client'
 import { LOCALES } from "@/common";
-import { redirect } from "next/navigation";
-
+import { Widget } from "@/components";
+import { useForm } from '@adrihfly/reducer-form';
+import { redirect, useParams, usePathname } from "next/navigation";
+;
 const LocaleSelector = () => {
-  const submit = (e: any) => {
-    e.preventDefault();
+  const { locale } = useParams();
+  const path = usePathname();
 
-    const data = new FormData(e.target);
-    const locale = data.get('locale');
-
-    redirect(`/${locale}/experience`);
+  const onSubmit = ({ locale: targetLocale }: Partial<{ locale: string }>) => {
+    redirect(path.replace(locale as string, targetLocale as string));
   };
 
+  const { onsubmit, register } = useForm<{ locale: string }>({ onSubmit, initial: { locale: locale as string || 'en-US' } });
+
   return (
-    <form onSubmit={submit}>
-      <select name="locale">
-        {Object.entries(LOCALES).map(([key, value]) => {
-          return <option key={key} value={key}>{value}</option>;
-        })}
-      </select>
-      <button type="submit">submit</button>
-    </form>
+    <Widget>
+      <form onSubmit={onsubmit}>
+        <select {...register({ name: 'locale' })}>
+          {Object.entries(LOCALES).map(([key, value]) => {
+            return <option key={key} value={key}>{value}</option>;
+          })}
+        </select>
+        <button type="submit">submit</button>
+      </form>
+    </Widget>
   );
 };
 

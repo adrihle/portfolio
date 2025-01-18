@@ -1,5 +1,5 @@
-import { Text } from "@/components";
-import { ExperienceTimeline, Page } from "@/containers";
+import { Text, Page } from "@/components";
+import { ExperienceTimeline } from "@/containers";
 import { ServiceContent } from "@/services";
 import { ExperiencePage, TEXT } from './text';
 
