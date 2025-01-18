@@ -66,3 +66,4 @@ const TEXT: ExperiencePage = {
 };
 
 export { TEXT };
+export type { ExperiencePage };

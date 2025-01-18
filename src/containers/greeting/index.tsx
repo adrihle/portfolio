@@ -4,6 +4,7 @@ import styles from './style.module.scss';
 import Image from 'next/image';
 import { SETTINGS } from './settings';
 import { IconProps } from '@/components/icon';
+import { LocaleSelector } from '../locale-selector';
 
 const Presentation = () => {
   return (
@@ -25,6 +26,7 @@ const Presentation = () => {
             className={styles.type}
           />
         </Text>
+        <LocaleSelector />
       </div>
     </Widget>
   );

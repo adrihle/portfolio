@@ -1,4 +1,5 @@
 import { AppIcon, Grid } from "@/components"
+import { headers } from 'next/headers';
 import styles from './style.module.scss';
 
 type Routes = Record<string, {
@@ -7,6 +8,18 @@ type Routes = Record<string, {
   href: string;
   background: string;
 }>;
+
+const getLocale = async () => {
+  const header = await headers();
+
+  const referer = header.get('referer') || '';
+  
+  const path = referer ? new URL(referer).pathname : '/';
+
+  const locale = path.split('/')[1];
+
+  return locale || 'en-US';
+};
 
 const ICON_SIZE = 60;
 
@@ -49,12 +62,14 @@ const ROUTES: Routes = {
   },
 };
 
-const Navigation = () => {
+const Navigation = async () => {
+  const locale = await getLocale();
+  
   return (
     <Grid className={styles.container} minWidth={ICON_SIZE} gap={15}>
       {Object.values(ROUTES).map((props, i) => (
         <Grid.Item key={i}>
-          <AppIcon {...props} size={ICON_SIZE} />
+          <AppIcon {...props} size={ICON_SIZE} href={`/${locale}${props.href}`} />
         </Grid.Item>
       ))}
     </Grid>
