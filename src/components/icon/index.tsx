@@ -12,7 +12,12 @@ const ICONS = {
   npm: '/npm.svg',
 } as const;
 
-const COLORED_BRANDS: (keyof typeof TECH_STACK)[] = ['express', 'nextjs', 'github', 'pandas', 'aws'];
+const COLORED_BRANDS: (keyof typeof TECH_STACK)[] = ['express', 'nextjs', 'github', 'pandas', 'aws', 'angular', 'applepay'];
+
+const SVG_BRANDS: Partial<Record<keyof typeof TECH_STACK, string>> = {
+  java: '/java.svg',
+};
+
 const COLOR_DEFAULT = 'e5e5e5';
 
 type BrandProps = {
@@ -23,6 +28,7 @@ type BrandProps = {
 
 const getBrandIconUrl = ({ icon, color }: Omit<BrandProps, 'size'>) => {
   const colored = !color && !COLORED_BRANDS.includes(icon) ? '' : `/${color || COLOR_DEFAULT}`;
+  if (SVG_BRANDS[icon]) return SVG_BRANDS[icon];
   return `https://cdn.simpleicons.org/${TECH_STACK[icon]}${colored}?viewbox=auto`;
 };
 

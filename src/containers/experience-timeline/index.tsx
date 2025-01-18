@@ -11,7 +11,11 @@ import Image from 'next/image';
 type Experience = {
   company: string;
   position: string;
-  logopath: string;
+  logo: {
+    path: string;
+    height: number;
+    width: number;
+  };
   from: string;
   to: string | '-';
   description: string;
@@ -66,7 +70,7 @@ const Timeline = ({ experiences }: ExperienceTimelineProps) => {
   );
 };
 
-const Section = ({ company, id, position, from, to, description, stack, location, logopath, ...props }: Experience & ComponentProps & { id: string }) => {
+const Section = ({ company, id, position, from, to, description, stack, location, logo, ...props }: Experience & ComponentProps & { id: string }) => {
   const { register } = useIntersection();
   return (
     <Card
@@ -75,8 +79,7 @@ const Section = ({ company, id, position, from, to, description, stack, location
       {...props}
     >
       <div className={styles.flexGap}>
-        {/* <Icon src='npm' size={100} /> */}
-        <Image src={logopath} width={150} height={150} alt='asd'/>
+        <Image src={logo.path} width={logo.width} height={logo.height} alt={company}/>
         <div style={{ width: '100%' }}>
           <div className={styles.title}>
             <Text size='medium'>{company}</Text>

@@ -51,6 +51,12 @@ const TECH_STACK = {
   pandas: 'pandas',
   nx: 'nx',
   tensorflow: 'tensorflow',
+  apache: 'apache',
+  mariadb: 'mariadb',
+  linux: 'linux',
+  springboot: 'springboot',
+  vertx: 'eclipsevertdotx',
+  java: '',
 } as const;
 
 export { TECH_STACK };
