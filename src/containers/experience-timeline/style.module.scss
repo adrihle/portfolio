@@ -47,11 +47,6 @@
   transition: width 0.3s ease;
 }
 
-.spaceBetween {
-  display: flex;
-  justify-content: space-between;
-}
-
 .title {
   display: flex;
   justify-content: space-between;
@@ -69,5 +64,13 @@
 }
 
 .description {
-  padding: 50px 0;
+  padding: 30px 0 50px 0;
+}
+
+.stack {
+  margin: 20px 0;
+}
+
+.tech {
+  margin: 5px;
 }

@@ -5,6 +5,8 @@ import { ProviderDate } from '@/providers';
 import styles from './style.module.scss';
 import { ComponentProps } from '@/interfaces';
 import { Card, Icon, Text } from '@/components';
+import { TECH_STACK } from '@/common';
+import Image from 'next/image';
 
 type Experience = {
   company: string;
@@ -14,7 +16,7 @@ type Experience = {
   to: string | '-';
   description: string;
   location: string;
-  stack: string[];
+  stack: (keyof typeof TECH_STACK)[];
 };
 
 type ExperienceTimelineProps = {
@@ -64,7 +66,7 @@ const Timeline = ({ experiences }: ExperienceTimelineProps) => {
   );
 };
 
-const Section = ({ company, id, position, from, to, description, stack, location, ...props }: Experience & ComponentProps & { id: string }) => {
+const Section = ({ company, id, position, from, to, description, stack, location, logopath, ...props }: Experience & ComponentProps & { id: string }) => {
   const { register } = useIntersection();
   return (
     <Card
@@ -73,7 +75,8 @@ const Section = ({ company, id, position, from, to, description, stack, location
       {...props}
     >
       <div className={styles.flexGap}>
-        <Icon src='npm' size={100} />
+        {/* <Icon src='npm' size={100} /> */}
+        <Image src={logopath} width={150} height={150} alt='asd'/>
         <div style={{ width: '100%' }}>
           <div className={styles.title}>
             <Text size='medium'>{company}</Text>
@@ -89,14 +92,12 @@ const Section = ({ company, id, position, from, to, description, stack, location
       <div className={styles.description}>
         <Text italic size='large'>{description}</Text>
       </div>
-      <div className={styles.spaceBetween}>
-        <div className={styles.flexGap}>
-          <Icon src='mail' />
-          <Text size='small'>{location}</Text>
-        </div>
-        <div>
-          {stack.map((i) => <Icon src='github' key={i} />)}
-        </div>
+      <div className={styles.flexGap}>
+        <Icon src='mail' />
+        <Text size='small'>{location}</Text>
+      </div>
+      <div className={styles.stack}>
+        {stack.map((i) => <Icon.Brand icon={i} key={i} className={styles.tech} />)}
       </div>
     </Card>
   );

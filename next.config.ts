@@ -7,7 +7,16 @@ const nextConfig: NextConfig = {
   },
   images: {
     dangerouslyAllowSVG: true,
-    domains: ['cdn.pixabay.com', 'cdn.iconscout.com', 'www.npmjs.com', 'ghchart.rshah.org']
+    domains: [
+      'cdn.pixabay.com',
+      'cdn.iconscout.com',
+      'www.npmjs.com',
+      'ghchart.rshah.org',
+      'cdn.simpleicons.org',
+      'www.mediasmart.io',
+      'images.crunchbase.com',
+      'www.finwave.es',
+    ]
   },
 };
 
