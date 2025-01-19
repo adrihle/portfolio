@@ -1,6 +1,9 @@
 import mongoose, { Model } from 'mongoose';
 import { conn } from '../db';
 import { Locale } from '@/interfaces';
+import { ProviderLog } from '@/providers';
+
+const logger = new ProviderLog('REPOSITORY TRANSLATION')
 
 type Translation = {
   page: string;
@@ -29,10 +32,16 @@ const get = async ({ page, locale }: GetTranslation) => {
 };
 
 const create = async ({ page, locale, translations }: Translation) => {
+  logger.debug(`Creating new ${page} document for ${locale}`);
   await conn();
 
-  const doc = new model({ page, locale, translations });
-  await doc.save();
+  try {
+    const doc = new model({ page, locale, translations });
+    await doc.save();
+    logger.debug(`Successfull created ${page} for ${locale}`);
+  } catch (err) {
+    logger.error(`Error creating ${page} for ${locale}`, { err });
+  }
 };
 
 const RepositoryTranslation = {

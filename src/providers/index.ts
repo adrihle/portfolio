@@ -1,2 +1,3 @@
 export { ProviderDate } from './date';
-export { ProviderIA } from './ia';
+export { ProviderAI } from './ai';
+export { ProviderLog } from './log';
