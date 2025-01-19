@@ -8,7 +8,7 @@ import { ServiceContent } from "@/services";
 const Contributions = async ({ params }: any) => {
   const contributions = await getContributions();
   const locale = (await params).locale;
-  const texts = await ServiceContent.getTexts<typeof TEXT>({ text: TEXT, locale, page: 'contributions' })
+  const texts = await ServiceContent.generatePageTexts<typeof TEXT>({ text: TEXT, locale, page: 'contributions' })
   return (
     <Page.Layout>
       <Page.Section>

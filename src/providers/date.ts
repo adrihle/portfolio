@@ -14,7 +14,7 @@ const diffDaysToNow = (from: string): number => {
 
 const format = ({ date, format }: { date: string, format: string }) => {
   return fnsFormat(date, format);
-}
+};
 
 const isBefore = fnsIsBefore;
 

@@ -11,6 +11,7 @@ const ICONS = {
   mail: '/social/mail.svg',
   npm: '/npm.svg',
   translation: '/translation.svg',
+  location: '/pin.svg',
 } as const;
 
 const COLORED_BRANDS: (keyof typeof TECH_STACK)[] = ['express', 'nextjs', 'github', 'pandas', 'aws', 'angular', 'applepay'];

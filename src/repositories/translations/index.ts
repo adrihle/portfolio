@@ -4,11 +4,15 @@ import { Locale } from '@/interfaces';
 import { ProviderLog } from '@/providers';
 
 const logger = new ProviderLog('REPOSITORY TRANSLATION')
-
-type Translation = {
+type CreateTranslation = {
   page: string;
   locale: Locale;
-  translations: Record<string, mongoose.Schema.Types.Mixed>;
+  translations: Record<string, any>;
+};
+
+type Translation = CreateTranslation & {
+  updatedAt: Date;
+  createdAt: Date;
 };
 
 const schema = new mongoose.Schema({
@@ -27,11 +31,10 @@ type GetTranslation = {
 const get = async ({ page, locale }: GetTranslation) => {
   await conn();
 
-  const texts = await model.findOne<Translation>({ page, locale }, { translations: 1 }).lean();
-  return texts ? texts.translations : null;
+  return model.findOne<Translation>({ page, locale }).lean();
 };
 
-const create = async ({ page, locale, translations }: Translation) => {
+const create = async ({ page, locale, translations }: CreateTranslation) => {
   logger.debug(`Creating new ${page} document for ${locale}`);
   await conn();
 
@@ -44,9 +47,20 @@ const create = async ({ page, locale, translations }: Translation) => {
   }
 };
 
+const update = async ({ id: _id, payload }: { id: mongoose.Schema.Types.ObjectId, payload: Partial<CreateTranslation> }) => {
+  logger.debug(`Updating id: ${_id}`);
+  try {
+    await model.updateOne({ _id }, { $set: payload });
+    logger.debug(`Succesfully update id: ${_id}`);
+  } catch (err) {
+    logger.error(`Error updating id: ${_id}`, { err });
+  }
+};
+
 const RepositoryTranslation = {
   get,
   create,
+  update,
 };
 
 export { RepositoryTranslation };

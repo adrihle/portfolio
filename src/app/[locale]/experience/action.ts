@@ -11,7 +11,7 @@ const getContent = async ({ locale }: { locale: string }) => {
 
   const text = { ...rest, experiences: experience2Translate };
 
-  const result = await ServiceContent.getTexts({ text, locale, page: 'experience' });
+  const result = await ServiceContent.generatePageTexts({ text, locale, page: 'experience' });
 
   const experienceMerged = Object.entries(experiences).reduce((acc, [key, experience]) => {
     const { position, description, location } = result.experiences[key as string];

@@ -96,7 +96,7 @@ const Section = ({ company, id, position, from, to, description, stack, location
         <Text italic size='large'>{description}</Text>
       </div>
       <div className={styles.flexGap}>
-        <Icon src='mail' />
+        <Icon src='location' />
         <Text size='small'>{location}</Text>
       </div>
       <div className={styles.stack}>
