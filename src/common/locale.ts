@@ -60,7 +60,7 @@ const LOCALES = {
   'zu-ZA': '🇿🇦 Zulu (South Africa)',
   'xh-ZA': '🇿🇦 Xhosa (South Africa)',
   'sw-KE': '🇰🇪 Swahili (Kenya)',
-};
+} as const;
 
 export { LOCALES };
 

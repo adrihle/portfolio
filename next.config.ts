@@ -5,6 +5,15 @@ const nextConfig: NextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'src', 'styles')]
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/en-US',
+        permanent: true,
+      }
+    ]
+  },
   images: {
     dangerouslyAllowSVG: true,
     domains: [

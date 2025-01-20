@@ -23,7 +23,9 @@ const AppIcon = ({ image, label, href, background, size = DEFAULT_SIZE, boldKey 
         className={styles.image}
         style={{ background }}
       />
-      <p className={styles.label}>{label.split('').map((l, i) => l.toLowerCase() === boldKey.toLowerCase() ? <b key={`${label}-${l}-${i}`} style={{ fontWeight: 1000 }}>{l}</b> : l)}</p>
+      <p className={styles.label}>
+        {label.split('').map((l, i) => l.toLowerCase() === boldKey.toLowerCase() ? <b key={`${label}-${l}-${i}`} style={{ fontWeight: 1000 }}>{l}</b> : l)}
+      </p>
     </Link>
   );
 };

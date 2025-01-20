@@ -71,7 +71,7 @@ const Navigation = () => {
         action: () => redirect(`/${locale}${route.href}`),
         description: `Navigating to ${route.label}`,
       }
-    })
+    }),
   }
 
   useShortcuts(shortcutConfig);
