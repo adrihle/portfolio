@@ -6,7 +6,7 @@ let instance: OpenAI;
 const logger = new ProviderLog('PROVIDER AI');
 
 const MODELS = {
-  GPT4: 'gpt-3.5-turbo',
+  GPT35TURBO: 'gpt-3.5-turbo',
 } as const;
 
 const conn = () => {
@@ -36,7 +36,7 @@ const translateText = async <T>({ text, locale }: TranslateTextParams<T>): Promi
   logger.debug('Requesting translating to OpenAI');
 
   const result = await openai.chat.completions.create({
-    model: MODELS.GPT4,
+    model: MODELS.GPT35TURBO,
     messages: [
       { role: 'system', content: instructions },
       { role: 'user', content: JSON.stringify(text) },

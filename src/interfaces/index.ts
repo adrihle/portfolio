@@ -4,4 +4,9 @@ type ComponentProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivE
 
 type Locale = string;
 
-export type { ComponentProps, Locale };
+type AppLayoutProps<T = object> = {
+  children: React.ReactNode;
+  params: T;
+};
+
+export type { ComponentProps, Locale, AppLayoutProps };

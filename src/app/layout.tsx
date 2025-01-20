@@ -1,13 +1,5 @@
 import type { Metadata } from "next";
 import '@/styles/global.scss';
-import { headers } from "next/headers";
-
-export async function getServerUrl() {
-  const headersList = await headers();
-  const host = headersList.get("host");
-  const protocol = headersList.get("x-forwarded-proto") || "http";
-  return `${protocol}://${host}`;
-};
 
 export const metadata: Metadata = {
   title: "Adrián López - npm run van",
@@ -15,7 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: any) {
-  const url = await getServerUrl();
-  console.log({ url });
   return children;
 }

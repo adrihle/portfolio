@@ -4,10 +4,11 @@ import { Locale } from '@/interfaces';
 import { ProviderLog } from '@/providers';
 
 const logger = new ProviderLog('REPOSITORY TRANSLATION')
+
 type CreateTranslation = {
   page: string;
   locale: Locale;
-  translations: Record<string, any>;
+  translations: Record<string, mongoose.Schema.Types.Mixed >;
 };
 
 type Translation = CreateTranslation & {
@@ -47,7 +48,7 @@ const create = async ({ page, locale, translations }: CreateTranslation) => {
   }
 };
 
-const update = async ({ id: _id, payload }: { id: mongoose.Schema.Types.ObjectId, payload: Partial<CreateTranslation> }) => {
+const update = async ({ id: _id, payload }: { id: mongoose.Types.ObjectId, payload: Partial<CreateTranslation> }) => {
   logger.debug(`Updating id: ${_id}`);
   try {
     await model.updateOne({ _id }, { $set: payload });
