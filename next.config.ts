@@ -16,15 +16,47 @@ const nextConfig: NextConfig = {
   },
   images: {
     dangerouslyAllowSVG: true,
-    domains: [
-      'cdn.pixabay.com',
-      'cdn.iconscout.com',
-      'www.npmjs.com',
-      'ghchart.rshah.org',
-      'cdn.simpleicons.org',
-      'www.mediasmart.io',
-      'images.crunchbase.com',
-      'www.finwave.es',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.pixabay.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.iconscout.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.npmjs.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ghchart.rshah.org',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.simpleicons.org',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.mediasmart.io',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.crunchbase.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.finwave.es',
+        pathname: '/**',
+      },
     ]
   },
 };
