@@ -1,25 +1,44 @@
 import Image from "next/image"
 import NextLink from "next/link";
 import styles from './style.module.scss';
+import { ICON_SETTINGS } from "./settings";
 
-const ICONS = {
-  web: '/web.svg',
-  github: '/social/github.svg',
-  instagram: '/social/instagram.svg',
-  linkedin: '/social/linkedin.svg',
-  mail: '/social/mail.svg',
-  npm: '/npm.svg',
-} as const;
+const { LOCAL_ICONS, STACK_ICONS, LOCAL_STACK_ICONS, DECOLORED_STACK_ICON, DEFAULT_COLOR } = ICON_SETTINGS;
+
+type BrandProps = {
+  icon: keyof typeof STACK_ICONS & keyof typeof LOCAL_STACK_ICONS;
+  color?: string;
+  size?: number;
+} & Omit<React.ComponentProps<typeof Image>, 'src' | 'height' | 'width' | 'alt'>;
+
+const getBrandIconUrl = ({ icon, color }: Omit<BrandProps, 'size'>) => {
+  const colored = !color && !DECOLORED_STACK_ICON.includes(icon) ? '' : `/${color || DEFAULT_COLOR}`;
+  if (LOCAL_STACK_ICONS[icon]) return LOCAL_STACK_ICONS[icon];
+  return `https://cdn.simpleicons.org/${STACK_ICONS[icon]}${colored}?viewbox=auto`;
+};
+
+const Brand = ({ icon, color, size = 24, className, ...props }: BrandProps) => {
+  return (
+    <Image
+      src={getBrandIconUrl({ icon, color })}
+      width={size}
+      height={size}
+      alt={icon}
+      className={`${styles.icon} ${className}`}
+      {...props}
+    />
+  );
+};
 
 type IconProps = {
-  src: keyof typeof ICONS;
+  src: keyof typeof LOCAL_ICONS;
   size?: number;
 } & Omit<React.ComponentProps<typeof Image>, 'src' | 'height' | 'width' | 'alt'>;
 
 const Icon = ({ src, size = 24, className, ...props }: IconProps) => {
   return (
     <Image
-      src={ICONS[src]}
+      src={LOCAL_ICONS[src]}
       width={size}
       height={size}
       alt={src}
@@ -42,6 +61,7 @@ const Link = ({ href = '', ...props }: IconLinkProps) => {
 };
 
 Icon.Link = Link;
+Icon.Brand = Brand;
 
 export { Icon };
 export type { IconProps, IconLinkProps };

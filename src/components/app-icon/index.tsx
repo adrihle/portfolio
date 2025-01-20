@@ -8,13 +8,14 @@ type AppIconProps = {
   href: string;
   background: string;
   size?: number;
+  boldKey: string;
 };
 
 const DEFAULT_SIZE = 60;
 
-const AppIcon = ({ image, label, href, background, size = DEFAULT_SIZE }: AppIconProps) => {
+const AppIcon = ({ image, label, href, background, size = DEFAULT_SIZE, boldKey }: AppIconProps) => {
   return (
-    <Link className={styles.container} href={`${href}#content`} shallow scroll={false}>
+    <Link className={styles.container} href={href} shallow scroll={false}>
       <Image src={image}
         alt={label}
         width={size}
@@ -22,7 +23,9 @@ const AppIcon = ({ image, label, href, background, size = DEFAULT_SIZE }: AppIco
         className={styles.image}
         style={{ background }}
       />
-      <p className={styles.label}>{label}</p>
+      <p className={styles.label}>
+        {label.split('').map((l, i) => l.toLowerCase() === boldKey.toLowerCase() ? <b key={`${label}-${l}-${i}`} style={{ fontWeight: 1000 }}>{l}</b> : l)}
+      </p>
     </Link>
   );
 };

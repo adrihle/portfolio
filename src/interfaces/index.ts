@@ -2,4 +2,11 @@ import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 type ComponentProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-export type { ComponentProps };
+type Locale = string;
+
+type AppLayoutProps<T = object> = {
+  children: React.ReactNode;
+  params: T;
+};
+
+export type { ComponentProps, Locale, AppLayoutProps };
