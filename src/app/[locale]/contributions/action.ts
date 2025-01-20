@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { PackageInfo } from '@/containers/package';
+import { PackageInfo } from '@/containers/package-list';
 import { exec } from 'child_process';
 import cache from 'memory-cache';
 import util from 'util';

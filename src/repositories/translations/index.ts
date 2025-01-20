@@ -52,7 +52,7 @@ const update = async ({ id: _id, payload }: { id: mongoose.Types.ObjectId, paylo
   logger.debug(`Updating id: ${_id}`);
   try {
     await model.updateOne({ _id }, { $set: payload });
-    logger.debug(`Succesfully update id: ${_id}`);
+    logger.debug(`Succesfully updated id: ${_id}`);
   } catch (err) {
     logger.error(`Error updating id: ${_id}`, { err });
   }

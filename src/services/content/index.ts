@@ -52,6 +52,8 @@ const generatePageTexts = async <T>({ page, locale, text, translate = true }: Te
       await RepositoryTranslation.update({ id: texts._id, payload: { page, locale, translations } })
       return translations;
     }
+
+    return texts.translations as T;
   }
 
   const translations = await ProviderAI.translateText({ locale, text });
