@@ -1,8 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PackageInfo } from '@/containers/package-list';
+import { ServiceContent } from '@/services';
 import { exec } from 'child_process';
 import cache from 'memory-cache';
 import util from 'util';
+import { TEXT } from './text';
+import { Locale } from '@/interfaces';
 
 const execPromise = util.promisify(exec);
 const KEY = 'root#packages';
@@ -28,6 +31,14 @@ const getContributions = async (): Promise<PackageInfo[]> => {
     console.error(`Error fetching collaborations: ${JSON.stringify(error)}`);
     return [];
   }
-} 
+}
 
-export { getContributions };
+const getContent = async ({ locale }: { locale: Locale }) => {
+  const texts = await ServiceContent.generatePageTexts<typeof TEXT>({ text: TEXT, locale, page: 'contributions' })
+  return {
+    ...texts,
+    contributions: await getContributions(),
+  };
+};
+
+export { getContributions, getContent };

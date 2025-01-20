@@ -38,6 +38,8 @@ const generatePageTexts = async <T>({ page, locale, text, translate = true }: Te
     logger.debug(`Found in database content for ${locale} of page: ${page}`);
     const lastUpdateFileDate = await getTextFileLastUpdate(page);
 
+    console.log({ lastUpdateFileDate });
+
     if (!lastUpdateFileDate) return texts.translations as T;
 
     const formated = ProviderDate.format({ date: lastUpdateFileDate, format: 'yyyy-MM-dd' })
