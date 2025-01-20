@@ -19,9 +19,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const LAYOUT_SETTINGS = {
+  MIN_WIDTH: '220px',
+  GAP: 15,
+} as const;
+
 const Menu = () => {
   return (
-    <Grid minWidth="220px" gap={15}>
+    <Grid minWidth={LAYOUT_SETTINGS.MIN_WIDTH} gap={LAYOUT_SETTINGS.GAP}>
       <Grid.Item className={styles.greeting}>
         <Greeting />
       </Grid.Item>
@@ -45,7 +50,7 @@ export default async function LocaleLayout({ children, params }: AppLayoutProps<
   return (
     <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Grid minWidth="220px" gap={15}>
+        <Grid minWidth={LAYOUT_SETTINGS.MIN_WIDTH} gap={LAYOUT_SETTINGS.GAP}>
           <Grid.Item span={1}>
             <Menu />
           </Grid.Item>
