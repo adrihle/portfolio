@@ -15,7 +15,7 @@ const DEFAULT_SIZE = 60;
 
 const AppIcon = ({ image, label, href, background, size = DEFAULT_SIZE, boldKey }: AppIconProps) => {
   return (
-    <Link className={styles.container} href={`${href}#content`} shallow scroll={false}>
+    <Link className={styles.container} href={href} shallow scroll={false}>
       <Image src={image}
         alt={label}
         width={size}

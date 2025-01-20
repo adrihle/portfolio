@@ -1,37 +1,20 @@
 import Image from "next/image"
 import NextLink from "next/link";
 import styles from './style.module.scss';
-import { TECH_STACK } from "@/common";
+import { ICON_SETTINGS } from "./settings";
 
-const ICONS = {
-  web: '/web.svg',
-  github: '/social/github.svg',
-  instagram: '/social/instagram.svg',
-  linkedin: '/social/linkedin.svg',
-  mail: '/social/mail.svg',
-  npm: '/npm.svg',
-  translation: '/translation.svg',
-  location: '/pin.svg',
-} as const;
-
-const COLORED_BRANDS: (keyof typeof TECH_STACK)[] = ['express', 'nextjs', 'github', 'pandas', 'aws', 'angular', 'applepay'];
-
-const SVG_BRANDS: Partial<Record<keyof typeof TECH_STACK, string>> = {
-  java: '/java.svg',
-};
-
-const COLOR_DEFAULT = 'e5e5e5';
+const { LOCAL_ICONS, STACK_ICONS, LOCAL_STACK_ICONS, DECOLORED_STACK_ICON, DEFAULT_COLOR } = ICON_SETTINGS;
 
 type BrandProps = {
-  icon: keyof typeof TECH_STACK;
+  icon: keyof typeof STACK_ICONS & keyof typeof LOCAL_STACK_ICONS;
   color?: string;
   size?: number;
 } & Omit<React.ComponentProps<typeof Image>, 'src' | 'height' | 'width' | 'alt'>;
 
 const getBrandIconUrl = ({ icon, color }: Omit<BrandProps, 'size'>) => {
-  const colored = !color && !COLORED_BRANDS.includes(icon) ? '' : `/${color || COLOR_DEFAULT}`;
-  if (SVG_BRANDS[icon]) return SVG_BRANDS[icon];
-  return `https://cdn.simpleicons.org/${TECH_STACK[icon]}${colored}?viewbox=auto`;
+  const colored = !color && !DECOLORED_STACK_ICON.includes(icon) ? '' : `/${color || DEFAULT_COLOR}`;
+  if (LOCAL_STACK_ICONS[icon]) return LOCAL_STACK_ICONS[icon];
+  return `https://cdn.simpleicons.org/${STACK_ICONS[icon]}${colored}?viewbox=auto`;
 };
 
 const Brand = ({ icon, color, size = 24, className, ...props }: BrandProps) => {
@@ -48,14 +31,14 @@ const Brand = ({ icon, color, size = 24, className, ...props }: BrandProps) => {
 };
 
 type IconProps = {
-  src: keyof typeof ICONS;
+  src: keyof typeof LOCAL_ICONS;
   size?: number;
 } & Omit<React.ComponentProps<typeof Image>, 'src' | 'height' | 'width' | 'alt'>;
 
 const Icon = ({ src, size = 24, className, ...props }: IconProps) => {
   return (
     <Image
-      src={ICONS[src]}
+      src={LOCAL_ICONS[src]}
       width={size}
       height={size}
       alt={src}
