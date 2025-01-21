@@ -6,20 +6,13 @@ const Page = () => {
   throw new Error('Should choose one method of Page, no container applied');
 };
 
-const Container = ({ children, className, ...props }: ComponentProps) => {
-  return (
-    <Widget height="2000px" className={ `${styles.container} ${className}`} {...props} id='content'>
-      {children}
-    </Widget>
-  );
-};
-
-
 const Layout = ({ children, className, ...props }: ComponentProps) => {
   return (
-    <div className={`${styles.layout} ${className}`} {...props}>
-      {children}
-    </div>
+    <Widget height="2000px" className={`${styles.container} ${className}`} {...props}>
+      <div className={`${styles.layout} ${className}`} {...props}>
+        {children}
+      </div>
+    </Widget>
   );
 };
 
@@ -31,7 +24,6 @@ const Section = ({ children, className, ...props }: ComponentProps) => {
   );
 };
 
-Page.Container = Container;
 Page.Layout = Layout;
 Page.Section = Section;
 

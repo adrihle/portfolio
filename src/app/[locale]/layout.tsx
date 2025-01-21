@@ -2,7 +2,7 @@ import { LOCALES } from "@/common";
 import { redirect } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/styles/global.scss';
-import { Grid, Page } from "@/components";
+import { Grid } from "@/components";
 import { Greeting, Navigation, LocaleSelector, Social } from "@/containers";
 import styles from './style.module.scss';
 import { AppLayoutProps } from "@/interfaces";
@@ -55,9 +55,7 @@ export default async function LocaleLayout({ children, params }: AppLayoutProps<
             <Menu />
           </Grid.Item>
           <Grid.Item span={2}>
-            <Page.Container>
               {children}
-            </Page.Container>
           </Grid.Item>
         </Grid>
       </body>
