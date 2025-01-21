@@ -44,9 +44,13 @@ const Quote = (props: QuoteProps) => {
   );
 };
 
-const Title = (props: TextProps) => {
+type TitleProps = TextProps & {
+  type?: 'h1' | 'h2' | 'h3';
+};
+
+const Title = ({ type = 'h1', ...props }: TitleProps) => {
   return (
-    <h1 {...props} className={`${styles.title} ${props.className}`}>{props.children}</h1>
+    <h1 {...props} className={`${styles.title} ${styles[`title_${type}`]} ${props.className}`}>{props.children}</h1>
   );
 };
 
