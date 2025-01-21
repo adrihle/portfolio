@@ -1,9 +1,10 @@
 import { Page } from '@/components';
+import Loading from '../loading';
 
 const Projects = () => {
   return (
     <Page.Layout>
-      projects page
+      <Loading />
     </Page.Layout>
   );
 };
