@@ -3,7 +3,12 @@
 .layout {
   @include animation.popin;
 
+  padding: 20px;
   padding-bottom: 30px;
+
+  h1 {
+    /* font-size: clamp(3rem, 4vw, 5rem); */
+  }
 }
 
 .section {

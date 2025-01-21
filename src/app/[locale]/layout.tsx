@@ -55,7 +55,7 @@ export default async function LocaleLayout({ children, params }: AppLayoutProps<
             <Menu />
           </Grid.Item>
           <Grid.Item span={2}>
-              {children}
+            {children}
           </Grid.Item>
         </Grid>
       </body>

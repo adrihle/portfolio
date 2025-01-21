@@ -49,9 +49,14 @@ type TitleProps = TextProps & {
 };
 
 const Title = ({ type = 'h1', ...props }: TitleProps) => {
-  return (
-    <h1 {...props} className={`${styles.title} ${styles[`title_${type}`]} ${props.className}`}>{props.children}</h1>
-  );
+
+  const types: Record<Required<TitleProps>['type'], React.ReactElement> = {
+    h1: <h1 {...props} className={`${styles.title} ${props.className}`}>{props.children}</h1>,
+    h2: <h2 {...props} className={`${styles.title} ${props.className}`}>{props.children}</h2>,
+    h3: <h3 {...props} className={`${styles.title} ${props.className}`}>{props.children}</h3>,
+  };
+
+  return types[type];
 };
 
 Text.Type = TextType;

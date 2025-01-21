@@ -9,7 +9,7 @@ const Home = async ({ params }: { params: { locale: Locale } }) => {
   const { INTRO, INSPIRATION, ROADMAP } = await getContent({ locale });
   return (
     <Page.Layout>
-      <Text.Title>{INTRO.title}</Text.Title>
+      <Text.Title type='h1'>{INTRO.title}</Text.Title>
       <Text>{INTRO.description}</Text>
       <Image.Fill src={'/nomad.avif'}/>
     </Page.Layout>
