@@ -16,7 +16,7 @@ type FillProps = Omit<NextImageProps, 'width' | 'height' | 'fill' | 'alt'> & {
 
 const Fill = ({ aspectRatio = '16 / 9', ...props }: FillProps) => {
   return (
-    <div style={{ position: 'relative', width: '100%', aspectRatio }}>
+    <div style={{ position: 'relative', width: '100%', aspectRatio, ...props.style }}>
       <CImage
         {...props}
         fill

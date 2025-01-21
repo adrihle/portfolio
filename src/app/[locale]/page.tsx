@@ -2,7 +2,6 @@ import { Image, Page, Text } from '@/components';
 import { Locale } from '@/interfaces';
 import { getParams } from '@/utils';
 import { getContent } from './action';
-import { TestingImage } from '@/components/image/otro';
 
 const Home = async ({ params }: { params: { locale: Locale } }) => {
   const { locale } = await getParams(params);
@@ -11,7 +10,8 @@ const Home = async ({ params }: { params: { locale: Locale } }) => {
     <Page.Layout>
       <Text.Title type='h1'>{INTRO.title}</Text.Title>
       <Text>{INTRO.description}</Text>
-      <Image.Fill src={'/nomad.avif'}/>
+      <Text>{INTRO.description}</Text>
+      <Image.Fill src={'/nomad.avif'} />
     </Page.Layout>
   );
 };
