@@ -1,10 +1,11 @@
-import { Page } from '@/components';
+import { UnderMaintenance } from '@/containers';
+import { Locale } from '@/interfaces';
+import { getParams } from '@/utils';
 
-const Articles = () => {
+const Articles = async ({ params }: { params: { locale: Locale } }) => {
+  const { locale } = await getParams(params);
   return (
-    <Page.Layout>
-      articles page
-    </Page.Layout>
+    <UnderMaintenance locale={locale} />
   );
 };
 

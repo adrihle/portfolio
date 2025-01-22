@@ -28,6 +28,13 @@ const ROUTES: Routes = {
     background: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)',
     shortcutKey: 'a',
   },
+  CONTRIBUTIONS: {
+    image: '/package.svg',
+    label: 'Libraries',
+    href: '/contributions',
+    background: 'linear-gradient(135deg, #3a1c71 0%, #d76d77 50%, #ffaf7b 100%)',
+    shortcutKey: 'l',
+  },
   PROJECTS: {
     image: '/project.svg',
     label: 'Projects',
@@ -41,13 +48,6 @@ const ROUTES: Routes = {
     href: '/articles',
     background: 'linear-gradient(135deg, #d31027 0%, #ea384d 100%)',
     shortcutKey: 'r',
-  },
-  CONTRIBUTIONS: {
-    image: '/package.svg',
-    label: 'Libraries',
-    href: '/contributions',
-    background: 'linear-gradient(135deg, #3a1c71 0%, #d76d77 50%, #ffaf7b 100%)',
-    shortcutKey: 'l',
   },
 };
 

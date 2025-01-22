@@ -11,8 +11,8 @@ const Greeting = () => {
     <Widget className={styles.presentation}>
       <Image src={PROFILE_IMAGE} width={IMAGE_SIZE} height={IMAGE_SIZE} alt='me' className={styles.image} priority />
       <div className={styles.presentationTextContainer}>
-        <Text size='medium'>{WELCOME}</Text>
-        <Text size='medium'>
+        <Text size='medium' className={styles.intro}>{WELCOME}</Text>
+        <Text size='medium' className={styles.intro}>
           {INTRO.FIXED}
           <Text.Typing
             sequence={INTRO.SEQUENCE}
