@@ -1,27 +1,6 @@
 @use 'screen';
 @use 'utils';
 
-.grid {
-  gap: 15px;
-
-  @include screen.xs {
-    gap: 0;
-  }
-}
-
-.grid_menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  @include screen.xs {
-    margin-bottom: 15px;
-    iframe {
-      display: none;
-    }
-  }
-}
-
 .loading {
   height: 100%;
   @include utils.flex-center;
@@ -29,66 +8,5 @@
   @include screen.xs {
     padding-top: 50px;
     justify-content: flex-start;
-  }
-}
-
-.social {
-  @include screen.xxl {
-    order: 3;
-    grid-column: span 1 !important;
-    height: 100%;
-  }
-
-}
-
-.bso_bottom {
-  @include screen.xxl {
-    display: none;
-  }
-}
-
-.bso {
-  display: none;
-  @include screen.xxl {
-    display: block;
-    order: 3;
-    grid-column: span 1 !important;
-  }
-}
-
-.locale {
-  @include screen.xxl {
-    order: 2;
-  }
-
-  @include screen.md {
-    order: 2;
-  }
-
-  @include screen.lg {
-    order: 2;
-  }
-
-  @include screen.sm {
-    order: 2;
-  }
-}
-
-.navigation {
-  @include screen.xxl {
-    order: 4;
-    grid-column: span 2 !important;
-  }
-
-  @include screen.md {
-    order: 4;
-  }
-
-  @include screen.lg {
-    order: 4;
-  }
-
-  @include screen.sm {
-    order: 4;
   }
 }
