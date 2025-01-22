@@ -19,39 +19,18 @@ const Text = ({ children, className, size = 'default', italic, bold, color, ...p
     className,
   ].join(' ');
   return (
-    <p className={styleClass} {...props}>
+    <div className={styleClass} {...props}>
       {children}
-    </p>
+    </div>
   );
 };
 
-const TextType = (props: React.ComponentProps<typeof TypeAnimation>) => {
+const Typing = (props: React.ComponentProps<typeof TypeAnimation>) => {
   return (
     <TypeAnimation {...props} />
   );
 };
 
-type QuoteProps = {
-  by: string
-} &  DetailedHTMLProps<HTMLAttributes<HTMLQuoteElement>, HTMLQuoteElement>;
-
-const Quote = (props: QuoteProps) => {
-  return (
-    <blockquote {...props} className={`${styles.quote} ${props.className}`}>
-      {props.children}
-      <span>{'- '}{props.by}</span>
-    </blockquote>
-  );
-};
-
-const Title = (props: TextProps) => {
-  return (
-    <h1 {...props} className={`${styles.title} ${props.className}`}>{props.children}</h1>
-  );
-};
-
-Text.Type = TextType;
-Text.Quote = Quote;
-Text.Title = Title;
+Text.Typing = Typing;
 
 export { Text };

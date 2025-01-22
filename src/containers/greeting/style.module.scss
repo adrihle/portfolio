@@ -16,44 +16,16 @@
 
 .presentationTextContainer {
   padding: 5px;
-}
 
-.presentationItem {
-  margin-bottom: 8px;
-  display: flex;
-}
-
-.social {
-  min-width: 100%;
-  padding: 12px;
-  display: flex;
-  min-height: 95%;
-  max-height: 132px;
-}
-
-.socialItem {
-  grid-column: span 2 !important;
-  order: 3;
-}
-
-.socialGrid {
-  place-items: center;
-
-  @include screen.md {
-    gap: 0 !important;
-  }
-}
-
-.socialIcon {
-  @include utils.flex-center;
-  padding: 15px;
-  background-color: colors.$bg;
-  border-radius: 50%;
-
-  @include anim.hover(1.2);
 }
 
 .image {
   border-radius: 50%;
   margin-right: 10px;
+}
+
+.intro {
+  @include screen.sm {
+    font-size: 15px;
+  }
 }

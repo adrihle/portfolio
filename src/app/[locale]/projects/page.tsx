@@ -1,10 +1,10 @@
-import { Page } from '@/components';
+import { UnderMaintenance } from '@/containers';
+import { getParams } from '@/utils';
 
-const Projects = () => {
+const Projects = async ({ params }: any) => {
+  const { locale } = await getParams(params);
   return (
-    <Page.Layout>
-      projects page
-    </Page.Layout>
+    <UnderMaintenance locale={locale}/>
   );
 };
 

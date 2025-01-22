@@ -1,25 +1,22 @@
-import { Text, Page } from "@/components";
+import { Page } from "@/components";
 import { PackageList } from '@/containers';
-import { getContributions } from './action';
-import { TEXT } from './text';
-import styles from './style.module.scss';
-import { ServiceContent } from "@/services";
+import { getContent } from './action';
+import { getParams } from "@/utils";
 
-const Contributions = async ({ params }: any) => {
-  const contributions = await getContributions();
-  const locale = (await params).locale;
-  const texts = await ServiceContent.generatePageTexts<typeof TEXT>({ text: TEXT, locale, page: 'contributions' })
+const Contributions = async ({ params }: { params: { locale: string } }) => {
+  const { locale } = await getParams(params);
+  const texts = await getContent({ locale });
   return (
     <Page.Layout>
+      <Page.Heading>{texts.TITLE}</Page.Heading>
       <Page.Section>
-        <Text.Title>{texts.TITLE}</Text.Title>
-        <Text.Quote by={texts.QUOTE.AUTHOR}>{texts.QUOTE.CONTENT}</Text.Quote>
-        <Text className={styles.description}>{texts.DESCRIPTION}</Text>
+        <Page.Quote by={texts.QUOTE.AUTHOR}>{texts.QUOTE.CONTENT}</Page.Quote>
+        <Page.Paragraph>{texts.DESCRIPTION}</Page.Paragraph>
       </Page.Section>
-      <PackageList {...{ contributions }} />
-      <Page.Section className={styles.footer}>
-        <Text className={styles.description}>{texts.CONNECT}</Text>
+      <Page.Section>
+        <PackageList {...{ contributions: texts.contributions }} />
       </Page.Section>
+      <Page.Paragraph>{texts.CONNECT}</Page.Paragraph>
     </Page.Layout>
   );
 };

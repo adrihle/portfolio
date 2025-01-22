@@ -1,30 +1,6 @@
 @use 'theme/typography' as typography;
 @use 'theme/colors' as colors;
 
-.title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.quote {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  font-style: italic;
-  margin: 20px 0;
-  padding: 10px 20px;
-  border-left: 4px solid colors.$secondary;
-  background: rgba(108, 99, 255, 0.05);
-  position: relative;
-  display: inline-block;
-  text-align: left;
-
-  span {
-    font-weight: bold;
-    color: colors.$muted-text;
-  }
-}
-
 .description {
   font-size: clamp(1rem, 2.5vw, 1.4rem);
 }

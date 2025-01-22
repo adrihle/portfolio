@@ -4,7 +4,7 @@ interface SpinnerProps {
   baseColor?: string;
 }
 
-const Spinner: React.FC<SpinnerProps> = ({
+const Loader: React.FC<SpinnerProps> = ({
   baseColor = 'hsl(223,15%,60%)',
 }) => {
   const strokeColor = `hsl(${extractHue(baseColor)}, 20%, 75%)`; 
@@ -99,7 +99,7 @@ const Spinner: React.FC<SpinnerProps> = ({
   );
 };
 
-export { Spinner };
+export { Loader };
 
 function extractHue(hsl: string): number {
   const hueMatch = /hsl\((\d+),/.exec(hsl);

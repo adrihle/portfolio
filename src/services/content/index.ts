@@ -10,7 +10,7 @@ const logger = new ProviderLog('SERVICE CONTENT');
 const execPromise = util.promisify(exec);
 
 const getTextFileLastUpdate = async (page: string): Promise<string | null> => {
-  const filePath = `./src/app/[locale]/${page}/text.ts`;
+  const filePath = page === 'home' ? './src/app/[locale]/text.ts' :  `./src/app/[locale]/${page}/text.ts`;
   const absolutePath = path.resolve(filePath);
   const relativePath = path.relative(process.cwd(), absolutePath);
   try {

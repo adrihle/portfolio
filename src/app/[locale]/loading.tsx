@@ -1,11 +1,14 @@
-import { Spinner } from '@/components';
+import { Loader, Widget } from '@/components';
 import styles from './style.module.scss';
 
 export default function Loading() {
   return (
-    <div className={styles.loading}>
-      <Spinner />
-    </div>
+    <Widget height='1000px'>
+      <div className={styles.loading}>
+        <Loader />
+      </div>
+    </Widget>
   );
 };
+
 
