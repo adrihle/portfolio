@@ -1,22 +1,27 @@
 const INTRO = {
   title: 'A Journey Through Code, Creativity, and Connection',
-  description: `
-    As a Senior Full-Stack Engineer, I’ve mastered the art of turning creativity into code.
-    For me, coding is more than a profession—it’s a craft, a way to express ideas and solve complex
-    problems with elegance and precision.
-
-    Whether I’m building robust architectures, designing intuitive user experiences, or simplifying
-    intricate systems, my approach is grounded in blending technical expertise with imaginative problem-solving.
-
-    But my story goes beyond the keyboard.
-    Living as a digital nomad in my mobile home, I’ve embraced a life of exploration, adventure,
-    and connection.
-    My travels have allowed me to meet people from diverse cultures, expanding my perspective on life
-    and enriching my professional skills.
-
-    These encounters have taught me the value of adaptability, empathy, and collaboration—traits that
-    shine through in my approach to engineering and problem-solving.
-  `,
+  content: {
+    p1: `
+      As a Full-Stack Engineer, I’ve mastered the art of turning creativity into code.
+      For me, coding is more than a profession—it’s a craft, a way to express ideas and solve complex
+      problems with elegance and precision.
+    `,
+    p2: `
+      Whether I’m building robust architectures, designing intuitive user experiences, or simplifying
+      intricate systems, my approach is grounded in blending technical expertise with imaginative problem-solving.
+    `,
+    highlight: 'But my story goes beyond the keyboard.',
+    p3: `
+      Living as a digital nomad in my mobile home, I’ve embraced a life of exploration, adventure,
+      and connection.
+      My travels have allowed me to meet people from diverse cultures, expanding my perspective on life
+      and enriching my professional skills.
+    `,
+    p4: `
+      These encounters have taught me the value of adaptability, empathy, and collaboration—traits that
+      shine through in my approach to engineering and problem-solving.
+    `,
+  },
 };
 
 const INSPIRATION = {

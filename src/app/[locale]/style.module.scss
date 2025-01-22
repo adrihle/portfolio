@@ -1,6 +1,20 @@
 @use 'screen';
 @use 'utils';
 
+.grid {
+  gap: 15px;
+
+  @include screen.xs {
+    gap: 0;
+  }
+}
+
+.grid_menu {
+  @include screen.xs {
+    margin-bottom: 15px;
+  }
+}
+
 .loading {
   height: 100%;
   @include utils.flex-center;

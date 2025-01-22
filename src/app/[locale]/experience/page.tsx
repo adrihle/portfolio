@@ -1,4 +1,4 @@
-import { Text, Page } from "@/components";
+import { Page } from "@/components";
 import { ExperienceTimeline } from "@/containers";
 import { getContent } from "./action";
 
@@ -7,10 +7,10 @@ const Experience = async ({ params }: any) => {
   const texts = await getContent({ locale });
   return (
     <Page.Layout>
-      <Text.Title>{texts.title}</Text.Title>
-      <Text>{texts.description}</Text>
+      <Page.Heading>{texts.title}</Page.Heading>
+      <Page.Paragraph>{texts.description}</Page.Paragraph>
       <ExperienceTimeline experiences={texts.experiences} />
-      <Text>{texts.footer}</Text>
+      <Page.Paragraph>{texts.footer}</Page.Paragraph>
     </Page.Layout>
   );
 };

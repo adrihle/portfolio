@@ -14,7 +14,7 @@ const Greeting = () => {
         <Text size='medium'>{WELCOME}</Text>
         <Text size='medium'>
           {INTRO.FIXED}
-          <Text.Type
+          <Text.Typing
             sequence={INTRO.SEQUENCE}
             repeat={Infinity}
             speed={50}

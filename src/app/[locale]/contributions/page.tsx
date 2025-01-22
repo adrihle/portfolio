@@ -1,4 +1,4 @@
-import { Text, Page } from "@/components";
+import { Page } from "@/components";
 import { PackageList } from '@/containers';
 import { getContent } from './action';
 import styles from './style.module.scss';
@@ -9,15 +9,13 @@ const Contributions = async ({ params }: { params: { locale: string } }) => {
   const texts = await getContent({ locale });
   return (
     <Page.Layout>
+      <Page.Heading>{texts.TITLE}</Page.Heading>
+      <Page.Quote by={texts.QUOTE.AUTHOR}>{texts.QUOTE.CONTENT}</Page.Quote>
+      <Page.Paragraph className={styles.description}>{texts.DESCRIPTION}</Page.Paragraph>
       <Page.Section>
-        <Text.Title>{texts.TITLE}</Text.Title>
-        <Text.Quote by={texts.QUOTE.AUTHOR}>{texts.QUOTE.CONTENT}</Text.Quote>
-        <Text className={styles.description}>{texts.DESCRIPTION}</Text>
+        <PackageList {...{ contributions: texts.contributions }} />
       </Page.Section>
-      <PackageList {...{ contributions: texts.contributions }} />
-      <Page.Section className={styles.footer}>
-        <Text className={styles.description}>{texts.CONNECT}</Text>
-      </Page.Section>
+      <Page.Paragraph className={styles.description}>{texts.CONNECT}</Page.Paragraph>
     </Page.Layout>
   );
 };

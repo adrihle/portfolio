@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 
 const LAYOUT_SETTINGS = {
   MIN_WIDTH: '220px',
-  GAP: 15,
+  GAP: 10,
 } as const;
 
 const Menu = () => {
@@ -50,8 +50,8 @@ export default async function LocaleLayout({ children, params }: AppLayoutProps<
   return (
     <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Grid minWidth={LAYOUT_SETTINGS.MIN_WIDTH} gap={LAYOUT_SETTINGS.GAP}>
-          <Grid.Item span={1}>
+        <Grid minWidth={LAYOUT_SETTINGS.MIN_WIDTH} className={styles.grid}>
+          <Grid.Item span={1} className={styles.grid_menu}>
             <Menu />
           </Grid.Item>
           <Grid.Item span={2}>

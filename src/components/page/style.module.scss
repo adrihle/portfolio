@@ -1,29 +1,129 @@
+/* @use 'animations/fade-in' as animation; */
+/* @use 'theme/colors' as colors; */
+/**/
+/* .layout { */
+/*   @include animation.popin; */
+/**/
+/*   padding-bottom: 30px; */
+/* } */
+/**/
+/* .section { */
+/*   padding: 10px; */
+/* } */
+/**/
+/* .quote { */
+/*   font-size: clamp(1rem, 2.5vw, 1.2rem); */
+/*   font-style: italic; */
+/*   margin: 10px 0; */
+/*   padding: 10px 20px; */
+/*   border-left: 4px solid colors.$secondary; */
+/*   background: rgba(108, 99, 255, 0.05); */
+/*   position: relative; */
+/*   display: inline-block; */
+/*   text-align: left; */
+/**/
+/*   span { */
+/*     font-weight: bold; */
+/*     color: colors.$muted-text; */
+/*   } */
+/* } */
+/**/
+/* .heading { */
+/*   text-transform: uppercase; */
+/*   margin: 20px 0; */
+/* } */
+/**/
+/* h1.heading { */
+/*   margin: 0 0 20px 0; */
+/* } */
+/**/
+/* h2.heading { */
+/**/
+/* } */
+/**/
+/* h3.heading { */
+/**/
+/* } */
+/**/
+/* .paragraph { */
+/*   padding: 15px 5px; */
+/* } */
+/**/
+/* .mark { */
+/**/
+/* } */
+
 @use 'animations/fade-in' as animation;
 @use 'theme/colors' as colors;
+@use 'screen';
 
 .layout {
   @include animation.popin;
-
   padding-bottom: 30px;
-
-  h1 {
-    font-size: clamp(2rem, 4vw, 5rem);
-  }
-
-  h2 {
-    font-size: clamp(1.2rem, 4vw, 3rem);
-  }
-
-  p {
-    font-size: clamp(1rem, 4vw, 1.2rem);
-  }
-
-  img {
-    margin: 30px 0;
-    box-shadow: colors.$shadow-dark;
-  }
 }
 
 .section {
-  padding: 10px;
+  padding: 20px;
+
+  @include screen.xs {
+    padding: 10px 0;
+  }
+}
+
+.quote {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-style: italic;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-left: 4px solid colors.$secondary;
+  background: rgba(colors.$secondary, 0.1); // Subtle background for quotes
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  border-radius: 6px;
+
+  span {
+    font-weight: bold;
+    color: colors.$muted-text;
+  }
+}
+
+.heading {
+  text-transform: uppercase;
+  margin: 20px 0;
+  font-weight: bold;
+  color: colors.$primary-text;
+}
+
+h1.heading {
+  margin: 0 0 20px 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: colors.$secondary;
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);}
+
+h2.heading {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: colors.$highlight;
+  border-bottom: 2px solid colors.$highlight;
+  padding-bottom: 8px;
+}
+
+h3.heading {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: colors.$accent;
+}
+
+.paragraph {
+  padding: 10px 5px;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: colors.$text;
+  text-align: justify;
+}
+
+.mark {
+  background-color: transparent;
+  color: colors.$accent;
+  font-weight: bold;
+  padding: 10px 4px;
+  border-radius: 3px;
 }
