@@ -10,7 +10,7 @@ const logger = new ProviderLog('SERVICE CONTENT');
 const execPromise = util.promisify(exec);
 
 const getTextFileLastUpdate = async (page: string): Promise<string | null> => {
-  const filePath = `./src/app/[locale]/${page}/text.ts`;
+  const filePath = page === 'home' ? './src/app/[locale]/text.ts' :  `./src/app/[locale]/${page}/text.ts`;
   const absolutePath = path.resolve(filePath);
   const relativePath = path.relative(process.cwd(), absolutePath);
   try {
@@ -37,8 +37,6 @@ const generatePageTexts = async <T>({ page, locale, text, translate = true }: Te
   if (texts) {
     logger.debug(`Found in database content for ${locale} of page: ${page}`);
     const lastUpdateFileDate = await getTextFileLastUpdate(page);
-
-    console.log({ lastUpdateFileDate });
 
     if (!lastUpdateFileDate) return texts.translations as T;
 

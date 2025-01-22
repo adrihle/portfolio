@@ -6,8 +6,8 @@ export default function Loading() {
     <Widget height='1000px'>
       <div className={styles.loading}>
         <Spinner />
-        {/* <div className={styles.spinner}></div> */}
-        {/* <span className={styles.loader}></span> */}
+        <div className={styles.spinner}></div>
+        <span className={styles.loader}></span>
         {/* <span className={styles.loader2}></span> */}
       </div>
     </Widget>

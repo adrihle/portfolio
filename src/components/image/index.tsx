@@ -6,7 +6,7 @@ type ImageProps = Omit<NextImageProps, 'alt'> & {
 };
 
 const CImage = ({ alt, ...props }: ImageProps) => {
-  return <NextImage {...props} alt={alt ? alt : `${props.src}`} />;
+  return <NextImage {...props} alt={alt ? alt : `${props.src}`} priority/>;
 };
 
 type FillProps = Omit<NextImageProps, 'width' | 'height' | 'fill' | 'alt'> & {

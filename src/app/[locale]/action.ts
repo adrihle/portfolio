@@ -3,9 +3,7 @@ import { ServiceContent } from "@/services";
 import { TEXT } from "./text";
 
 const getContent = async ({ locale }: { locale: Locale }) => {
-  //const content = await ServiceContent.generatePageTexts({ text: TEXT, locale, page: 'home' });
-
-  return TEXT;
+  return ServiceContent.generatePageTexts({ text: TEXT, locale, page: 'home' });
 };
 
 export { getContent };
