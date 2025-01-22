@@ -49,6 +49,20 @@ const ROUTES: Routes = {
     background: 'linear-gradient(135deg, #d31027 0%, #ea384d 100%)',
     shortcutKey: 'r',
   },
+  KNOWLEDGE: {
+    image: '/knowledge.svg',
+    label: 'Knowledge',
+    href: '/knowledge',
+    background: 'linear-gradient(135deg, #ff6a00 0%, #ee0979 100%)',
+    shortcutKey: 'k',
+  },
+  CERTIFICATE: {
+    image: '/certificate.svg',
+    label: 'Certificate',
+    href: '/certificate',
+    background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    shortcutKey: 'f',
+  },
 };
 
 export const NAVIGATION_SETTINGS = {
