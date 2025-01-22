@@ -26,28 +26,34 @@ const INTRO = {
 
 const INSPIRATION = {
   title: 'What Inspires Me?',
-  description: `
-    Nature fuels my creativity and inspires the way I approach coding and problem-solving.
-    Whether it’s the simplicity of a wave while kitesurfing or the discipline required in boxing,
-    the outdoors provides me with clarity and focus to design efficient, clean code.
-
-    Equally important to me is contributing to the developer community.
-    Crafting open-source software and writing articles to share my knowledge and experiences are ways
-    I aim to give back, support others, and help fellow developers grow along their journeys.
-  `,
+  content: {
+    p1: `
+      Nature fuels my creativity and inspires the way I approach coding and problem-solving.
+      Whether it’s the simplicity of a wave while kitesurfing or the discipline required in boxing,
+      the outdoors provides me with clarity and focus to design efficient, clean code.
+    `,
+    p2: `
+      Equally important to me is contributing to the developer community.
+      Crafting open-source software and writing articles to share my knowledge and experiences are ways
+      I aim to give back, support others, and help fellow developers grow along their journeys.
+    `,
+  }
 };
 
 const ROADMAP = {
   title: 'What next?',
-  description: `
-    Traveling the world and connecting with people from diverse cultures has given me a global perspective,
-    enhancing both my personal and professional life. This broadened vision allows me to tackle challenges with empathy and a fresh, innovative outlook.
-
-    As a Full Stack Engineer, my work is driven by a passion for creative problem-solving,
-    where ingenuity meets precision to develop enduring solutions.
-    I take pride in delivering excellence, whether simplifying intricate systems or crafting innovative,
-    functional results that stand the test of time.
-  `,
+  content: {
+    p1: `
+      Traveling the world and connecting with people from diverse cultures has given me a global perspective,
+      enhancing both my personal and professional life. This broadened vision allows me to tackle challenges with empathy and a fresh, innovative outlook.
+    `,
+    p2: `
+      As a Full Stack Engineer, my work is driven by a passion for creative problem-solving,
+      where ingenuity meets precision to develop enduring solutions.
+      I take pride in delivering excellence, whether simplifying intricate systems or crafting innovative,
+      functional results that stand the test of time.
+    `,
+  }
 };
 
 const TEXT = {

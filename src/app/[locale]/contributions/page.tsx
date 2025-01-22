@@ -1,7 +1,6 @@
 import { Page } from "@/components";
 import { PackageList } from '@/containers';
 import { getContent } from './action';
-import styles from './style.module.scss';
 import { getParams } from "@/utils";
 
 const Contributions = async ({ params }: { params: { locale: string } }) => {
@@ -10,12 +9,14 @@ const Contributions = async ({ params }: { params: { locale: string } }) => {
   return (
     <Page.Layout>
       <Page.Heading>{texts.TITLE}</Page.Heading>
-      <Page.Quote by={texts.QUOTE.AUTHOR}>{texts.QUOTE.CONTENT}</Page.Quote>
-      <Page.Paragraph className={styles.description}>{texts.DESCRIPTION}</Page.Paragraph>
+      <Page.Section>
+        <Page.Quote by={texts.QUOTE.AUTHOR}>{texts.QUOTE.CONTENT}</Page.Quote>
+        <Page.Paragraph>{texts.DESCRIPTION}</Page.Paragraph>
+      </Page.Section>
       <Page.Section>
         <PackageList {...{ contributions: texts.contributions }} />
       </Page.Section>
-      <Page.Paragraph className={styles.description}>{texts.CONNECT}</Page.Paragraph>
+      <Page.Paragraph>{texts.CONNECT}</Page.Paragraph>
     </Page.Layout>
   );
 };

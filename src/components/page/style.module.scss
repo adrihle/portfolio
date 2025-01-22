@@ -63,7 +63,7 @@
 }
 
 .section {
-  padding: 20px;
+  padding: 20px 0;
 
   @include screen.xs {
     padding: 10px 0;

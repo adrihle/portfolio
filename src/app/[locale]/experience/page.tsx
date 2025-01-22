@@ -9,7 +9,9 @@ const Experience = async ({ params }: any) => {
     <Page.Layout>
       <Page.Heading>{texts.title}</Page.Heading>
       <Page.Paragraph>{texts.description}</Page.Paragraph>
-      <ExperienceTimeline experiences={texts.experiences} />
+      <Page.Section>
+        <ExperienceTimeline experiences={texts.experiences} />
+      </Page.Section>
       <Page.Paragraph>{texts.footer}</Page.Paragraph>
     </Page.Layout>
   );
