@@ -12,6 +12,7 @@ const ICONS = {
   globe: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737638003/PORTFOLIO/agani9vrghook5sfps9s.svg',
   pin: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737638010/PORTFOLIO/wcq9dcqg8oy1ybglipnq.svg',
   mail: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737638067/PORTFOLIO/kb03aqdtknuxpehnldbk.svg',
+  cv: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737638483/PORTFOLIO/rkvhn0scqhlg5geal6ly.svg',
 } as const;
 
 const IMAGES = {
