@@ -1,3 +1,4 @@
+import { ASSETS } from "@/common";
 import { Experience } from "@/containers/experience-timeline";
 
 type ExperiencePage = {
@@ -61,7 +62,7 @@ const TEXT: ExperiencePage = {
       description: 'Developed full-stack web solutions while working in the exciting world of e-commerce. It was like designing the perfect shopping cart—without ever needing to worry about it being abandoned!',
       location: 'Gibraltar',
       logo: {
-        path: '/basantani.png',
+        path: ASSETS.IMAGES.basantani,
         height: 50,
         width: 100,
       },
@@ -75,7 +76,7 @@ const TEXT: ExperiencePage = {
       description: 'Started my professional journey by building robust solutions for media applications. It was like being part of the backstage crew, making sure everything ran smoothly while the media stars shined.',
       location: 'Gibraltar',
       logo: {
-        path: '/horizon.png',
+        path: ASSETS.IMAGES.horizon,
         height: 50,
         width: 100,
       },

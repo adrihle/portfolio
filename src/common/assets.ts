@@ -13,6 +13,10 @@ const ICONS = {
   pin: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737638010/PORTFOLIO/wcq9dcqg8oy1ybglipnq.svg',
   mail: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737638067/PORTFOLIO/kb03aqdtknuxpehnldbk.svg',
   cv: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737638483/PORTFOLIO/rkvhn0scqhlg5geal6ly.svg',
+  github: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737638756/PORTFOLIO/i6mc8ltopss4dzkwm1ia.svg',
+  instagram: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737638773/PORTFOLIO/tikki94v0cgew38oynwx.svg',
+  linkedin: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737638789/PORTFOLIO/dv6nkxjv00rvn3jlmwiy.svg',
+  npm: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737638905/PORTFOLIO/xrxobr4syjjosfx84alq.svg',
 } as const;
 
 const IMAGES = {
