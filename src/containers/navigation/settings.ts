@@ -1,3 +1,5 @@
+import { ASSETS } from "@/common";
+
 type Routes = Record<string, {
   image: string;
   label: string;
@@ -8,21 +10,21 @@ type Routes = Record<string, {
 
 const ROUTES: Routes = {
   HOME: {
-    image: '/home.svg',
+    image: ASSETS.ICONS.home,
     label: 'Home',
     href: '/',
     background: 'linear-gradient(135deg, #56ccf2 0%, #2f80ed 100%)',
     shortcutKey: 'h',
   },
   EXPERIENCE: {
-    image: '/experience.svg',
+    image: ASSETS.ICONS.experience,
     label: 'Experience',
     href: '/experience',
     background: 'linear-gradient(135deg, #1db954 0%, #1ed760 100%)',
     shortcutKey: 'x',
   },
   ABOUT: {
-    image: '/about.svg',
+    image: ASSETS.ICONS.about,
     label: 'About',
     href: '/about',
     background: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)',

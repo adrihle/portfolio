@@ -57,7 +57,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.finwave.es',
         pathname: '/**',
       },
-    ]
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
