@@ -20,8 +20,10 @@ const ICONS = {
 } as const;
 
 const IMAGES = {
-  me: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737637215/PORTFOLIO/y0xrdfsewnwtxbuu22px.png',
+  me: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737637215/PORTFOLIO/y0xrdfsewnwtxbuu22px.png',
+  me_thumbnail: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737637215/PORTFOLIO/y0xrdfsewnwtxbuu22px.png',
   countryside: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737637031/PORTFOLIO/ek6epfaf5rxumbx5joup.avif',
+  countryside_banner: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_fill,g_auto,h_250,w_970/b_rgb:000000,e_gradient_fade,y_-0.50/v1737637031/PORTFOLIO/ek6epfaf5rxumbx5joup.avif',
   basantani: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737637223/PORTFOLIO/rddy2l7uhvdaqlnxplyo.png',
   horizon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737637219/PORTFOLIO/kpje8jnflj3ryct15olq.png',
 } as const;
