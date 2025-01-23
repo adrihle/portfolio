@@ -19,26 +19,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn.pixabay.com',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn.iconscout.com',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'www.npmjs.com',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'ghchart.rshah.org',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'cdn.simpleicons.org',
         pathname: '/**',
       },
@@ -57,7 +37,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.finwave.es',
         pathname: '/**',
       },
-    ]
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '/**',
+      },
+    ],
   },
 };
 

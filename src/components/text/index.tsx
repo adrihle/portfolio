@@ -1,6 +1,7 @@
-import styles from './style.module.scss';
-import { DetailedHTMLProps, HTMLAttributes } from "react"
+'use client'
+import { DetailedHTMLProps, HTMLAttributes, useState } from "react"
 import { TypeAnimation } from "react-type-animation";
+import styles from './style.module.scss';
 
 type TextProps = {
   size?: 'small' | 'medium' | 'large' | 'default';
@@ -31,6 +32,25 @@ const Typing = (props: React.ComponentProps<typeof TypeAnimation>) => {
   );
 };
 
+const Expandable = ({ text, maxLength = 60, ...props }: TextProps & { text: string, maxLength?: number }) => {
+  const [open, setOpen] = useState(false);
+
+  const isOverMaxLength = text.length > maxLength;
+  const content = `${(!open && isOverMaxLength) ? text.slice(0, maxLength) : text}${(!open && isOverMaxLength) ? '...' : ''}`;
+
+  return (
+    <>
+      <Text {...props}>{content}</Text>
+      {isOverMaxLength && (
+        <button className={styles.button} onClick={() => setOpen(prev => !prev)}>
+          {open ? 'Show less' : 'Show more'}
+        </button>
+      )}
+    </>
+  );
+};
+
 Text.Typing = Typing;
+Text.Expandable = Expandable;
 
 export { Text };

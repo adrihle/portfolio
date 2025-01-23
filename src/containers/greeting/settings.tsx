@@ -1,5 +1,7 @@
+import { ASSETS } from "@/common";
+
 export const GREETING_SETTINGS = {
-  PROFILE_IMAGE: '/me.png',
+  PROFILE_IMAGE: ASSETS.IMAGES.me,
   IMAGE_SIZE: 90,
   WELCOME: <>Hi! My name is <strong>Adrian</strong> 👋</>,
   INTRO: {

@@ -2,6 +2,7 @@ import { Image, Page } from '@/components';
 import { Locale } from '@/interfaces';
 import { getParams } from '@/utils';
 import { getContent } from './action';
+import { ASSETS } from '@/common';
 
 const Home = async ({ params }: { params: { locale: Locale } }) => {
   const { locale } = await getParams(params);
@@ -16,7 +17,7 @@ const Home = async ({ params }: { params: { locale: Locale } }) => {
         <Page.Paragraph>{INTRO.content.p3}</Page.Paragraph>
         <Page.Paragraph>{INTRO.content.p4}</Page.Paragraph>
       </Page.Section>
-      <Image.Fill src={'/nomad.avif'} style={{ marginTop: '20px' }}/>
+      <Image.Fill src={ASSETS.IMAGES.countryside} style={{ marginTop: '20px' }}/>
       <Page.Section>
         <Page.Heading type='h2'>{INSPIRATION.title}</Page.Heading>
         <Page.Paragraph>{INSPIRATION.content.p1}</Page.Paragraph>
