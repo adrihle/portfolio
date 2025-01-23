@@ -17,7 +17,7 @@ const ROUTES: Routes = {
     shortcutKey: 'h',
   },
   EXPERIENCE: {
-    image: ASSETS.ICONS.cv,
+    image: ASSETS.ICONS.building,
     label: 'Experience',
     href: '/experience',
     background: 'linear-gradient(135deg, #1db954 0%, #1ed760 100%)',

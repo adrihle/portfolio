@@ -17,6 +17,7 @@ const ICONS = {
   instagram: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737638773/PORTFOLIO/tikki94v0cgew38oynwx.svg',
   linkedin: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737638789/PORTFOLIO/dv6nkxjv00rvn3jlmwiy.svg',
   npm: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737638905/PORTFOLIO/xrxobr4syjjosfx84alq.svg',
+  building: 'https://res.cloudinary.com/dlj66ezaw/image/upload/c_thumb,w_200,g_face/v1737639954/PORTFOLIO/zcxwss2v0ug9ek9ya9ng.svg',
 } as const;
 
 const IMAGES = {
