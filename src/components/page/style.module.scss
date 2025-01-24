@@ -1,58 +1,3 @@
-/* @use 'animations/fade-in' as animation; */
-/* @use 'theme/colors' as colors; */
-/**/
-/* .layout { */
-/*   @include animation.popin; */
-/**/
-/*   padding-bottom: 30px; */
-/* } */
-/**/
-/* .section { */
-/*   padding: 10px; */
-/* } */
-/**/
-/* .quote { */
-/*   font-size: clamp(1rem, 2.5vw, 1.2rem); */
-/*   font-style: italic; */
-/*   margin: 10px 0; */
-/*   padding: 10px 20px; */
-/*   border-left: 4px solid colors.$secondary; */
-/*   background: rgba(108, 99, 255, 0.05); */
-/*   position: relative; */
-/*   display: inline-block; */
-/*   text-align: left; */
-/**/
-/*   span { */
-/*     font-weight: bold; */
-/*     color: colors.$muted-text; */
-/*   } */
-/* } */
-/**/
-/* .heading { */
-/*   text-transform: uppercase; */
-/*   margin: 20px 0; */
-/* } */
-/**/
-/* h1.heading { */
-/*   margin: 0 0 20px 0; */
-/* } */
-/**/
-/* h2.heading { */
-/**/
-/* } */
-/**/
-/* h3.heading { */
-/**/
-/* } */
-/**/
-/* .paragraph { */
-/*   padding: 15px 5px; */
-/* } */
-/**/
-/* .mark { */
-/**/
-/* } */
-
 @use 'animations/fade-in' as animation;
 @use 'theme/colors' as colors;
 @use 'screen';
@@ -67,6 +12,30 @@
 
   @include screen.xs {
     padding: 10px 0;
+  }
+}
+
+.item {
+  position: relative;
+  margin: 1rem 35px;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  &::before {
+    content: "✔";
+    font-size: 1.5rem;
+    color: colors.$secondary;
+    position: absolute;
+    left: -1.75rem;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 

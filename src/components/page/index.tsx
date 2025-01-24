@@ -65,10 +65,17 @@ const Quote = (props: QuoteProps) => {
   );
 };
 
+const Item = ({ children, ...props }: ParagraphProps) => {
+  return (
+    <Paragraph {...props} className={styles.item}>{children}</Paragraph>
+  );
+};
+
 Page.Layout = Layout;
 Page.Section = Section;
 Page.Heading = Heading;
 Page.Paragraph = Paragraph;
 Page.Quote = Quote;
+Page.Item = Item;
 
 export { Page };

@@ -1,0 +1,5 @@
+const CERTIFICATION_TEXT = {
+
+};
+
+export { CERTIFICATION_TEXT };
