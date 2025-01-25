@@ -19,11 +19,11 @@ const CERTIFICATION_TEXT: CertificationText = {
         icon: ASSETS.CERTIFICATIONS.architect.icon,
         cert: ASSETS.CERTIFICATIONS.architect.cert,
       },
-      well_architect: {
-        title: 'Certificate of Completion: Advanced AWS Well-Architected Best Practices',
-        description: 'With this one, I learned the fine art of building AWS solutions that are secure, cost-efficient, and operationally excellent. Because a well-architected cloud is a happy cloud!',
-        icon: ASSETS.CERTIFICATIONS.well_architect.icon,
-        cert: ASSETS.CERTIFICATIONS.well_architect.cert,
+      serverless: {
+        title: 'Certificate of Completion: Developing Serverless Solutions on AWS',
+        description: 'Who needs servers anyway? This certification proves I can design, develop, and deploy serverless applications using AWS Lambda and other AWS services. No servers, no problem!',
+        icon: ASSETS.CERTIFICATIONS.serverless.icon,
+        cert: ASSETS.CERTIFICATIONS.serverless.cert,
       },
       devops: {
         title: 'Certificate of Completion: DevOps Engineering on AWS',
@@ -43,11 +43,11 @@ const CERTIFICATION_TEXT: CertificationText = {
         icon: ASSETS.CERTIFICATIONS.data_sience.icon,
         cert: ASSETS.CERTIFICATIONS.data_sience.cert,
       },
-      serverless: {
-        title: 'Certificate of Completion: Developing Serverless Solutions on AWS',
-        description: 'Who needs servers anyway? This certification proves I can design, develop, and deploy serverless applications using AWS Lambda and other AWS services. No servers, no problem!',
-        icon: ASSETS.CERTIFICATIONS.serverless.icon,
-        cert: ASSETS.CERTIFICATIONS.serverless.cert,
+      well_architect: {
+        title: 'Certificate of Completion: Advanced AWS Well-Architected Best Practices',
+        description: 'With this one, I learned the fine art of building AWS solutions that are secure, cost-efficient, and operationally excellent. Because a well-architected cloud is a happy cloud!',
+        icon: ASSETS.CERTIFICATIONS.well_architect.icon,
+        cert: ASSETS.CERTIFICATIONS.well_architect.cert,
       },
       cloud_operations: {
         title: 'Certificate of Completion: Cloud Operations on AWS',

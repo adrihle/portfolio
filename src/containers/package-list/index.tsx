@@ -48,7 +48,7 @@ const Footer = ({ date, license, href, homepage }: Pick<PackageProps, 'date' | '
 const Body = ({ description }: Pick<PackageProps, 'description'>) => {
   return (
     <div className={styles.body}>
-      <Text italic>{description}</Text>
+      <Text italic bionic size='large'>{description}</Text>
     </div>
   );
 };
