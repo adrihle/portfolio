@@ -11,12 +11,12 @@ const Contributions = async ({ params }: { params: { locale: string } }) => {
       <Page.Heading>{texts.TITLE}</Page.Heading>
       <Page.Section>
         <Page.Quote by={texts.QUOTE.AUTHOR}>{texts.QUOTE.CONTENT}</Page.Quote>
-        <Page.Paragraph>{texts.DESCRIPTION}</Page.Paragraph>
+        <Page.Paragraph bionic>{texts.DESCRIPTION}</Page.Paragraph>
       </Page.Section>
       <Page.Section>
         <PackageList {...{ contributions: texts.contributions }} />
       </Page.Section>
-      <Page.Paragraph>{texts.CONNECT}</Page.Paragraph>
+      <Page.Paragraph bionic>{texts.CONNECT}</Page.Paragraph>
     </Page.Layout>
   );
 };

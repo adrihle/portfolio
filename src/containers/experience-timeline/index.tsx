@@ -79,7 +79,7 @@ const Section = ({ company, id, position, from, to, description, stack, location
       {...props}
     >
       <div className={styles.flexGap}>
-        <Image src={logo.path} width={logo.width} height={logo.height} alt={company}/>
+        <Image src={logo.path} width={logo.width} height={logo.height} alt={company} />
         <div style={{ width: '100%' }}>
           <div className={styles.title}>
             <Text size='medium'>{company}</Text>
@@ -93,7 +93,7 @@ const Section = ({ company, id, position, from, to, description, stack, location
         </div>
       </div>
       <div className={styles.description}>
-        <Text.Expandable italic size='large' text={description} maxLength={300}/>
+        <Text.Expandable italic size='medium' text={description} maxLength={300} bionic />
       </div>
       <div className={styles.flexGap}>
         <Icon src='location' />
@@ -111,7 +111,11 @@ const Sections = ({ experiences }: { experiences: Record<string, Experience> }) 
   return (
     <>
       {sortedExperiences.map(([id, experience], i) => {
-        return <Section key={id} {...experience} id={id} style={{ animationDelay: `${i * 0.3}s` }} />
+        return (
+          <div key={id} className={styles.item}>
+            <Section {...experience} id={id} style={{ animationDelay: `${i * 0.3}s` }} />
+          </div>
+        )
       })}
     </>
   );

@@ -1,0 +1,105 @@
+@use 'theme/colors' as colors;
+@use 'screen';
+
+.description {
+  @include screen.xs {
+    padding-top: 20px;
+  }
+}
+.logo {
+  background-color: white;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include screen.xs {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.logo_container {
+  border-radius: 50%;
+  min-width: 150px;
+  height: 150px;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 20px 0 20px -5px rgba(0, 0, 0, 0.3);
+  margin: -20px;
+
+  @include screen.xs {
+    display: none;
+  }
+}
+
+.container {
+  display: flex;
+  position: relative;
+  margin: 20px 0;
+
+  @include screen.xs {
+    display: block;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 20;
+    width: 20%;
+    height: 100%;
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: 1;
+    pointer-events: none;
+
+    @include screen.xs {
+      width: 60%;
+      right: 0;
+    }
+  }
+}
+
+.content {
+  margin-left: 40px;
+  z-index: 2;
+
+  @include screen.xs {
+    margin-left: unset;
+  }
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid colors.$text; 
+  margin: 10px 0; 
+  width: 100%;
+  opacity: 0.3;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.link {
+  padding-top: 20px;
+  padding-right: 10px;
+  text-align: right;
+}
+
+.imagexs {
+  display: none;
+  @include screen.xs {
+    display: block;
+  }
+}

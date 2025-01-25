@@ -8,11 +8,11 @@ const Experience = async ({ params }: any) => {
   return (
     <Page.Layout>
       <Page.Heading>{texts.title}</Page.Heading>
-      <Page.Paragraph>{texts.description}</Page.Paragraph>
+      <Page.Paragraph bionic>{texts.description}</Page.Paragraph>
       <Page.Section>
         <ExperienceTimeline experiences={texts.experiences} />
       </Page.Section>
-      <Page.Paragraph>{texts.footer}</Page.Paragraph>
+      <Page.Paragraph bionic>{texts.footer}</Page.Paragraph>
     </Page.Layout>
   );
 };

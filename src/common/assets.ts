@@ -28,35 +28,37 @@ const IMAGES = {
   basantani: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737637223/PORTFOLIO/certifications/rddy2l7uhvdaqlnxplyo.png',
   horizon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737637219/PORTFOLIO/certifications/kpje8jnflj3ryct15olq.png',
   shortcut: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737652037/PORTFOLIO/images/h5ogavy6mdfxbrqq0ods.png',
+  aws: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737735270/PORTFOLIO/images/ufifigdinsuiz2ettt7x.png',
+  aws_white: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737735628/PORTFOLIO/images/kww6u4k3xq5okooicbd4.webp',
 } as const;
 
 const CERTIFICATIONS = {
   architect: {
-    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737732548/PORTFOLIO/certifications/gpfgrturcoma9fyp3pyu.avif',
+    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737820700/PORTFOLIO/certifications/wch9fgkry0i7qnorptcr.png',
     cert: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737733943/PORTFOLIO/certifications/gr5ffrsekg0wkpef7ej0.png',
   },
   well_architect: {
-    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737732548/PORTFOLIO/certifications/gpfgrturcoma9fyp3pyu.avif',
+    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737820700/PORTFOLIO/certifications/wch9fgkry0i7qnorptcr.png',
     cert: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737733975/PORTFOLIO/certifications/ms7b8yhnsil1o4rsvu9k.png',
   },
   devops: {
-    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737732493/PORTFOLIO/certifications/nfvl6wcssssvqaknklss.avif',
+    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737820910/PORTFOLIO/certifications/xxsfzyn8dxp0v8aybsxa.png',
     cert: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737733948/PORTFOLIO/certifications/qqmv9dzjs1nqblbegkut.png',
   },
   kubernetes: {
-    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737732494/PORTFOLIO/certifications/y0zoakvocnxvuzwx71kd.avif',
+    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737821171/PORTFOLIO/certifications/qdnj0dsisvetonpbhlin.png',
     cert: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737733959/PORTFOLIO/certifications/dqevrtn6glviqptl9uio.png',
   },
   data_sience: {
-    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737732492/PORTFOLIO/certifications/fpzqn8rxqlmab1lhz7e9.avif',
+    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737821230/PORTFOLIO/certifications/n9vsb83eq1njxe2wxbt3.png',
     cert: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737733953/PORTFOLIO/certifications/axrjhw5gdjh6o6rsiurk.png',
   },
   serverless: {
-    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737732492/PORTFOLIO/certifications/ilpb1pfl61ujtphybwok.avif',
+    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737821116/PORTFOLIO/certifications/jt3i6yhb8jrwvjavfwud.png',
     cert: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737733970/PORTFOLIO/certifications/sak2tqsfomqrmy8z1v1h.png',
   },
   cloud_operations: {
-    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737732494/PORTFOLIO/certifications/vbawiyctafph7mapyktm.avif',
+    icon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737821036/PORTFOLIO/certifications/dzums30ysjbavturj73j.png',
     cert: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737733964/PORTFOLIO/certifications/oq8n0sp3ohc1jjgqrjyg.png',
   },
 } as const;

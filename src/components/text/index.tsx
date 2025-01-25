@@ -2,15 +2,17 @@
 import { DetailedHTMLProps, HTMLAttributes, useState } from "react"
 import { TypeAnimation } from "react-type-animation";
 import styles from './style.module.scss';
+import { parseBionic } from "@/utils/parseBionic";
 
-type TextProps = {
+type TextProps = DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement> & {
   size?: 'small' | 'medium' | 'large' | 'default';
   italic?: boolean;
   bold?: boolean;
   color?: 'primary' | 'secondary' | 'highlight' | 'accent';
-} & DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
+  bionic?: boolean;
+};
 
-const Text = ({ children, className, size = 'default', italic, bold, color, ...props }: TextProps) => {
+const Text = ({ children, className, size = 'default', italic, bold, color, bionic, ...props }: TextProps) => {
   const styleClass = [
     styles.description,
     styles[size],
@@ -21,7 +23,7 @@ const Text = ({ children, className, size = 'default', italic, bold, color, ...p
   ].join(' ');
   return (
     <div className={styleClass} {...props}>
-      {children}
+      {bionic ? parseBionic({ text: children }) : children}
     </div>
   );
 };
