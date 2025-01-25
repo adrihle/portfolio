@@ -5,5 +5,6 @@ export { PackageList } from './package-list';
 export { ExperienceTimeline } from './experience-timeline';
 export { LocaleSelector } from './locale-selector';
 export { UnderMaintenance } from './under-maintenance';
+export { CertificationList } from './certification-list';
 export { Social } from './social';
 export { Bso } from './bso';

@@ -93,7 +93,7 @@ const Section = ({ company, id, position, from, to, description, stack, location
         </div>
       </div>
       <div className={styles.description}>
-        <Text.Expandable italic size='large' text={description} maxLength={300}/>
+        <Text.Expandable italic size='large' text={description} maxLength={300} bionic/>
       </div>
       <div className={styles.flexGap}>
         <Icon src='location' />

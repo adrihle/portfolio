@@ -1,14 +1,11 @@
 import { Page } from '@/components';
-import { Playground, UnderMaintenance } from '@/containers';
-//import { getParams } from '@/utils';
+import { Playground } from '@/containers';
 
-const Projects = async ({ params }: any) => {
-  //const { locale } = await getParams(params);
+const Projects = async () => {
   return (
     <Page.Layout>
       <Playground />
     </Page.Layout>
-    //<UnderMaintenance locale={locale}/>
   );
 };
 

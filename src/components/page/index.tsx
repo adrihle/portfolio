@@ -2,6 +2,7 @@ import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { ComponentProps } from '@/interfaces';
 import { Widget } from "@/components";
 import styles from './style.module.scss';
+import { parseBionic } from '@/utils/parseBionic';
 
 type HTMLTextProps<T> = DetailedHTMLProps<HTMLAttributes<T>, T>;
 
@@ -45,11 +46,13 @@ const Heading = ({ type = 'h1', children, className: customClassName, ...props }
 
 type ParagraphProps = HTMLTextProps<HTMLParagraphElement> & {
   highlight?: boolean;
+  bionic?: boolean;
 };
 
-const Paragraph = ({ children, highlight, ...props }: ParagraphProps) => {
-  if (highlight) return <mark {...props} className={`${styles.mark} ${props.className}`}>{children}</mark>
-  return <p {...props} className={`${styles.paragraph} ${props.className}`}>{children}</p>;
+const Paragraph = ({ children, highlight, bionic, ...props }: ParagraphProps) => {
+  const content = bionic ? parseBionic({ text: children }) : children;
+  if (highlight) return <mark {...props} className={`${styles.mark} ${props.className}`}>{content}</mark>
+  return <p {...props} className={`${styles.paragraph} ${props.className}`}>{content}</p>;
 };
 
 type QuoteProps = HTMLTextProps<HTMLQuoteElement> & {
