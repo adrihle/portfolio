@@ -15,7 +15,7 @@ const parseBionic = ({ text, percentage = 0.3 }: { text: React.ReactNode, percen
     if (!INTERNATIONAL_ALPHABET.test(word)) return <span key={i}>{word}{SPACE}</span>;
 
     const bold = word.length < 3 ? word : word.slice(0, Math.ceil(word.length * percentage));
-    const normal = word.slice(Math.ceil(word.length * percentage));
+    const normal = word.length >= 3 &&  word.slice(Math.ceil(word.length * percentage));
 
     return <span key={i}><b>{bold}</b>{normal}{SPACE}</span>
   });

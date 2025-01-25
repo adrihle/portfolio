@@ -2,18 +2,17 @@
 @use 'theme/colors' as colors;
 @use 'screen';
 
-.section {
+.item {
   @include anim.stagger;
+}
+
+.section {
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 30px 0;
-
   width: 100%;
-  background-size: cover; /* Ensures the image covers the container */
-  background-position: left; /* Centers the image */
-  background-repeat: no-repeat;
 }
 
 .timeline {
@@ -24,8 +23,8 @@
   padding: 10px;
   border-radius: 8px;
   background: transparent;
-  backdrop-filter: blur(3px); /* Applies the blur effect */
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 15px 0;
   z-index: 2;

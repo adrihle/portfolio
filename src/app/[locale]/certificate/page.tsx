@@ -9,7 +9,14 @@ const Certifications = async ({ params }: { params: { locale: Locale } }) => {
   const texts = await getContent(locale);
   return (
     <Page.Layout>
-      <CertificationList />
+      <Page.Heading>{texts.title}</Page.Heading>
+      <Page.Paragraph bionic>{texts.description}</Page.Paragraph>
+      <Page.Section>
+        <CertificationList {...texts.certifications} />
+      </Page.Section>
+      <Page.Section>
+        <Page.Paragraph bionic>{texts.footer}</Page.Paragraph>
+      </Page.Section>
     </Page.Layout>
   );
 };

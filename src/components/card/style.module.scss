@@ -5,4 +5,10 @@
   box-shadow: colors.$shadow-dark;
   padding: 20px;
   background: colors.$primary;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 }
