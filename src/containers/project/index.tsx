@@ -35,7 +35,8 @@ const ProjectCard = ({ name, description, stack, infoHref, repoHref, logoUrl, as
           renderElement={Icon.Brand}
           className={styles.stacklist}
         />
-        <div>
+        <div className={styles.footer}>
+          <Text size="small" italic>More Info: </Text>
           {infoHref && <Icon.Link href={infoHref} src="mail" />}
           {repoHref && <Icon.Link href={repoHref} src="github" />}
         </div>
