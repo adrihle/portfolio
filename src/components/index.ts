@@ -8,3 +8,4 @@ export { Icon } from './icon';
 export { Card } from './card';
 export { Page } from './page';
 export { Image } from './image';
+export { List } from './list';
