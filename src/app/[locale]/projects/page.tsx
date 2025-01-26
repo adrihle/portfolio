@@ -7,14 +7,14 @@ const Projects = async () => {
   return (
     <Page.Layout>
       <Page.Heading>{title}</Page.Heading>
-      <Page.Paragraph>{description}</Page.Paragraph>
+      <Page.Paragraph bionic>{description}</Page.Paragraph>
       <Page.Section>
         <List
           list={projects}
           renderElement={ProjectCard}
         />
       </Page.Section>
-      <Page.Paragraph>{footer}</Page.Paragraph>
+      <Page.Paragraph bionic>{footer}</Page.Paragraph>
     </Page.Layout>
   );
 };

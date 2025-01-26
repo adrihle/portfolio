@@ -7,6 +7,7 @@ type ProjectInfo = {
   logoUrl: string;
   aspectRatio?: FillProps['aspectRatio'];
   name: string;
+  short: string;
   description: string;
   stack: Stack[];
   infoHref?: string;
@@ -14,7 +15,7 @@ type ProjectInfo = {
   background?: string;
 };
 
-const ProjectCard = ({ name, description, stack, infoHref, repoHref, logoUrl, aspectRatio, background }: ProjectInfo) => {
+const ProjectCard = ({ name, description, stack, infoHref, repoHref, logoUrl, aspectRatio, background, short }: ProjectInfo) => {
   return (
     <Card style={{ background }} className={styles.container}>
       <div className={styles.header}>
@@ -24,6 +25,7 @@ const ProjectCard = ({ name, description, stack, infoHref, repoHref, logoUrl, as
         <div className={styles.divider} />
         <div>
           <Text size="medium" bold>{name}</Text>
+          <Text size="medium" bold color="secondary">{short}</Text>
         </div>
       </div>
       <div className={styles.body}>
@@ -35,8 +37,7 @@ const ProjectCard = ({ name, description, stack, infoHref, repoHref, logoUrl, as
           renderElement={Icon.Brand}
           className={styles.stacklist}
         />
-        <div className={styles.footer}>
-          <Text size="small" italic>More Info: </Text>
+        <div className={styles.links}>
           {infoHref && <Icon.Link href={infoHref} src="mail" />}
           {repoHref && <Icon.Link href={repoHref} src="github" />}
         </div>
