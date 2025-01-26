@@ -1,6 +1,7 @@
 import { ProviderDate } from '@/providers';
 import styles from './style.module.scss';
 import { Badge, Card, Icon, Text } from '@/components';
+import { ASSETS } from '@/common';
 
 type PackageInfo = {
   name: string;
@@ -55,7 +56,7 @@ const Body = ({ description }: Pick<PackageProps, 'description'>) => {
 
 const Package = ({ source = 'npm', version, name, date, license, href, description, homepage }: PackageProps) => {
   return (
-    <Card className={styles.container}>
+    <Card className={styles.container} style={{ '--background-image': `url(${ASSETS.ICONS.npm})` } as React.CSSProperties}>
       <Header {...{ source, name, version }} />
       <Body {...{ description }} />
       <Footer {...{ date, license, href, homepage }} />
@@ -63,19 +64,5 @@ const Package = ({ source = 'npm', version, name, date, license, href, descripti
   );
 };
 
-const PackageList = ({ contributions }: { contributions: PackageProps[] }) => {
-  return (
-    <div className={styles.packages}>
-      {contributions.map((pkg, i) => {
-        return (
-          <div key={i} className={styles.package} style={{ animationDelay: `${i * 0.3}s` }}>
-            <Package {...pkg} />
-          </div>
-        )
-      })}
-    </div>
-  )
-};
-
-export { PackageList };
+export { Package };
 export type { PackageInfo };

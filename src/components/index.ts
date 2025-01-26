@@ -1,5 +1,4 @@
 export { Grid } from './grid';
-export { AppIcon } from './app-icon';
 export { Widget } from './widget';
 export { Text } from './text';
 export { Loader } from './loader';
@@ -8,3 +7,4 @@ export { Icon } from './icon';
 export { Card } from './card';
 export { Page } from './page';
 export { Image } from './image';
+export { List } from './list';

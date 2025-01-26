@@ -1,6 +1,6 @@
 'use client'
 import { ShortcutConfig, useShortcuts } from '@adrihfly/shortcuts-hook';
-import { AppIcon, Grid } from "@/components"
+import { Grid, Icon } from "@/components"
 import styles from './style.module.scss';
 import { redirect, useParams } from "next/navigation";
 import { NAVIGATION_SETTINGS } from './settings';
@@ -27,7 +27,7 @@ const Navigation = () => {
     <Grid className={styles.container} minWidth={ICON_SIZE} gap={15}>
       {Object.values(ROUTES).map((props, i) => (
         <Grid.Item key={i}>
-          <AppIcon {...props} size={ICON_SIZE} href={`/${locale}${props.href}`} boldKey={props.shortcutKey} />
+          <Icon.App {...props} size={ICON_SIZE} href={`/${locale}${props.href}`} boldKey={props.shortcutKey} />
         </Grid.Item>
       ))}
     </Grid>

@@ -44,6 +44,13 @@ const ROUTES: Routes = {
     background: 'linear-gradient(135deg, #9d50bb 0%, #6e48aa 100%)',
     shortcutKey: 'p',
   },
+  CERTIFICATE: {
+    image: ASSETS.ICONS.certificate,
+    label: 'Certificate',
+    href: '/certificate',
+    background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    shortcutKey: 'f',
+  },
   ARTICLES: {
     image: ASSETS.ICONS.book,
     label: 'Articles',
@@ -57,13 +64,6 @@ const ROUTES: Routes = {
     href: '/knowledge',
     background: 'linear-gradient(135deg, #ff6a00 0%, #ee0979 100%)',
     shortcutKey: 'k',
-  },
-  CERTIFICATE: {
-    image: ASSETS.ICONS.certificate,
-    label: 'Certificate',
-    href: '/certificate',
-    background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    shortcutKey: 'f',
   },
 };
 

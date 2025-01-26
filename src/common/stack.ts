@@ -58,6 +58,12 @@ const TECH_STACK = {
   vertx: 'eclipsevertdotx',
   gitlab: 'gitlab',
   java: '',
+  lua: 'lua',
+  bash: 'gnubash',
+  instagram: 'instagram'
 } as const;
 
+type Stack = keyof typeof TECH_STACK;
+
 export { TECH_STACK };
+export type { Stack };

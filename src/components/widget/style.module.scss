@@ -9,6 +9,11 @@
   overflow-y: auto;
   color: #333;
 
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+
   @include schema.dark {
     background-color: colors.$bg;
     color: inherit;

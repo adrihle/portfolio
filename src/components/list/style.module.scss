@@ -1,0 +1,9 @@
+@use 'animations/stagger' as anim;
+
+.container {
+
+}
+
+.item {
+  @include anim.stagger;
+}

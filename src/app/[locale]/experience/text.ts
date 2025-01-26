@@ -25,6 +25,7 @@ const TEXT: ExperiencePage = {
         width: 100,
       },
       stack: ['javascript', 'typescript', 'node', 'react', 'nextjs', 'express', 'css', 'formik', 'mui', 'redux', 'redis', 'mongo', 'bigquery', 'python', 'pandas', 'postgres', 'docker', 'github', 'git', 'aws', 'jest', 'mocha'],
+      background: 'linear-gradient(90deg, rgba(219, 76, 85, 1) 0%, rgba(219, 76, 85, 0) 100%)',
     },
     ufounders: {
       company: 'Ufounders',
@@ -39,6 +40,7 @@ const TEXT: ExperiencePage = {
         width: 70,
       },
       stack: ['javascript', 'typescript', 'react', 'nextjs', 'nestjs', 'mongo', 'postgres', 'antd', 'redux', 'formik', 'aws', 'docker', 'node', 'git', 'github', 'css', 'sass', 'tailwind', 'jest', 'paypal', 'applepay', 'googlepay'],
+      background: 'linear-gradient(to right, rgba(70, 70, 70, 1), rgba(70, 70, 70, 0))',
     },
     finwave: {
       company: 'Finwave - Iberia & Latam',
@@ -53,6 +55,7 @@ const TEXT: ExperiencePage = {
         width: 100,
       },
       stack: ['javascript', 'typescript', 'java', 'angular', 'rxjs', 'react', 'nextjs', 'css', 'sass', 'vertx', 'nestjs', 'node', 'jenkins', 'aws', 'postgres', 'mysql', 'auth0', 'tailwind', 'git', 'paypal', 'applepay', 'googlepay', 'electron', 'gitlab'],
+      background: 'linear-gradient(to right, rgba(48, 91, 112, 1), rgba(48, 91, 112, 0))',
     },
     basantani: {
       company: 'Basantani Holdings SL',
@@ -67,6 +70,7 @@ const TEXT: ExperiencePage = {
         width: 100,
       },
       stack: ['javascript', 'typescript', 'react', 'nextjs', 'vercel', 'python', 'pandas', 'numpy', 'postgres', 'mongo', 'css', 'sass', 'node', 'git'],
+      background: 'linear-gradient(to right, rgba(70, 70, 70, 1), rgba(70, 70, 70, 0))',
     },
     horizon: {
       company: 'Horizon Media Labs',
@@ -81,6 +85,7 @@ const TEXT: ExperiencePage = {
         width: 100,
       },
       stack: ['html', 'css', 'javascript', 'php', 'mysql', 'wordpress', 'apache', 'mariadb', 'git', 'laravel'],
+      background: 'linear-gradient(to right, rgba(69, 41, 89, 1), rgba(69, 41, 89, 0))',
     },
   },
   footer: "Let’s keep coding and creating! 🚀 Follow my journey and let's build something great together.",

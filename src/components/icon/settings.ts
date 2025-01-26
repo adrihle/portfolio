@@ -23,6 +23,9 @@ export const ICON_SETTINGS = {
     'aws',
     'angular',
     'applepay',
+    'openai',
+    'lua',
+    'expo',
   ] as (keyof typeof TECH_STACK)[],
   DEFAULT_COLOR: 'e5e5e5',
 } as const;

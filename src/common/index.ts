@@ -1,3 +1,5 @@
 export { LOCALES } from './locale';
-export { TECH_STACK } from './stack';
 export { ASSETS } from './assets';
+
+export { TECH_STACK } from './stack';
+export type { Stack } from './stack';

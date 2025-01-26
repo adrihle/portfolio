@@ -1,12 +1,15 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 'use client'
 import { useMemo } from 'react';
+import Image from 'next/image';
 import { IntersectionProvider, useIntersection } from "@adrihfly/intersection-hook";
 import { ProviderDate } from '@/providers';
-import styles from './style.module.scss';
 import { ComponentProps } from '@/interfaces';
-import { Card, Icon, Text } from '@/components';
+import { Card, Icon, List, Text } from '@/components';
 import { TECH_STACK } from '@/common';
-import Image from 'next/image';
+import styles from './style.module.scss';
+import Experience from '@/app/[locale]/experience/page';
+import React from 'react';
 
 type Experience = {
   company: string;
@@ -21,6 +24,7 @@ type Experience = {
   description: string;
   location: string;
   stack: (keyof typeof TECH_STACK)[];
+  background?: string;
 };
 
 type ExperienceTimelineProps = {
@@ -70,7 +74,18 @@ const Timeline = ({ experiences }: ExperienceTimelineProps) => {
   );
 };
 
-const Section = ({ company, id, position, from, to, description, stack, location, logo, ...props }: Experience & ComponentProps & { id: string }) => {
+const StackList = React.memo(function render({ stack }: { stack: Experience['stack'] }) {
+  return (
+    <List
+      list={stack}
+      renderElement={(icon) => <Icon.Brand icon={icon} className={styles.tech} />}
+      className={styles.stack}
+      delay={0.02}
+    />
+  );
+});
+
+const Section = React.memo(function render({ company, id, position, from, to, description, stack, location, logo, ...props }: Experience & ComponentProps & { id: string }) {
   const { register } = useIntersection();
   return (
     <Card
@@ -99,22 +114,19 @@ const Section = ({ company, id, position, from, to, description, stack, location
         <Icon src='location' />
         <Text size='small'>{location}</Text>
       </div>
-      <div className={styles.stack}>
-        {stack.map((i) => <Icon.Brand icon={i} key={i} className={styles.tech} />)}
-      </div>
+      <StackList stack={stack}/>
     </Card>
   );
-};
+});
 
 const Sections = ({ experiences }: { experiences: Record<string, Experience> }) => {
-  const sortedExperiences = Object.entries(experiences).sort(([, a], [, b]) => ProviderDate.isBefore(a.from, b.from) ? 1 : 0);
+  const sortedExperiences = Object.entries(experiences)
+    .sort(([, a], [, b]) => ProviderDate.isBefore(a.from, b.from) ? 1 : 0)
   return (
     <>
       {sortedExperiences.map(([id, experience], i) => {
         return (
-          <div key={id} className={styles.item}>
-            <Section {...experience} id={id} style={{ animationDelay: `${i * 0.3}s` }} />
-          </div>
+          <Section {...experience} id={id} key={id} style={{ animationDelay: `${i * 0.3}s`, background: experience.background }} />
         )
       })}
     </>
