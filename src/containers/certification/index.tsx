@@ -1,7 +1,7 @@
-import { ASSETS } from "@/common";
-import { Card, Image, List, Text } from "@/components";
-import styles from './style.module.scss';
 import Link from "next/link";
+import { ASSETS } from "@/common";
+import { Card, Image, Text } from "@/components";
+import styles from './style.module.scss';
 
 type Cert = {
   title: string;
