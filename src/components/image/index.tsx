@@ -10,7 +10,7 @@ const CImage = ({ alt, ...props }: ImageProps) => {
 };
 
 type FillProps = Omit<NextImageProps, 'width' | 'height' | 'fill' | 'alt'> & {
-  aspectRatio?: '16 / 9' | '1 / 1';
+  aspectRatio?: '16 / 9' | '1 / 1' | '18 / 9';
   alt?: string;
 };
 
@@ -30,3 +30,4 @@ const Fill = ({ aspectRatio = '16 / 9', ...props }: FillProps) => {
 CImage.Fill = Fill;
 
 export { CImage as Image };
+export type { FillProps, ImageProps };

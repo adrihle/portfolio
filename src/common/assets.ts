@@ -66,9 +66,9 @@ const CERTIFICATIONS = {
 const PROJECTS = {
   portfolio: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737906101/PORTFOLIO/projects/f370xaxobeohonxkfanz.png',
   roccocode: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737906146/PORTFOLIO/projects/rngfxsaxdiy1wachakcd.png',
-  mindmapper: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737906370/PORTFOLIO/projects/rx1ggkhgfia5alpsendg.png',
+  mindmapper: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737915897/PORTFOLIO/projects/j4db49x1m1tjs1ziqgcn.png',
   resq: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737906180/PORTFOLIO/projects/lolhg37p3hxgkq9f6lvn.png',
-  npmrunwild: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737906167/PORTFOLIO/projects/wxfdohlrgr6ialk64pq2.png',
+  npmrunwild: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737915084/PORTFOLIO/projects/isuoijxriuazkggv2uar.png',
 } as const;
 
 const ASSETS = { ICONS, IMAGES, CERTIFICATIONS, PROJECTS } as const;

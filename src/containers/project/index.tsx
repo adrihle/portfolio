@@ -1,34 +1,43 @@
-import { ASSETS } from "@/common";
-import { Card, Icon, Image, Text } from "@/components";
+import { Stack } from "@/common";
+import { Card, Icon, Image, List, Text } from "@/components";
 import styles from './style.module.scss';
+import { FillProps } from "@/components/image";
 
 type ProjectInfo = {
-  name?: string;
+  logoUrl: string;
+  aspectRatio?: FillProps['aspectRatio'];
+  name: string;
+  description: string;
+  stack: Stack[];
+  infoHref?: string;
+  repoHref?: string;
+  background?: string;
 };
 
-const STACK = ['typescript', 'java'];
-
-const ProjectCard = ({ }: ProjectInfo) => {
+const ProjectCard = ({ name, description, stack, infoHref, repoHref, logoUrl, aspectRatio, background }: ProjectInfo) => {
   return (
-    <Card>
+    <Card style={{ background }} className={styles.container}>
       <div className={styles.header}>
         <div className={styles.image_container}>
-          <Image.Fill src={ASSETS.PROJECTS.resq} />
+          <Image.Fill src={logoUrl} className={styles.img} aspectRatio={aspectRatio}/>
         </div>
         <div className={styles.divider} />
         <div>
-          <Text size="medium" bold>RESQ: An app focus on help pet adoptions</Text>
+          <Text size="medium" bold>{name}</Text>
         </div>
       </div>
       <div className={styles.body}>
-        <Text size="small" italic bionic>Description</Text>
+        <Text size="large" italic bionic>{description}</Text>
       </div>
       <div className={styles.footer}>
+        <List
+          list={stack.map(s => ({ icon: s }))}
+          renderElement={Icon.Brand}
+          className={styles.stacklist}
+        />
         <div>
-          {STACK.map(s => <Icon.Brand key={s} icon={s as any} />)}
-        </div>
-        <div>
-          <Icon.Link href="https://google.com" src="mail" />
+          {infoHref && <Icon.Link href={infoHref} src="mail" />}
+          {repoHref && <Icon.Link href={repoHref} src="github" />}
         </div>
       </div>
     </Card>
