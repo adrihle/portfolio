@@ -4,7 +4,7 @@ import { IntersectionProvider, useIntersection } from "@adrihfly/intersection-ho
 import { ProviderDate } from '@/providers';
 import styles from './style.module.scss';
 import { ComponentProps } from '@/interfaces';
-import { Card, Icon, Text } from '@/components';
+import { Card, Icon, List, Text } from '@/components';
 import { TECH_STACK } from '@/common';
 import Image from 'next/image';
 
@@ -107,14 +107,13 @@ const Section = ({ company, id, position, from, to, description, stack, location
 };
 
 const Sections = ({ experiences }: { experiences: Record<string, Experience> }) => {
-  const sortedExperiences = Object.entries(experiences).sort(([, a], [, b]) => ProviderDate.isBefore(a.from, b.from) ? 1 : 0);
+  const sortedExperiences = Object.entries(experiences)
+    .sort(([, a], [, b]) => ProviderDate.isBefore(a.from, b.from) ? 1 : 0)
   return (
     <>
       {sortedExperiences.map(([id, experience], i) => {
         return (
-          <div key={id} className={styles.item}>
-            <Section {...experience} id={id} style={{ animationDelay: `${i * 0.3}s` }} />
-          </div>
+          <Section {...experience} id={id} key={id} style={{ animationDelay: `${i * 0.3}s` }} />
         )
       })}
     </>

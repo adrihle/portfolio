@@ -1,8 +1,8 @@
-import { Page } from '@/components';
+import { List, Page } from '@/components';
 import { Locale } from '@/interfaces';
 import { getParams } from '@/utils';
 import { getContent } from './action';
-import { CertificationList } from '@/containers';
+import { CertificationCard } from '@/containers';
 
 const Certifications = async ({ params }: { params: { locale: Locale } }) => {
   const { locale } = await getParams(params);
@@ -12,7 +12,10 @@ const Certifications = async ({ params }: { params: { locale: Locale } }) => {
       <Page.Heading>{texts.title}</Page.Heading>
       <Page.Paragraph bionic>{texts.description}</Page.Paragraph>
       <Page.Section>
-        <CertificationList {...texts.certifications} />
+        <List 
+          list={Object.values(texts.certifications.aws)}
+          renderElement={CertificationCard({ source: 'aws' })}
+        />
       </Page.Section>
       <Page.Section>
         <Page.Paragraph bionic>{texts.footer}</Page.Paragraph>

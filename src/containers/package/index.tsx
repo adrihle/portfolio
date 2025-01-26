@@ -63,19 +63,5 @@ const Package = ({ source = 'npm', version, name, date, license, href, descripti
   );
 };
 
-const PackageList = ({ contributions }: { contributions: PackageProps[] }) => {
-  return (
-    <div className={styles.packages}>
-      {contributions.map((pkg, i) => {
-        return (
-          <div key={i} className={styles.package} style={{ animationDelay: `${i * 0.3}s` }}>
-            <Package {...pkg} />
-          </div>
-        )
-      })}
-    </div>
-  )
-};
-
-export { PackageList };
+export { Package };
 export type { PackageInfo };

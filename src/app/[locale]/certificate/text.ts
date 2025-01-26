@@ -1,5 +1,5 @@
 import { ASSETS } from '@/common';
-import { Certifications } from '@/containers/certification-list';
+import { Certifications } from '@/containers';
 
 type CertificationText = {
   title: string;

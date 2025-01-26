@@ -8,7 +8,9 @@ type ListProps<T> = ComponentProps & {
 };
 
 function List<T>({ list = [], renderElement, delay = 0.3, ...props }: ListProps<T>) {
-  if (!renderElement) throw new Error('Should include renderElement prop');
+  if (!renderElement || typeof renderElement !== 'function')
+    throw new Error('Should include renderElement prop');
+
   return (
     <div {...props}>
       {list.map((item, i) => {
