@@ -1,0 +1,32 @@
+@use 'theme/colors' as colors;
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.divider {
+  border: none;
+  border-left: 2px solid colors.$text; 
+  margin: 10px 0; 
+  opacity: 0.3;
+  height: 50px;
+}
+
+.image_container {
+  width: 100px;
+  min-width: 100px;
+  display: flex;
+}
+
+.body {
+  padding: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
