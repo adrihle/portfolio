@@ -60,8 +60,36 @@ const Link = ({ href = '', ...props }: IconLinkProps) => {
   );
 };
 
+type AppIconProps = {
+  image: string;
+  label: string;
+  href: string;
+  background: string;
+  size?: number;
+  boldKey: string;
+};
+const DEFAULT_SIZE = 60;
+
+const AppIcon = ({ image, label, href, background, size = DEFAULT_SIZE, boldKey }: AppIconProps) => {
+  return (
+    <NextLink className={styles.container} href={href} shallow scroll={false}>
+      <Image src={image}
+        alt={label}
+        width={size}
+        height={size}
+        className={styles.image}
+        style={{ background }}
+      />
+      <p className={styles.label}>
+        {label.split('').map((l, i) => l.toLowerCase() === boldKey.toLowerCase() ? <b key={`${label}-${l}-${i}`} style={{ fontWeight: 1000 }}>{l}</b> : l)}
+      </p>
+    </NextLink>
+  );
+};
+
 Icon.Link = Link;
 Icon.Brand = Brand;
+Icon.App = AppIcon;
 
 export { Icon };
 export type { IconProps, IconLinkProps };
