@@ -1,12 +1,12 @@
 'use client'
 import { useMemo } from 'react';
+import Image from 'next/image';
 import { IntersectionProvider, useIntersection } from "@adrihfly/intersection-hook";
 import { ProviderDate } from '@/providers';
-import styles from './style.module.scss';
 import { ComponentProps } from '@/interfaces';
-import { Card, Icon, List, Text } from '@/components';
+import { Card, Icon, Text } from '@/components';
 import { TECH_STACK } from '@/common';
-import Image from 'next/image';
+import styles from './style.module.scss';
 
 type Experience = {
   company: string;
@@ -21,6 +21,7 @@ type Experience = {
   description: string;
   location: string;
   stack: (keyof typeof TECH_STACK)[];
+  background?: string;
 };
 
 type ExperienceTimelineProps = {
@@ -113,7 +114,7 @@ const Sections = ({ experiences }: { experiences: Record<string, Experience> }) 
     <>
       {sortedExperiences.map(([id, experience], i) => {
         return (
-          <Section {...experience} id={id} key={id} style={{ animationDelay: `${i * 0.3}s` }} />
+          <Section {...experience} id={id} key={id} style={{ animationDelay: `${i * 0.3}s`, background: experience.background }} />
         )
       })}
     </>
