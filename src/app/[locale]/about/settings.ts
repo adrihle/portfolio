@@ -1,4 +1,4 @@
-const ABOUT_TEXT = {
+const ABOUT_PAGE = {
   title: 'Code and Bad Jokes (but Great Software)',
   intro: 'If “About” pages were like a first date, this one would show up with a solid introduction and a meme in hand. This site isn’t just a portfolio—it’s a living lab where I put everything I love about software development into action: automation, optimization, and making technology work for us (not the other way around).',
   points: {
@@ -12,4 +12,4 @@ const ABOUT_TEXT = {
   f2: 'And yes, the source code is available for you to explore. Because great code isn’t just built to work—it’s built to inspire and invite collaboration. 😉',
 } as const;
 
-export { ABOUT_TEXT };
+export { ABOUT_PAGE };

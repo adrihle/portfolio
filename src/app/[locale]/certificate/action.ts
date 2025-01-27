@@ -1,9 +1,9 @@
 import { Locale } from "@/interfaces";
-import { CERTIFICATION_TEXT } from "./text";
+import { CERTIFICATION_PAGE } from "./settings";
 import { ServiceContent } from "@/services";
 
 const getContent = async (locale: Locale) => {
-  const { certifications, ...rest } = CERTIFICATION_TEXT;
+  const { certifications, ...rest } = CERTIFICATION_PAGE;
 
   const { aws } = certifications;
 
@@ -22,7 +22,7 @@ const getContent = async (locale: Locale) => {
     fields: ['title', 'description'] as never[],
   })
 
-  return { ...result, certifications: { aws: merged }} as typeof CERTIFICATION_TEXT;
+  return { ...result, certifications: { aws: merged }} as typeof CERTIFICATION_PAGE;
 };
 
 export { getContent };
