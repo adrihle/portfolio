@@ -1,24 +1,31 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { PackageInfo } from '@/containers';
 import { ServiceContent } from '@/services';
 import { exec } from 'child_process';
-import cache from 'memory-cache';
 import util from 'util';
 import { TEXT } from './text';
 import { Locale } from '@/interfaces';
+import { ProviderCache } from '@/providers/cache';
 
 const execPromise = util.promisify(exec);
 const KEY = 'root#packages';
-const TTL = 1000 * 10;
+const TTL = 60 * 60 * 24 * 1;
+
+type NPMPackage = {
+  name: string;
+  links: { npm: string, homepage: string };
+  date: string;
+  license: string;
+  version: string;
+  description: string;
+};
 
 const getContributions = async (): Promise<PackageInfo[]> => {
   try {
-    const cached = cache.get(KEY);
+    const cached = await ProviderCache.get<PackageInfo[]>({ key: KEY });
     if (cached) return cached;
     const { stdout } = await execPromise('npm search @adrihfly --json');
-    const result = JSON.parse(stdout) as any[];
-    cache.put(KEY, result, TTL);
-    return result.map(({ name, links, date, license, version, description }) => ({
+    const result = JSON.parse(stdout) as NPMPackage[];
+    const packages = result.map(({ name, links, date, license, version, description }) => ({
       name,
       href: links.npm,
       homepage: links.homepage,
@@ -27,6 +34,8 @@ const getContributions = async (): Promise<PackageInfo[]> => {
       version,
       description,
     }));
+    await ProviderCache.set({ key: KEY, value: packages, expire: TTL });
+    return packages;
   } catch (error) {
     console.error(`Error fetching collaborations: ${JSON.stringify(error)}`);
     return [];
@@ -38,7 +47,7 @@ const getContent = async ({ locale }: { locale: Locale }) => {
   return {
     ...texts,
     contributions: await getContributions(),
-  };
+  } as typeof TEXT & { contributions: PackageInfo[] };
 };
 
 export { getContributions, getContent };

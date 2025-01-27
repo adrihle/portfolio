@@ -1,9 +1,11 @@
 import { Page } from "@/components";
 import { ExperienceTimeline } from "@/containers";
 import { getContent } from "./action";
+import { LocalePageProps } from "@/interfaces";
+import { getParams } from "@/utils/getParams";
 
-const Experience = async ({ params }: any) => {
-  const locale = (await params).locale;
+const Experience = async ({ params }: LocalePageProps) => {
+  const { locale } = await getParams(params);
   const texts = await getContent({ locale });
   return (
     <Page.Layout>

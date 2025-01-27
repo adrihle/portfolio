@@ -20,7 +20,7 @@ const ProjectCard = ({ name, description, stack, infoHref, repoHref, logoUrl, as
     <Card style={{ background }} className={styles.container}>
       <div className={styles.header}>
         <div className={styles.image_container}>
-          <Image.Fill src={logoUrl} className={styles.img} aspectRatio={aspectRatio}/>
+          <Image.Fill src={logoUrl} className={styles.img} aspectRatio={aspectRatio} sizes="(max-width: 768px) 100vw, 50vw"/>
         </div>
         <div className={styles.divider} />
         <div>
