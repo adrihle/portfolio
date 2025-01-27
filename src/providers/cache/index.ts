@@ -3,6 +3,7 @@ import { ProviderLog } from "../log";
 
 const logger = new ProviderLog('PROVIDER CACHE');
 const IS_DEV = process.env.ENVIRONMENT === 'development';
+const DEFAULT_EXPIRE_SECONDS = 60 * 60 * 1;
 
 declare global {
   // eslint-disable-next-line no-var
@@ -32,6 +33,7 @@ if (!global.redis) {
 type CacheMethodParams<T> = {
   key: string;
   value: T;
+  expire?: number;
 };
 
 const get = async <T>({ key }: Pick<CacheMethodParams<T>, 'key'>): Promise<T | null> => {
@@ -49,11 +51,11 @@ const get = async <T>({ key }: Pick<CacheMethodParams<T>, 'key'>): Promise<T | n
   }
 };
 
-const set = async <T>({ key, value }: CacheMethodParams<T>): Promise<void> => {
+const set = async <T>({ key, value, expire = DEFAULT_EXPIRE_SECONDS }: CacheMethodParams<T>): Promise<void> => {
   logger.debug(`Setting value for ${key}`)
 
   try {
-    await redis.set(key, JSON.stringify(value));
+    await redis.set(key, JSON.stringify(value), { EX: expire });
     logger.debug(`Successfull setted value for ${key}`);
   } catch(err) {
     logger.error(`Failed setting value for ${key}`, { err });

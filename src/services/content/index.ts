@@ -5,6 +5,8 @@ import util from 'util';
 import { Locale } from "@/interfaces";
 import { RepositoryTranslation } from '@/repositories';
 import { ProviderAI, ProviderDate, ProviderLog } from '@/providers';
+import { ProviderCache } from "@/providers/cache";
+import { APP_SETTINGS } from "@/settings";
 
 const logger = new ProviderLog('SERVICE CONTENT');
 const execPromise = util.promisify(exec);
@@ -22,50 +24,59 @@ const getTextFileLastUpdate = async (page: string): Promise<string | null> => {
   }
 };
 
+const getIsUpdated = async ({ page, lastUpdate }: { page: string, lastUpdate: Date }) => {
+  const lastUpdateFileDate = await getTextFileLastUpdate(page);
+  if (!lastUpdateFileDate) return true;
+  const formated = ProviderDate.format({ date: lastUpdateFileDate, format: 'yyyy-MM-dd' })
+
+  return !ProviderDate.isBefore(lastUpdate, formated);
+};
+
 type TextPage<T> = {
   page: string;
   locale: Locale;
   text: T;
-  translate?: boolean;
   cache?: boolean;
 };
 
-const generatePageTexts = async <T>({ page, locale, text, translate = true, cache = true }: TextPage<T>) => {
-  if (!translate) return text;
+const generatePageTexts = async <T>({ page, locale, text, cache = true }: TextPage<T>) => {
+  const key = `${page}#${locale}`;
+
+  if (cache) {
+    const cached = await ProviderCache.get({ key });
+    if (cached) return cached;
+  }
 
   logger.debug(`Fetching content for ${locale} of page: ${page}`);
   const texts = await RepositoryTranslation.get({ page, locale });
 
   if (texts) {
     logger.debug(`Found in database content for ${locale} of page: ${page}`);
-    const lastUpdateFileDate = await getTextFileLastUpdate(page);
 
-    if (!lastUpdateFileDate) return texts.translations as T;
+    const isUpdated = await getIsUpdated({ page, lastUpdate: texts.updatedAt });
 
-    const formated = ProviderDate.format({ date: lastUpdateFileDate, format: 'yyyy-MM-dd' })
-
-    const shouldBeUpdate = ProviderDate.isBefore(texts.updatedAt, formated);
-
-    if (!shouldBeUpdate) return texts.translations as T;
+    if (isUpdated) {
+      await ProviderCache.set({ key, value: texts.translations, expire: APP_SETTINGS.CACHE.PAGES.TTL });
+      return texts.translations;
+    };
 
     const translations = await ProviderAI.translateText({ locale, text });
 
-    if (translations) {
-      await RepositoryTranslation.update({ id: texts._id, payload: { page, locale, translations } })
-      return translations;
-    }
+    if (!translations) return texts.translations as T;
 
-    return texts.translations as T;
+    await RepositoryTranslation.update({ id: texts._id, payload: { page, locale, translations } })
+    await ProviderCache.set({ key, value: translations, expire: APP_SETTINGS.CACHE.PAGES.TTL });
+    return translations;
   }
 
   const translations = await ProviderAI.translateText({ locale, text });
 
-  if (translations) {
-    logger.debug(`Translate successfull content for ${locale} of page: ${page}`);
-    await RepositoryTranslation.create({ locale, page, translations });
-  }
+  if (!translations) return text;
 
-  return (translations as T) || text;
+  logger.debug(`Translate successfull content for ${locale} of page: ${page}`);
+  await RepositoryTranslation.create({ locale, page, translations });
+  await ProviderCache.set({ key, value: translations, expire: APP_SETTINGS.CACHE.PAGES.TTL });
+  return translations;
 };
 
 const ServiceContent = {
