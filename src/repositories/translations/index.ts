@@ -1,7 +1,7 @@
 import mongoose, { Model } from 'mongoose';
 import { conn } from '../db';
 import { Locale } from '@/interfaces';
-import { ProviderLog } from '@/providers';
+import { ProviderLog } from '@/providers/log';
 
 const logger = new ProviderLog('REPOSITORY TRANSLATION')
 

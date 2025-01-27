@@ -1,6 +1,6 @@
 import { Locale } from "@/interfaces";
 import { OpenAI } from "openai";
-import { ProviderLog } from "./log";
+import { ProviderLog } from "../log";
 
 let instance: OpenAI;
 const logger = new ProviderLog('PROVIDER AI');

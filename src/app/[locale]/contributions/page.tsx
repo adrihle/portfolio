@@ -1,6 +1,6 @@
 import { List, Page } from "@/components";
 import { Package } from "@/containers";
-import { getParams } from "@/utils";
+import { getParams } from "@/utils/getParams";
 import { getContent } from './action';
 
 const Contributions = async ({ params }: { params: { locale: string } }) => {

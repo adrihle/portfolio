@@ -3,7 +3,7 @@
 import { useMemo } from 'react';
 import Image from 'next/image';
 import { IntersectionProvider, useIntersection } from "@adrihfly/intersection-hook";
-import { ProviderDate } from '@/providers';
+import { ProviderDate } from '@/providers/date';
 import { ComponentProps } from '@/interfaces';
 import { Card, Icon, List, Text } from '@/components';
 import { TECH_STACK } from '@/common';
