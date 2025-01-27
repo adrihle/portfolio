@@ -1,10 +1,12 @@
 import { Image, Page } from '@/components';
-import { LocalePageProps } from '@/interfaces';
+import { Locale } from '@/interfaces';
 import { getParams } from '@/utils/getParams';
 import { getContent } from './action';
 import { ASSETS } from '@/common';
+import React from 'react';
+import { NextPage } from 'next';
 
-const About = async ({ params }: LocalePageProps) => {
+const About: NextPage<{ params: { locale: Locale } }> = async ({ params }) => {
   const { locale } = await getParams(params);
   const texts = await getContent({ locale });
   return (

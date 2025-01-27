@@ -10,6 +10,6 @@ type AppLayoutProps<T = object> = {
   params: T;
 };
 
-type LocalePageProps = AppLayoutProps<{ locale: Locale }>;
+type LocalePageProps = Omit<AppLayoutProps<{ locale: Locale }>, 'children'>;
 
 export type { ComponentProps, Locale, AppLayoutProps, LocalePageProps };

@@ -1,12 +1,12 @@
 import { List, Page } from '@/components';
-import { LocalePageProps } from '@/interfaces';
+import { Locale, LocalePageProps } from '@/interfaces';
 import { getParams } from '@/utils/getParams';
 import { getContent } from './action';
 import { CertificationCard } from '@/containers';
 
 const Certifications = async ({ params }: LocalePageProps) => {
   const { locale } = await getParams(params);
-  const texts = await getContent(locale);
+  const texts = await getContent(locale as Locale);
   return (
     <Page.Layout>
       <Page.Heading>{texts.title}</Page.Heading>
