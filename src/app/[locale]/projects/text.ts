@@ -17,7 +17,7 @@ const PROJECT_PAGE: ProjectPage = {
       short: 'My Personal Showtime of Talent',
       description: `A modern and responsive portfolio to showcase my skills, projects, and journey as a developer. Built with cutting-edge technologies to demonstrate expertise in web development and a passion for clean design.`,
       logoUrl: ASSETS.PROJECTS.portfolio,
-      stack: ['typescript', 'react', 'nextjs', 'mongo', 'openai'],
+      stack: ['typescript', 'react', 'nextjs', 'sass', 'mongo', 'redis', 'openai', 'vercel'],
       repoHref: 'https://github.com/your-profile/portfolio',
       infoHref: 'https://your-portfolio.com',
       background: 'linear-gradient(to bottom, rgba(7, 27, 38, 1) 20%, rgba(7, 27, 38, 0.8) 60%, rgba(7, 27, 38, 0) 100%)', 

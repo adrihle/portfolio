@@ -10,7 +10,7 @@ const logger = new ProviderLog('SERVICE CONTENT');
 const execPromise = util.promisify(exec);
 
 const getTextFileLastUpdate = async (page: string): Promise<string | null> => {
-  const filePath = page === 'home' ? './src/app/[locale]/text.ts' :  `./src/app/[locale]/${page}/text.ts`;
+  const filePath = page === 'home' ? './src/app/[locale]/text.ts' : `./src/app/[locale]/${page}/text.ts`;
   const absolutePath = path.resolve(filePath);
   const relativePath = path.relative(process.cwd(), absolutePath);
   try {
@@ -27,10 +27,12 @@ type TextPage<T> = {
   locale: Locale;
   text: T;
   translate?: boolean;
+  cache?: boolean;
 };
 
-const generatePageTexts = async <T>({ page, locale, text, translate = true }: TextPage<T>) => {
+const generatePageTexts = async <T>({ page, locale, text, translate = true, cache = true }: TextPage<T>) => {
   if (!translate) return text;
+
   logger.debug(`Fetching content for ${locale} of page: ${page}`);
   const texts = await RepositoryTranslation.get({ page, locale });
 
