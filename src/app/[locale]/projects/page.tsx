@@ -2,7 +2,7 @@ import { List, Page } from '@/components';
 import { ProjectCard } from '@/containers';
 import { getContent } from './action';
 import { Locale } from '@/interfaces';
-import { getParams } from '@/utils';
+import { getParams } from '@/utils/getParams';
 
 const Projects = async ({ params }: { params: { locale: Locale } }) => {
   const { locale } = await getParams(params);

@@ -4,7 +4,9 @@ import path from "path";
 import util from 'util';
 import { Locale } from "@/interfaces";
 import { RepositoryTranslation } from '@/repositories';
-import { ProviderAI, ProviderDate, ProviderLog } from '@/providers';
+import { ProviderAI } from '@/providers/ai';
+import { ProviderDate } from '@/providers/date';
+import { ProviderLog } from '@/providers/log';
 import { ProviderCache } from "@/providers/cache";
 import { APP_SETTINGS } from "@/settings";
 
@@ -40,10 +42,10 @@ type TextPage<T> = {
 };
 
 const generatePageTexts = async <T>({ page, locale, text, cache = true }: TextPage<T>) => {
-  const key = `${page}#${locale}`;
+  const cachekey = `${page}#${locale}`;
 
   if (cache) {
-    const cached = await ProviderCache.get({ key });
+    const cached = await ProviderCache.get({ key: cachekey });
     if (cached) return cached;
   }
 
@@ -56,7 +58,7 @@ const generatePageTexts = async <T>({ page, locale, text, cache = true }: TextPa
     const isUpdated = await getIsUpdated({ page, lastUpdate: texts.updatedAt });
 
     if (isUpdated) {
-      await ProviderCache.set({ key, value: texts.translations, expire: APP_SETTINGS.CACHE.PAGES.TTL });
+      await ProviderCache.set({ key: cachekey, value: texts.translations, expire: APP_SETTINGS.CACHE.PAGES.TTL });
       return texts.translations;
     };
 
@@ -65,7 +67,7 @@ const generatePageTexts = async <T>({ page, locale, text, cache = true }: TextPa
     if (!translations) return texts.translations as T;
 
     await RepositoryTranslation.update({ id: texts._id, payload: { page, locale, translations } })
-    await ProviderCache.set({ key, value: translations, expire: APP_SETTINGS.CACHE.PAGES.TTL });
+    await ProviderCache.set({ key: cachekey, value: translations, expire: APP_SETTINGS.CACHE.PAGES.TTL });
     return translations;
   }
 
@@ -75,7 +77,7 @@ const generatePageTexts = async <T>({ page, locale, text, cache = true }: TextPa
 
   logger.debug(`Translate successfull content for ${locale} of page: ${page}`);
   await RepositoryTranslation.create({ locale, page, translations });
-  await ProviderCache.set({ key, value: translations, expire: APP_SETTINGS.CACHE.PAGES.TTL });
+  await ProviderCache.set({ key: cachekey, value: translations, expire: APP_SETTINGS.CACHE.PAGES.TTL });
   return translations;
 };
 

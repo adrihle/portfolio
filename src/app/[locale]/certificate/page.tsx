@@ -1,6 +1,6 @@
 import { List, Page } from '@/components';
 import { Locale } from '@/interfaces';
-import { getParams } from '@/utils';
+import { getParams } from '@/utils/getParams';
 import { getContent } from './action';
 import { CertificationCard } from '@/containers';
 

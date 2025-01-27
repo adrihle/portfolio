@@ -1,6 +1,6 @@
 import { UnderMaintenance } from '@/containers';
 import { Locale } from '@/interfaces';
-import { getParams } from '@/utils';
+import { getParams } from '@/utils/getParams';
 
 const Articles = async ({ params }: { params: { locale: Locale } }) => {
   const { locale } = await getParams(params);

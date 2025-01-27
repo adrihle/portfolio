@@ -1,4 +1,4 @@
-import { ProviderLog } from '@/providers';
+import { ProviderLog } from '@/providers/log';
 
 const logger = new ProviderLog('BIONIC')
 const INTERNATIONAL_ALPHABET = /^[\p{L}!?.’,—]+$/u;

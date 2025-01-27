@@ -1,4 +1,4 @@
-import { ProviderLog } from '@/providers';
+import { ProviderLog } from '@/providers/log';
 import mongoose from 'mongoose';
 
 let isConnected = false;

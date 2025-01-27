@@ -1,4 +1,4 @@
-import { ProviderDate } from '@/providers';
+import { ProviderDate } from '@/providers/date';
 import styles from './style.module.scss';
 import { Badge, Card, Icon, Text } from '@/components';
 import { ASSETS } from '@/common';
