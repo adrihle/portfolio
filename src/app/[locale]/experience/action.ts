@@ -1,24 +1,26 @@
 import { ServiceContent } from '@/services';
-import { TEXT } from './text';
+import { EXPERIENCE_PAGE } from './settings';
+import { Locale } from '@/interfaces';
 
-const getContent = async ({ locale }: { locale: string }) => {
-  const { experiences, ...rest } = TEXT;
+const getContent = async ({ locale }: { locale: Locale }) => {
+  const { experiences, ...rest } = EXPERIENCE_PAGE;
 
-  const experience2Translate = Object.entries(experiences).reduce((acc, [key, experience]) => {
-    const { position, description, location } = experience;
-    return { ...acc, [key]: { position, description, location } };
-  }, {});
+  const sanitized = ServiceContent.sanitizedTranslations({
+    text: experiences,
+    fields: ['description', 'position', 'location'],
+  });
 
-  const text = { ...rest, experiences: experience2Translate };
+  const text = { ...rest, experiences: sanitized };
 
   const result = await ServiceContent.generatePageTexts({ text, locale, page: 'experience' });
 
-  const experienceMerged = Object.entries(experiences).reduce((acc, [key, experience]) => {
-    const { position, description, location } = result.experiences[key as keyof typeof result.experiences];
-    return { ...acc, [key]: { ...experience, position, description, location } };
-  }, {})
+  const merged = ServiceContent.mergeTranslations({
+    text: experiences,
+    translations: result.experiences as (typeof EXPERIENCE_PAGE)['experiences'],
+    fields: ['description', 'position', 'location'],
+  });
 
-  return { ...result, experiences: experienceMerged };
+  return { ...result, experiences: merged }  as typeof EXPERIENCE_PAGE;
 };
 
 export { getContent };
