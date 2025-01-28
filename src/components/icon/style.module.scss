@@ -1,0 +1,26 @@
+@use 'animations/hover' as animHover;
+@use 'animations/press' as anim;
+@use 'theme/colors' as colors;
+@use 'theme/layout' as layout;
+@use 'theme/typography' as typography;
+@use 'utils' as utils;
+
+.container {
+  @include anim.press;
+  @include utils.flex-center(column);
+}
+
+.image {
+  object-fit: cover;
+  @include layout.box;
+}
+
+.label {
+  font-size: typography.$font-size-small;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.icon {
+  @include animHover.hover;
+}

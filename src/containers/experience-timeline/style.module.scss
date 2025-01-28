@@ -1,0 +1,83 @@
+@use 'animations/stagger' as anim;
+@use 'theme/colors' as colors;
+@use 'screen';
+
+.item {
+  @include anim.stagger;
+}
+
+.section {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 30px 0;
+  width: 100%;
+}
+
+.timeline {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  transition: height 1s ease;
+  padding: 10px;
+  border-radius: 8px;
+  background: transparent;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 15px 0;
+  z-index: 2;
+}
+
+.bar {
+  height: 10px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.fill {
+  height: 100%;
+  width: 0%;
+  background-color: colors.$secondary;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.date {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+  transition: width 0.3s ease;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  @include screen.xs {
+    display: block;
+  }
+}
+
+.flexGap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.description {
+  padding: 30px 0 50px 0;
+}
+
+.stack {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tech {
+  margin: 5px;
+}

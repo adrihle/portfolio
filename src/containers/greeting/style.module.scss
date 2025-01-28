@@ -1,0 +1,31 @@
+@use 'screen';
+@use 'utils';
+@use 'theme/colors' as colors;
+@use 'animations/hover' as anim;
+
+.type {
+  font-weight: bold;
+}
+
+.presentation {
+  font-size: clamp(0.85rem, 1.5vw, 1.5rem);
+  padding: 10px;
+  display: flex;
+  width: 100%;
+}
+
+.presentationTextContainer {
+  padding: 5px;
+
+}
+
+.image {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.intro {
+  @include screen.sm {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,34 @@
+@use 'screen';
+@use 'utils';
+@use 'theme/colors' as colors;
+@use 'animations/hover' as anim;
+
+.social {
+  min-width: 100%;
+  padding: 12px;
+  display: flex;
+  height: 100%;
+}
+
+.socialItem {
+  grid-column: span 2 !important;
+  order: 3;
+}
+
+.socialGrid {
+  place-items: center;
+
+  @include screen.md {
+    gap: 0 !important;
+  }
+}
+
+.socialIcon {
+  @include utils.flex-center;
+  padding: 15px;
+  background-color: colors.$bg;
+  border-radius: 50%;
+
+  @include anim.hover(1.2);
+}
+

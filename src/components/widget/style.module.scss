@@ -1,0 +1,22 @@
+@use 'theme/schema' as schema;
+@use 'theme/colors' as colors;
+
+.container {
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-height: 95vh;
+  overflow-y: auto;
+  color: #333;
+  background-color: colors.$bg;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+
+  @include schema.dark {
+    color: inherit;
+  }
+}
