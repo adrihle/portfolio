@@ -67,8 +67,8 @@ const Timeline = ({ experiences }: ExperienceTimelineProps) => {
         <div className={styles.fill} style={{ width: `${timelinePercentage}%` }} />
       </div>
       <div className={styles.date} style={{ width: `${timelinePercentage}%` }}>
-        <div>Today</div>
-        <div>{yearFrom}</div>
+        <Text size="small">Today</Text>
+        <Text size="small">{yearFrom}</Text>
       </div>
     </div>
   );
@@ -80,7 +80,7 @@ const StackList = React.memo(function render({ stack }: { stack: Experience['sta
       list={stack}
       renderElement={(icon) => <Icon.Brand icon={icon} className={styles.tech} />}
       className={styles.stack}
-      delay={0.02}
+      delay={0.1}
     />
   );
 });
@@ -114,7 +114,7 @@ const Section = React.memo(function render({ company, id, position, from, to, de
         <Icon src='location' />
         <Text size='small'>{location}</Text>
       </div>
-      <StackList stack={stack}/>
+      <StackList stack={stack} />
     </Card>
   );
 });
@@ -126,7 +126,12 @@ const Sections = ({ experiences }: { experiences: Record<string, Experience> }) 
     <>
       {sortedExperiences.map(([id, experience], i) => {
         return (
-          <Section {...experience} id={id} key={id} style={{ animationDelay: `${i * 0.3}s`, background: experience.background }} />
+          <div key={id} style={{ animationDelay: `${i * 0.3}s` }} className={styles.item}>
+            <Section {...experience}
+              id={id}
+              style={{ background: experience.background }}
+            />
+          </div>
         )
       })}
     </>

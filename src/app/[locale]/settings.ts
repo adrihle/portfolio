@@ -56,10 +56,10 @@ const ROADMAP = {
   }
 };
 
-const TEXT = {
+const HOME_PAGE = {
   INTRO,
   INSPIRATION,
   ROADMAP,
 };
 
-export { TEXT };
+export { HOME_PAGE };

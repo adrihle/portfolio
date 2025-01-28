@@ -1,4 +1,4 @@
-const TEXT = {
+const CONTRIBUTION_PAGE = {
   TITLE: 'Open Source, Open Mind',
   QUOTE: {
     CONTENT: '“Good programmers know what to write. Great ones know what to rewrite (and reuse).”',
@@ -8,4 +8,4 @@ const TEXT = {
   CONNECT: 'Open source is more than code; it’s collaboration, passion, and the joy of sharing. Thank you for exploring my contributions. Have feedback or ideas? lets connect!',
 };
 
-export { TEXT };
+export { CONTRIBUTION_PAGE };

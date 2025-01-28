@@ -28,6 +28,9 @@ const IMAGES = {
   basantani: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737637223/PORTFOLIO/certifications/rddy2l7uhvdaqlnxplyo.png',
   horizon: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737637219/PORTFOLIO/certifications/kpje8jnflj3ryct15olq.png',
   shortcut: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737652037/PORTFOLIO/images/h5ogavy6mdfxbrqq0ods.png',
+  media_tip: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1738067980/PORTFOLIO/images/tsd05lsq8pxcdu2whoas.png',
+  npm_tip: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1738068609/PORTFOLIO/images/knpmxji8ykmdcixelnzf.png',
+  translatio_tip: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1738068039/PORTFOLIO/images/l6vr0na5pr1py3g3xdr9.png',
   aws: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737735270/PORTFOLIO/images/ufifigdinsuiz2ettt7x.png',
   aws_white: 'https://res.cloudinary.com/dlj66ezaw/image/upload/v1737735628/PORTFOLIO/images/kww6u4k3xq5okooicbd4.webp',
 } as const;

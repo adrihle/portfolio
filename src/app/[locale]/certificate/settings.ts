@@ -8,7 +8,7 @@ type CertificationText = {
   footer: string;
 };
 
-const CERTIFICATION_TEXT: CertificationText = {
+const CERTIFICATION_PAGE: CertificationText = {
   title: 'Certified & Ready',
   description: 'These aren\'t just certifications. Oh no. They’re *gym badges* of the cloud world. And let’s be honest, some of them were harder to obtain than defeating a Level 100 Mewtwo with a team of Magikarp.',
   certifications: {
@@ -60,4 +60,4 @@ const CERTIFICATION_TEXT: CertificationText = {
   footer: 'With these gym badges—err, I mean certifications—under my belt, I’m ready for the next *elite* challenge. Who knows, maybe one day I’ll become the champion of the cloud world... or at least of the AWS certifications.',
 };
 
-export { CERTIFICATION_TEXT };
+export { CERTIFICATION_PAGE };

@@ -1,6 +1,6 @@
 'use client'
 
-const TRACK = '6HeqJ6l6ZZP9FfQ1tlXtd2';
+const TRACK = '0iM1Ioz4N4p7MU1DKyqsov';
 
 const URL = `https://open.spotify.com/embed/track/${TRACK}?theme=0&view=list`;
 

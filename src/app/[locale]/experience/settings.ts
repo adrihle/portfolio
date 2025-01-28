@@ -8,7 +8,7 @@ type ExperiencePage = {
   footer: string;
 };
 
-const TEXT: ExperiencePage = {
+const EXPERIENCE_PAGE: ExperiencePage = {
   title: 'My Professional Journey',
   description: 'A developer who has always been curious about code and passionate about innovation. Here’s a peek into my journey, filled with learning, growth, and a lot of coffee!',
   experiences: {
@@ -91,5 +91,5 @@ const TEXT: ExperiencePage = {
   footer: "Let’s keep coding and creating! 🚀 Follow my journey and let's build something great together.",
 };
 
-export { TEXT };
+export { EXPERIENCE_PAGE };
 export type { ExperiencePage };

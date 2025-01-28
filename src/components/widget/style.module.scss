@@ -8,14 +8,15 @@
   max-height: 95vh;
   overflow-y: auto;
   color: #333;
+  background-color: colors.$bg;
 
   ::-webkit-scrollbar {
     display: none;
   }
+
   scrollbar-width: none;
 
   @include schema.dark {
-    background-color: colors.$bg;
     color: inherit;
   }
 }

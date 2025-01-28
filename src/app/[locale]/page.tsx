@@ -1,10 +1,10 @@
 import { Image, Page } from '@/components';
-import { Locale } from '@/interfaces';
+import { LocalePageProps } from '@/interfaces';
 import { getParams } from '@/utils/getParams';
 import { getContent } from './action';
 import { ASSETS } from '@/common';
 
-const Home = async ({ params }: { params: { locale: Locale } }) => {
+const Home = async ({ params }: LocalePageProps) => {
   const { locale } = await getParams(params);
   const { INTRO, INSPIRATION, ROADMAP } = await getContent({ locale });
   return (

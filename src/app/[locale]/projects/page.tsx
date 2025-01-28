@@ -1,10 +1,10 @@
 import { List, Page } from '@/components';
 import { ProjectCard } from '@/containers';
 import { getContent } from './action';
-import { Locale } from '@/interfaces';
+import { LocalePageProps } from '@/interfaces';
 import { getParams } from '@/utils/getParams';
 
-const Projects = async ({ params }: { params: { locale: Locale } }) => {
+const Projects = async ({ params }: LocalePageProps) => {
   const { locale } = await getParams(params);
   const { title, description, projects, footer } = await getContent({ locale });
   return (

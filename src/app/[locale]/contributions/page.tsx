@@ -2,8 +2,9 @@ import { List, Page } from "@/components";
 import { Package } from "@/containers";
 import { getParams } from "@/utils/getParams";
 import { getContent } from './action';
+import { LocalePageProps } from "@/interfaces";
 
-const Contributions = async ({ params }: { params: { locale: string } }) => {
+const Contributions = async ({ params }: LocalePageProps) => {
   const { locale } = await getParams(params);
   const texts = await getContent({ locale });
   return (

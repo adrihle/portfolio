@@ -9,6 +9,7 @@ import { ProviderDate } from '@/providers/date';
 import { ProviderLog } from '@/providers/log';
 import { ProviderCache } from "@/providers/cache";
 import { APP_SETTINGS } from "@/settings";
+import * as helpers from './helpers';
 
 const logger = new ProviderLog('SERVICE CONTENT');
 const execPromise = util.promisify(exec);
@@ -42,11 +43,13 @@ type TextPage<T> = {
 };
 
 const generatePageTexts = async <T>({ page, locale, text, cache = true }: TextPage<T>) => {
+  if (locale === APP_SETTINGS.DEFAULT_LOCALE) return text;
+
   const cachekey = `${page}#${locale}`;
 
   if (cache) {
-    const cached = await ProviderCache.get({ key: cachekey });
-    if (cached) return cached;
+    const cachedTranslations = await ProviderCache.get<T>({ key: cachekey });
+    if (cachedTranslations) return cachedTranslations as T;
   }
 
   logger.debug(`Fetching content for ${locale} of page: ${page}`);
@@ -83,6 +86,7 @@ const generatePageTexts = async <T>({ page, locale, text, cache = true }: TextPa
 
 const ServiceContent = {
   generatePageTexts,
+  ...helpers,
 };
 
 export { ServiceContent };

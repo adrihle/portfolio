@@ -12,38 +12,6 @@
   padding: 20px;
   background: colors.$primary;
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 50;
-    width: 50%;
-    height: 100%;
-    transform: rotate(30deg);
-    background-image: var(--background-image);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.3;
-    z-index: 1;
-    pointer-events: none;
-    transition: all 0.3s ease-in-out;
-
-    @include screen.xs {
-      width: 60%;
-      right: 0;
-    }
-  }
-
-  &:hover {
-
-    &::after {
-      transform: unset;
-      width: 60%;
-
-    }
-
-  }
 }
 
 .header {

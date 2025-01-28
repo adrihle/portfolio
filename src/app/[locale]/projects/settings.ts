@@ -69,3 +69,4 @@ const PROJECT_PAGE: ProjectPage = {
 } as const;
 
 export { PROJECT_PAGE };
+export type { ProjectPage };

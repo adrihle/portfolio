@@ -50,6 +50,7 @@
   display: inline-block;
   text-align: left;
   border-radius: 6px;
+  color: colors.$text;
 
   span {
     font-weight: bold;
@@ -91,7 +92,7 @@ h3.heading {
 
 .mark {
   background-color: transparent;
-  color: colors.$accent;
+  color: colors.$secondary;
   font-weight: bold;
   padding: 10px 4px;
   border-radius: 3px;

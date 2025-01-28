@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { differenceInDays, formatDistanceToNow, isBefore as fnsIsBefore, format as fnsFormat } from "date-fns";
 
 const fromNow = (date: string) => {
