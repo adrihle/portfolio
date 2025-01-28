@@ -7,7 +7,7 @@ type Locale = keyof typeof LOCALES;
 
 type AppLayoutProps<T = object> = {
   children: React.ReactNode;
-  params: T;
+  params: Promise<T>;
 };
 
 type LocalePageProps = Omit<AppLayoutProps<{ locale: Locale }>, 'children'>;
