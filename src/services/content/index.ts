@@ -43,6 +43,8 @@ type TextPage<T> = {
 };
 
 const generatePageTexts = async <T>({ page, locale, text, cache = true }: TextPage<T>) => {
+  if (locale === APP_SETTINGS.DEFAULT_LOCALE) return text;
+
   const cachekey = `${page}#${locale}`;
 
   if (cache) {
