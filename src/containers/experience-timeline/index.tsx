@@ -67,8 +67,8 @@ const Timeline = ({ experiences }: ExperienceTimelineProps) => {
         <div className={styles.fill} style={{ width: `${timelinePercentage}%` }} />
       </div>
       <div className={styles.date} style={{ width: `${timelinePercentage}%` }}>
-        <div>Today</div>
-        <div>{yearFrom}</div>
+        <Text size="small">Today</Text>
+        <Text size="small">{yearFrom}</Text>
       </div>
     </div>
   );
