@@ -4,16 +4,19 @@ import { Icon, Text, Widget } from "@/components";
 import { useForm } from '@adrihfly/reducer-form';
 import { redirect, useParams, usePathname } from "next/navigation";
 import styles from './style.module.scss';
+import { Locale } from "@/interfaces";
+import { APP_SETTINGS } from "@/settings";
 ;
 const LocaleSelector = () => {
-  const { locale } = useParams();
+  const { locale } = useParams<{ locale: Locale }>();
   const path = usePathname();
 
-  const onSubmit = ({ locale: targetLocale }: Partial<{ locale: string }>) => {
-    redirect(path.replace(locale as string, targetLocale as string));
+  const onSubmit = ({ locale: targetLocale }: Partial<{ locale: Locale }>) => {
+    if (!targetLocale) return;
+    redirect(path.replace(locale, targetLocale));
   };
 
-  const { onsubmit, register } = useForm<{ locale: string }>({ onSubmit, initial: { locale: locale as string || 'en-US' } });
+  const { onsubmit, register } = useForm<{ locale: Locale }>({ onSubmit, initial: { locale: locale || APP_SETTINGS.DEFAULT_LOCALE } });
 
   return (
     <Widget className={styles.container}>

@@ -1,14 +1,14 @@
 import { ASSETS } from '@/common';
 import { Certifications } from '@/containers';
 
-type CertificationText = {
+type CertificationPage = {
   title: string;
   description: string;
   certifications: Certifications;
   footer: string;
 };
 
-const CERTIFICATION_PAGE: CertificationText = {
+const CERTIFICATION_PAGE: CertificationPage = {
   title: 'Certified & Ready',
   description: 'These aren\'t just certifications. Oh no. They’re *gym badges* of the cloud world. And let’s be honest, some of them were harder to obtain than defeating a Level 100 Mewtwo with a team of Magikarp.',
   certifications: {
@@ -58,6 +58,6 @@ const CERTIFICATION_PAGE: CertificationText = {
     },
   },
   footer: 'With these gym badges—err, I mean certifications—under my belt, I’m ready for the next *elite* challenge. Who knows, maybe one day I’ll become the champion of the cloud world... or at least of the AWS certifications.',
-};
+} as const;
 
 export { CERTIFICATION_PAGE };

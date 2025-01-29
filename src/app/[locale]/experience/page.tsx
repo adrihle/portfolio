@@ -6,15 +6,18 @@ import { getParams } from "@/utils/getParams";
 
 const Experience = async ({ params }: LocalePageProps) => {
   const { locale } = await getParams(params);
-  const texts = await getContent({ locale });
+  const content = await getContent({ locale });
   return (
     <Page.Layout>
-      <Page.Heading>{texts.title}</Page.Heading>
-      <Page.Paragraph bionic>{texts.description}</Page.Paragraph>
+      <Page.Heading>{content.title}</Page.Heading>
+
+      <Page.Paragraph bionic>{content.description}</Page.Paragraph>
+
       <Page.Section>
-        <ExperienceTimeline experiences={texts.experiences} />
+        <ExperienceTimeline experiences={content.experiences} />
       </Page.Section>
-      <Page.Paragraph bionic>{texts.footer}</Page.Paragraph>
+
+      <Page.Paragraph bionic>{content.footer}</Page.Paragraph>
     </Page.Layout>
   );
 };
