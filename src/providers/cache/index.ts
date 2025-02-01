@@ -54,6 +54,8 @@ const get = async <T>({ key }: Pick<CacheMethodParams<T>, 'key'>): Promise<T | n
 const set = async <T>({ key, value, expire = DEFAULT_EXPIRE_SECONDS }: CacheMethodParams<T>): Promise<void> => {
   logger.debug(`Setting value for ${key}`)
 
+  console.log('testlog>', { value: JSON.stringify(value), key, expire });
+
   try {
     await redis.set(key, JSON.stringify(value), { EX: expire });
     logger.debug(`Successfull setted value for ${key}`);
