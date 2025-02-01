@@ -9,7 +9,7 @@ import { translateMemory } from './memory';
 type Config = {
   cache?: boolean;
   memory?: boolean;
-  ttl: number;
+  ttl?: number;
 }
 
 const DEFAULT_CONFIG: Config = {
@@ -60,7 +60,8 @@ class Repository {
     const translations = doc?.translations as Translation['translations'];
 
     if (cache) {
-      await translateCache.set({ page, locale, translations, ttl: this.config.ttl });
+      // FIX: number fallback -.- check anothr workarround
+      await translateCache.set({ page, locale, translations, ttl: this.config.ttl || 1 });
     };
 
     if (memory) {
@@ -77,7 +78,7 @@ class Repository {
       const doc = new this.model({ page, locale, translations });
       await doc.save();
       this.logger.debug(`Successfull created ${page} | ${locale}`);
-      if (cache || this.config.cache) await translateCache.set({ page, locale, translations, ttl: this.config.ttl });
+      if (cache || this.config.cache) await translateCache.set({ page, locale, translations, ttl: this.config.ttl || 1 });
       if (memory || this.config.memory) translateMemory.set({ page, locale, translations });
       return doc.translations;
     } catch (err) {
