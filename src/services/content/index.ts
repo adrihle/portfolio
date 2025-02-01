@@ -10,6 +10,7 @@ import { ProviderLog } from '@/providers/log';
 import { ProviderCache } from "@/providers/cache";
 import { APP_SETTINGS } from "@/settings";
 import * as helpers from './helpers';
+import { RepositoryTranslates } from "@/repositories/translations/translates";
 
 const logger = new ProviderLog('SERVICE CONTENT');
 const execPromise = util.promisify(exec);
@@ -46,14 +47,14 @@ const generatePageTexts = async <T>({ page, locale, text, cache = true }: TextPa
   if (locale === APP_SETTINGS.DEFAULT_LOCALE) return text;
 
   const cachekey = `${page}#${locale}`;
-
-  if (cache) {
-    const cachedTranslations = await ProviderCache.get<T>({ key: cachekey });
-    if (cachedTranslations) return cachedTranslations as T;
-  }
+  //
+  // if (cache) {
+  //   const cachedTranslations = await ProviderCache.get<T>({ key: cachekey });
+  //   if (cachedTranslations) return cachedTranslations as T;
+  // }
 
   logger.debug(`Fetching content for ${locale} of page: ${page}`);
-  const texts = await RepositoryTranslation.get({ page, locale });
+  const texts = await RepositoryTranslates.get({ page, locale });
 
   if (texts) {
     logger.debug(`Found in database content for ${locale} of page: ${page}`);

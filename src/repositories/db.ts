@@ -5,7 +5,7 @@ let isConnected = false;
 const logger = new ProviderLog('DDBB');
 const IS_DEV = process.env.ENVIRONMENT === 'development';
 
-export const conn = async () => {
+const conn = async () => {
   logger.debug('Connecting');
   if (isConnected) return mongoose.connection;
 
@@ -21,3 +21,11 @@ export const conn = async () => {
     throw new Error(message);
   }
 };
+
+const getModel = <T>({ model, schema }: { model: string, schema: mongoose.Schema<T> }) => {
+  if (mongoose.models[model]) return mongoose.models[model];
+
+  return mongoose.model<T>(model, schema);
+};
+
+export { conn, getModel }
