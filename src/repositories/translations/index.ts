@@ -1,32 +1,20 @@
-import { Locale } from '@/interfaces';
 import { ProviderLog } from '@/providers/log';
 import mongoose, { Model } from 'mongoose';
 import { conn, getModel } from '../db';
-import { ProviderCache } from '@/providers/cache';
 import { APP_SETTINGS } from '@/settings';
-
-type CreateTranslation = {
-  page: string;
-  locale: Locale;
-  translations: Record<string, string | object | Array<object>>;
-};
-
-type Translation = CreateTranslation & {
-  updatedAt: Date;
-  createdAt: Date;
-};
-
-type SearchParams = Pick<CreateTranslation, 'locale' | 'page'>;
+import { CreateTranslation, SearchParams, Translation } from './interfaces';
+import { translateCache } from './cache';
+import { translateMemory } from './memory';
 
 type Config = {
   cache?: boolean;
   memory?: boolean;
-  ttl?: number;
+  ttl: number;
 }
 
 const DEFAULT_CONFIG: Config = {
   cache: true,
-  memory: false,
+  memory: true,
   ttl: APP_SETTINGS.CACHE.PAGES.TTL,
 };
 
@@ -52,31 +40,16 @@ class Repository {
     await conn();
   }
 
-  private getCacheKey({ page, locale }: SearchParams) {
-    return `${page}#${locale || 'home'}`;
-  }
-
-  private async getCached({ page, locale }: SearchParams) {
-    this.logger.debug(`Fetching from cache ${page} | ${locale}`);
-    const cached = await ProviderCache.get<Translation>({ key: this.getCacheKey({ page, locale }) });
-    if (cached) return cached;
-    this.logger.info(`Translate not found for ${page} | ${locale}`);
-  }
-
-  // FIXME: decide what to cache, fully document or just the translations!!
-  private async cache({ page, locale, translations }: CreateTranslation) {
-    await ProviderCache.set({
-      key: this.getCacheKey({ page, locale }),
-      value: translations,
-      expire: this.config.ttl,
-    })
-  }
-
-  async get({ page, locale, cache = this.config.cache }: SearchParams & Config) {
+  async get({ page, locale, cache = this.config.cache, memory = this.config.memory }: SearchParams & Config) {
     this.logger.debug(`Fetching ${page} | ${locale}`);
 
+    if (memory) {
+      const memoized = translateMemory.get({ page, locale });
+      if (memoized) return memoized;
+    }
+
     if (cache) {
-      const cached = await this.getCached({ page, locale });
+      const cached = await translateCache.get({ page, locale });
       if (cached) return cached;
     }
 
@@ -84,23 +57,30 @@ class Repository {
     const doc = await this.model.findOne(filter).lean();
     this.logger.debug(`Found ${page} | ${locale}`);
 
-    if (!doc) return null;
-    if (!cache) return doc;
-    
-    await this.cache({ page, locale, translations: doc?.translations as Translation['translations'] })
-    return doc.translations;
+    const translations = doc?.translations as Translation['translations'];
+
+    if (cache) {
+      await translateCache.set({ page, locale, translations, ttl: this.config.ttl });
+    };
+
+    if (memory) {
+      translateMemory.set({ page, locale, translations });
+    }
+
+    return doc?.translations;
   }
 
-  async write({ page, locale, translations, cache = this.config.cache }: CreateTranslation & Config) {
+  async write({ page, locale, translations, cache = this.config.cache, memory = this.config.memory }: CreateTranslation & Config) {
     this.logger.debug(`Creating new document ${page} | ${locale}`);
 
     try {
       const doc = new this.model({ page, locale, translations });
       await doc.save();
       this.logger.debug(`Successfull created ${page} | ${locale}`);
-      if (cache) await this.cache({ page, locale, translations });
-      return doc;
-    } catch(err) {
+      if (cache || this.config.cache) await translateCache.set({ page, locale, translations, ttl: this.config.ttl });
+      if (memory || this.config.memory) translateMemory.set({ page, locale, translations });
+      return doc.translations;
+    } catch (err) {
       this.logger.error(`Error creating document ${page} | ${locale}`, { err });
       throw err;
     }
