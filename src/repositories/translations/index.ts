@@ -1,7 +1,6 @@
-import { ProviderLog } from '@/providers/log';
-import mongoose, { Model } from 'mongoose';
-import { conn, getModel } from '../db';
 import { APP_SETTINGS } from '@/settings';
+import { ProviderLog } from '@/providers/log';
+import { conn, getModel, Model, Mixed } from '../db';
 import { CreateTranslation, SearchParams, Translation } from './interfaces';
 import { translateCache } from './cache';
 import { translateMemory } from './memory';
@@ -26,13 +25,13 @@ class Repository {
   constructor(config: Config) {
     this.config = config;
     this.init();
-    this.model = getModel({
+    this.model = getModel<Translation>({
       model: 'texts',
-      schema: new mongoose.Schema({
+      schema: {
         page: { type: String, required: true },
         locale: { type: String, required: true },
-        translations: { type: Map, of: mongoose.Schema.Types.Mixed },
-      }, { timestamps: true })
+        translations: { type: Map, of: Mixed },
+      },
     });
   }
 
@@ -41,6 +40,7 @@ class Repository {
   }
 
   async get({ page, locale, cache = this.config.cache, memory = this.config.memory }: SearchParams & Config) {
+    console.log('testlog>',)
     this.logger.debug(`Fetching ${page} | ${locale}`);
 
     if (memory) {
@@ -50,7 +50,10 @@ class Repository {
 
     if (cache) {
       const cached = await translateCache.get({ page, locale });
-      if (cached) return cached;
+      if (cached) {
+        if (memory) translateMemory.set({ page, locale, translations: cached });
+        return cached
+      }
     }
 
     const filter = { ...(page && { page }), ...(locale && { locale }) };

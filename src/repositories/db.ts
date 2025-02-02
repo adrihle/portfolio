@@ -1,5 +1,5 @@
 import { ProviderLog } from '@/providers/log';
-import mongoose from 'mongoose';
+import mongoose, { SchemaDefinition } from 'mongoose';
 
 let isConnected = false;
 const logger = new ProviderLog('DDBB');
@@ -22,10 +22,17 @@ const conn = async () => {
   }
 };
 
-const getModel = <T>({ model, schema }: { model: string, schema: mongoose.Schema<T> }) => {
+const getModel = <T>({ model, schema }: { model: string, schema: SchemaDefinition<T>}) => {
   if (mongoose.models[model]) return mongoose.models[model];
 
-  return mongoose.model<T>(model, schema);
+  const s = new mongoose.Schema(schema, { timestamps: true });
+
+  return mongoose.model<T>(model, s);
 };
 
-export { conn, getModel }
+class Mixed extends mongoose.Schema.Types.Mixed {}
+
+type Model<T> = mongoose.Model<T>;
+
+export { conn, getModel, Mixed };
+export type { Model };
