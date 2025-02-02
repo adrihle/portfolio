@@ -23,7 +23,7 @@ const preload = async () => {
   const promises = Object.values(proccesses)
     .map((p) => Object.keys(LOCALES).map(l => p(l as keyof typeof LOCALES)))
     .flat();
-  await Promise.all(promises);
+  await Promise.allSettled(promises);
   logger.info('Successfull finished preloading');
   process.exit(0);
 }

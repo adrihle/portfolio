@@ -3,10 +3,10 @@ import { Locale } from "@/interfaces";
 import { ProviderAI } from '@/providers/ai';
 import { ProviderLog } from '@/providers/log';
 import { APP_SETTINGS } from "@/settings";
-import * as helpers from './helpers';
 import { RepositoryTranslates } from "@/repositories";
 import { getLastFileUpdate } from "@/utils/getLastFileUpdate";
 import { ProviderDate } from "@/providers/date";
+import * as helpers from './helpers';
 
 const logger = new ProviderLog('SERVICE CONTENT');
 
