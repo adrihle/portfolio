@@ -74,6 +74,7 @@ const PROJECTS = {
   mindmapper: CDN_URL("v1737915897/PORTFOLIO/projects/j4db49x1m1tjs1ziqgcn.png"),
   resq: CDN_URL("v1737906180/PORTFOLIO/projects/lolhg37p3hxgkq9f6lvn.png"),
   npmrunwild: CDN_URL("v1737915084/PORTFOLIO/projects/isuoijxriuazkggv2uar.png"),
+  portfolio_banner: CDN_URL('v1737906092/PORTFOLIO/projects/dx7i154ohywp5qrma8ui.png'),
 } as const;
 
 const ASSETS = { ICONS, IMAGES, CERTIFICATIONS, PROJECTS } as const;
