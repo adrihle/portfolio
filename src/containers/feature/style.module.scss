@@ -1,3 +1,5 @@
+@use 'screen';
+
 .container {
   display: flex;
   padding: 0;
@@ -6,7 +8,11 @@
 
 .text_container {
   padding: 15px;
-  min-width: 550px;
+  min-width: 100%;
+
+  @include screen.xl {
+    min-width: 550px;
+  }
 }
 
 .version_container {

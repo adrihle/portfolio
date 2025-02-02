@@ -18,7 +18,7 @@ const About = async ({ params }: LocalePageProps) => {
         <Image.Fill
           src={ASSETS.PROJECTS.portfolio_banner}
           aspectRatio='20 / 4'
-          style={{ margin: '50px 0' }}
+          style={{ margin: '20px 0' }}
         />
 
         <List
