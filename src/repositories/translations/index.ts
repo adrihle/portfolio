@@ -88,6 +88,19 @@ class Repository {
       throw err;
     }
   }
+
+  async update({ page, locale, translations, cache = this.config.cache }: CreateTranslation & Config) {
+    this.logger.debug(`Updating document ${page} | ${locale}`);
+
+    try {
+      await this.model.updateOne({ page, locale }, { $set: { locale, page, translations } }, { upsert: true });
+      if (cache) await translateCache.set({ locale, page, translations, ttl: this.config.ttl || 1 });
+      this.logger.debug(`Successfull updated ${page} | ${locale}`);
+    } catch (err) {
+      this.logger.error(`Error updating document ${page} | ${locale}`, { err });
+    }
+
+  }
 }
 
 const RepositoryTranslates = new Repository(DEFAULT_CONFIG);
