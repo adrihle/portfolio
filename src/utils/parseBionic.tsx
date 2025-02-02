@@ -5,7 +5,7 @@ const INTERNATIONAL_ALPHABET = /^[\p{L}!?.’,—]+$/u;
 
 const parseBionic = ({ text, percentage = 0.3 }: { text: React.ReactNode, percentage?: number }) => {
   if (typeof text !== 'string') {
-    logger.warn('Text should be an string');
+    if (text) logger.warn('Text should be an string');
     return text;
   }
 
