@@ -4,8 +4,8 @@ import { ProviderCache } from "@/providers/cache";
 
 const logger = new ProviderLog('REPOSITORY TRANSLATES | CACHE')
 
-const getCacheKey = ({ page, locale }: SearchParams) => {
-  return `${page}#${locale || 'home'}`;
+const getCacheKey = ({ page = 'home', locale }: SearchParams) => {
+  return `${page}#${locale}`;
 };
 
 const get = async ({ page, locale }: SearchParams) => {

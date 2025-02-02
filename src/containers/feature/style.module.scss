@@ -13,6 +13,10 @@
   @include screen.xl {
     min-width: 550px;
   }
+
+  @include screen.xxl {
+    min-width: 800px;
+  }
 }
 
 .version_container {

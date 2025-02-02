@@ -1,7 +1,7 @@
 import { ProviderMemory } from "@/providers/memory";
 import { CreateTranslation, SearchParams } from "./interfaces";
 
-const getKey = ({ page, locale }: SearchParams) => {
+const getKey = ({ page = 'home', locale }: SearchParams) => {
   return `${page}#${locale}`;
 };
 

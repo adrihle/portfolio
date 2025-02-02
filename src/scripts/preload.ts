@@ -1,5 +1,4 @@
 import { LOCALES } from '@/common';
-import { Locale } from '@/interfaces';
 import { updateContent as updateHome } from '@/app/[locale]/action';
 import { updateContent as updateAbout } from '@/app/[locale]/about/action';
 import { updateContent as updateExperience } from '@/app/[locale]/experience/action';
@@ -22,7 +21,7 @@ const proccesses = {
 const preload = async () => {
   logger.info('Preloading setting files');
   const promises = Object.values(proccesses)
-    .map((p) => Object.keys(LOCALES).map(l => p(l as Locale)))
+    .map((p) => Object.keys(LOCALES).map(l => p(l as keyof typeof LOCALES)))
     .flat();
   await Promise.all(promises);
   logger.info('Successfull finished preloading');

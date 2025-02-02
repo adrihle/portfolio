@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "preload": "export $(cat .env | xargs) && npx tsx src/scripts/preload.ts"
+    "preload": "export $(cat .env | xargs) && npx tsx src/scripts/preload.ts",
+    "prebuild": "npm run preload"
   },
   "dependencies": {
     "@adrihfly/intersection-hook": "^1.0.1-beta.6",
