@@ -17,7 +17,7 @@ const imageStyle: React.CSSProperties = {
 
 const About = async ({ params }: LocalePageProps) => {
   const { locale } = await getParams(params);
-  const content = await getContent({ locale });
+  const content = await getContent(locale);
   return (
     <Page.Layout>
       <Page.Heading>{content.title}</Page.Heading>

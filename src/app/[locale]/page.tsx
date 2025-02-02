@@ -6,7 +6,7 @@ import { ASSETS } from '@/common';
 
 const Home = async ({ params }: LocalePageProps) => {
   const { locale } = await getParams(params);
-  const { INTRO, INSPIRATION, ROADMAP } = await getContent({ locale });
+  const { INTRO, INSPIRATION, ROADMAP } = await getContent(locale);
   return (
     <Page.Layout>
       <Page.Heading type='h1'>{INTRO.title}</Page.Heading>

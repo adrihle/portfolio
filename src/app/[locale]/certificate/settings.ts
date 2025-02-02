@@ -61,3 +61,4 @@ const CERTIFICATION_PAGE: CertificationPage = {
 } as const;
 
 export { CERTIFICATION_PAGE };
+export type { CertificationPage };

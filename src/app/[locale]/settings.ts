@@ -1,3 +1,30 @@
+type HomePage = {
+  INTRO: {
+    title: string;
+    content: {
+      p1: string;
+      p2: string;
+      highlight: string;
+      p3: string;
+      p4: string;
+    };
+  };
+  INSPIRATION: {
+    title: string;
+    content: {
+      p1: string;
+      p2: string;
+    };
+  };
+  ROADMAP: {
+    title: string;
+    content: {
+      p1: string;
+      p2: string;
+    };
+  };
+};
+
 const INTRO = {
   title: 'A Journey Through Code, Creativity, and Connection',
   content: {
@@ -56,10 +83,11 @@ const ROADMAP = {
   }
 };
 
-const HOME_PAGE = {
+const HOME_PAGE: HomePage = {
   INTRO,
   INSPIRATION,
   ROADMAP,
 };
 
 export { HOME_PAGE };
+export type { HomePage };

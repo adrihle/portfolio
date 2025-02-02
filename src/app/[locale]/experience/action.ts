@@ -1,8 +1,8 @@
 import { ServiceContent } from '@/services';
-import { EXPERIENCE_PAGE } from './settings';
+import { EXPERIENCE_PAGE, ExperiencePage } from './settings';
 import { Locale } from '@/interfaces';
 
-const getContent = async ({ locale }: { locale: Locale }) => {
+const getContent = async (locale: Locale): Promise<ExperiencePage> => {
   const { experiences, ...rest } = EXPERIENCE_PAGE;
 
   const sanitized = ServiceContent.sanitizedTranslations({
@@ -20,7 +20,7 @@ const getContent = async ({ locale }: { locale: Locale }) => {
     fields: ['description', 'position', 'location'],
   });
 
-  return { ...result, experiences: merged }  as typeof EXPERIENCE_PAGE;
+  return { ...result, experiences: merged };
 };
 
 export { getContent };

@@ -44,7 +44,7 @@ const getContributions = async (): Promise<PackageInfo[]> => {
   }
 }
 
-const getContent = async ({ locale }: { locale: Locale }) => {
+const getContent = async (locale: Locale): Promise<ContributionPage> => {
   const { PACKAGES, ...rest } = CONTRIBUTION_PAGE;
 
   const translation = await ServiceContent.generatePageTexts({
@@ -53,10 +53,7 @@ const getContent = async ({ locale }: { locale: Locale }) => {
     page: 'contributions',
   });
 
-  return {
-    ...translation,
-    PACKAGES,
-  } as ContributionPage;
+  return { ...translation, PACKAGES };
 };
 
 export { getContributions, getContent };

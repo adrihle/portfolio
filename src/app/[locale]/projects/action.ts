@@ -1,8 +1,8 @@
 import { Locale } from "@/interfaces";
 import { ServiceContent } from "@/services";
-import { PROJECT_PAGE } from "./settings";
+import { PROJECT_PAGE, ProjectPage } from "./settings";
 
-const getContent = async ({ locale }: { locale: Locale }) => {
+const getContent = async (locale: Locale): Promise<ProjectPage> => {
   const { projects, ...rest } = PROJECT_PAGE;
 
   const sanitized = ServiceContent.sanitizedTranslations({
@@ -16,11 +16,11 @@ const getContent = async ({ locale }: { locale: Locale }) => {
 
   const merged = ServiceContent.mergeTranslations({
     text: projects,
-    translations: translation.projects as (typeof PROJECT_PAGE)['projects'],
+    translations: translation.projects,
     fields: ['name', 'short', 'description' ],
   })
 
-  return { ...translation, projects: merged } as typeof PROJECT_PAGE;
+  return { ...translation, projects: merged };
 };
 
 export { getContent };
