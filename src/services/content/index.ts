@@ -33,6 +33,7 @@ const generatePageTexts = async <T>({ page, locale, text }: TextPage<T>) => {
 };
 
 const updatePageTexts = async <T>({ page, locale, text, filePath }: TextPage<T> & { filePath: string }) => {
+  logger.debug(`Updating translations ${page} | ${locale}`);
   if (locale === APP_SETTINGS.DEFAULT_LOCALE) return text;
 
   const lastUpdate = await getLastFileUpdate({ filePath });
@@ -45,13 +46,19 @@ const updatePageTexts = async <T>({ page, locale, text, filePath }: TextPage<T> 
 
   const isUpdated = ProviderDate.isBefore(formattedLastFileUpdate, lastTranslationUpdate);
 
-  if (isUpdated) return;
+  if (isUpdated) {
+    logger.debug(`Translates ${page} | ${locale} is up to date`);
+    return;
+  };
+
+  logger.info(`Updating ${page} | ${locale}`);
 
   const generated = await ProviderAI.translateText({ locale, text });
   if (!generated) return text;
 
   logger.debug(`Translate successfull content for ${locale} of page: ${page}`);
   await RepositoryTranslates.update({ page, locale, translations: generated });
+  logger.debug(`Successfull stored ${page} | ${locale}`);
 };
 
 const ServiceContent = {
