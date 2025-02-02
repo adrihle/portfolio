@@ -73,6 +73,12 @@ class Repository {
     return doc?.translations;
   }
 
+  async getLastUpdate({ page, locale }: SearchParams) {
+    const doc = await this.model.findOne({ page, locale }).lean();
+    if (!doc) return null;
+    return doc.updatedAt;
+  }
+
   async write({ page, locale, translations, cache = this.config.cache, memory = this.config.memory }: CreateTranslation & Config) {
     this.logger.debug(`Creating new document ${page} | ${locale}`);
 

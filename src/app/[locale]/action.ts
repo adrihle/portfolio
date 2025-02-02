@@ -11,4 +11,9 @@ const getContent = async (locale: Locale): Promise<HomePage> => {
   return content;
 };
 
-export { getContent };
+const updateContent = async (locale: Locale): Promise<void> => {
+  const filePath = './src/app/[locale]/settings.ts';
+  await ServiceContent.updatePageTexts({ page: 'home', locale, text: HOME_PAGE, filePath });
+};
+
+export { getContent, updateContent };

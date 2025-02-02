@@ -5,6 +5,8 @@ import { ProviderLog } from '@/providers/log';
 import { APP_SETTINGS } from "@/settings";
 import * as helpers from './helpers';
 import { RepositoryTranslates } from "@/repositories";
+import { getLastFileUpdate } from "@/utils/getLastFileUpdate";
+import { ProviderDate } from "@/providers/date";
 
 const logger = new ProviderLog('SERVICE CONTENT');
 
@@ -30,8 +32,31 @@ const generatePageTexts = async <T>({ page, locale, text }: TextPage<T>) => {
   return generated;
 };
 
+const updatePageTexts = async <T>({ page, locale, text, filePath }: TextPage<T> & { filePath: string }) => {
+  if (locale === APP_SETTINGS.DEFAULT_LOCALE) return text;
+
+  const lastUpdate = await getLastFileUpdate({ filePath });
+  if (!lastUpdate) return;
+
+  const formattedLastFileUpdate = ProviderDate.format({ date: lastUpdate, format: 'yyyy-MM-dd' })
+  const lastTranslationUpdate = await RepositoryTranslates.getLastUpdate({ page, locale });
+
+  if (!lastTranslationUpdate) return;
+
+  const isUpdated = ProviderDate.isBefore(formattedLastFileUpdate, lastTranslationUpdate);
+
+  if (isUpdated) return;
+
+  const generated = await ProviderAI.translateText({ locale, text });
+  if (!generated) return text;
+
+  logger.debug(`Translate successfull content for ${locale} of page: ${page}`);
+  await RepositoryTranslates.update({ page, locale, translations: generated });
+};
+
 const ServiceContent = {
   generatePageTexts,
+  updatePageTexts,
   ...helpers,
 };
 

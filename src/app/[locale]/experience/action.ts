@@ -23,4 +23,18 @@ const getContent = async (locale: Locale): Promise<ExperiencePage> => {
   return { ...result, experiences: merged };
 };
 
-export { getContent };
+const updateContent = async (locale: Locale) => {
+  const filePath = './src/app/[locale]/experience/settings.ts';
+  const { experiences, ...rest } = EXPERIENCE_PAGE;
+
+  const sanitized = ServiceContent.sanitizedTranslations({
+    text: experiences,
+    fields: ['description', 'position', 'location'],
+  });
+
+  const text = { ...rest, experiences: sanitized };
+
+  await ServiceContent.updatePageTexts({ page: 'experience', locale, text, filePath });
+};
+
+export { getContent, updateContent };

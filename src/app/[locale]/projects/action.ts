@@ -23,4 +23,18 @@ const getContent = async (locale: Locale): Promise<ProjectPage> => {
   return { ...translation, projects: merged };
 };
 
-export { getContent };
+const updateContent = async (locale: Locale) => {
+  const filePath = './src/app/[locale]/projects/settings.ts';
+  const { projects, ...rest } = PROJECT_PAGE;
+
+  const sanitized = ServiceContent.sanitizedTranslations({
+    text: projects,
+    fields: ['name', 'short', 'description'],
+  });
+
+  const text = { ...rest, projects: sanitized };
+
+  await ServiceContent.updatePageTexts({ page: 'projects', locale, text, filePath });
+};
+
+export { getContent, updateContent };

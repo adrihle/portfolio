@@ -1,4 +1,4 @@
-const CDN_URL = (path: string) => `https://res.cloudinary.com/dlj66ezaw/image/upload/${path}`);
+const CDN_URL = (path: string) => `https://res.cloudinary.com/dlj66ezaw/image/upload/${path}`;
 
 const ICONS = {
   about: CDN_URL("v1737636084/PORTFOLIO/icons/v0vesar4jrzuab8im9ht.svg"),

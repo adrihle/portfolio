@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { PackageInfo } from '@/containers';
 import { ServiceContent } from '@/services';
 import { exec } from 'child_process';
@@ -56,4 +57,11 @@ const getContent = async (locale: Locale): Promise<ContributionPage> => {
   return { ...translation, PACKAGES };
 };
 
-export { getContributions, getContent };
+const updateContent = async (locale: Locale) => {
+  const filePath = './src/app/[locale]/contributions/settings.ts';
+  const { PACKAGES, ...rest } = CONTRIBUTION_PAGE;
+
+  await ServiceContent.updatePageTexts({ page: 'contributions', locale, text: rest, filePath });
+};
+
+export { getContributions, getContent, updateContent };
