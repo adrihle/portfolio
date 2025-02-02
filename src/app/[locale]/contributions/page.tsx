@@ -16,7 +16,7 @@ const Contributions = async ({ params }: LocalePageProps) => {
       </Page.Section>
       <Page.Section>
         <List
-          list={content.contributions}
+          list={Object.values(content.PACKAGES)}
           renderElement={Package}
         />
       </Page.Section>

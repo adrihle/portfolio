@@ -40,7 +40,6 @@ class Repository {
   }
 
   async get({ page, locale, cache = this.config.cache, memory = this.config.memory }: SearchParams & Config) {
-    console.log('testlog>',)
     this.logger.debug(`Fetching ${page} | ${locale}`);
 
     if (memory) {

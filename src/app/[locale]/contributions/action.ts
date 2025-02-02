@@ -2,7 +2,7 @@ import { PackageInfo } from '@/containers';
 import { ServiceContent } from '@/services';
 import { exec } from 'child_process';
 import util from 'util';
-import { CONTRIBUTION_PAGE } from './settings';
+import { CONTRIBUTION_PAGE, ContributionPage } from './settings';
 import { Locale } from '@/interfaces';
 import { ProviderCache } from '@/providers/cache';
 import { ProviderLog } from '@/providers/log';
@@ -45,11 +45,18 @@ const getContributions = async (): Promise<PackageInfo[]> => {
 }
 
 const getContent = async ({ locale }: { locale: Locale }) => {
-  const texts = await ServiceContent.generatePageTexts<typeof CONTRIBUTION_PAGE>({ text: CONTRIBUTION_PAGE, locale, page: 'contributions' })
+  const { PACKAGES, ...rest } = CONTRIBUTION_PAGE;
+
+  const translation = await ServiceContent.generatePageTexts({
+    text: rest,
+    locale,
+    page: 'contributions',
+  });
+
   return {
-    ...texts,
-    contributions: await getContributions(),
-  } as typeof CONTRIBUTION_PAGE & { contributions: PackageInfo[] };
+    ...translation,
+    PACKAGES,
+  } as ContributionPage;
 };
 
 export { getContributions, getContent };
