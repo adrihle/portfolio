@@ -34,11 +34,12 @@ type HeadingProps = HTMLTextProps<HTMLHeadingElement> & {
 
 const Heading = ({ type = 'h1', children, className: customClassName, ...props }: HeadingProps) => {
   const className = `${styles.heading} ${customClassName}`;
+  const headingProps = { className, ...props };
 
   const types: Record<Required<HeadingProps>['type'], React.ReactElement> = {
-    h1: <h1 {...{ className, ...props }} >{children}</h1>,
-    h2: <h2 {...{ className, ...props }} >{children}</h2>,
-    h3: <h3 {...{ className, ...props }} >{children}</h3>,
+    h1: <h1 {...headingProps} >{children}</h1>,
+    h2: <h2 {...headingProps} >{children}</h2>,
+    h3: <h3 {...headingProps} >{children}</h3>,
   };
 
   return types[type];
