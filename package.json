@@ -1,9 +1,10 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
-    "dev": "dotenv -e .env.dev next dev --turbopack",
+    "dev": "next dev --turbopack",
+    "dev:local": "dotenv -e .env.dev next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

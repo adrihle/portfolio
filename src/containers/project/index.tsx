@@ -15,7 +15,7 @@ type ProjectInfo = {
   background?: string;
 };
 
-const ProjectCard = ({ name, description, stack, logoUrl, aspectRatio, background, short }: ProjectInfo) => {
+const ProjectCard = ({ name, description, stack, logoUrl, aspectRatio, background, short, infoHref, repoHref }: ProjectInfo) => {
   return (
     <Card style={{ background }} className={styles.container}>
       <div className={styles.header}>
@@ -28,19 +28,22 @@ const ProjectCard = ({ name, description, stack, logoUrl, aspectRatio, backgroun
           <Text size="medium" bold color="secondary">{short}</Text>
         </div>
       </div>
+
       <div className={styles.body}>
         <Text size="large" italic bionic>{description}</Text>
       </div>
+
       <div className={styles.footer}>
         <List
           list={stack.map(s => ({ icon: s }))}
           renderElement={Icon.Brand}
           className={styles.stacklist}
         />
+
         <div className={styles.links}>
-          <Text size="small">Comming soon</Text>
-          {/* {infoHref && <Icon.Link href={infoHref} src="mail" />} */}
-          {/* {repoHref && <Icon.Link href={repoHref} src="github" />} */}
+          {infoHref && <Icon.Link href={infoHref} src="mail" />}
+          {repoHref && <Icon.Link href={repoHref} src="github" />}
+          {(!infoHref && !repoHref) && <Text size="small">Comming soon</Text>}
         </div>
       </div>
     </Card>

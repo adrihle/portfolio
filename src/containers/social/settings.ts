@@ -16,7 +16,7 @@ const SETTINGS = {
       icon: 'github',
     },
     MAIL: {
-      href: 'mailto:adrian.lpes@gmail.com',
+      href: "mailto:info+general@adrilopez.dev?subject=Let's%20Chat%20for%20a%20While",
       icon: 'mail',
     },
   }
