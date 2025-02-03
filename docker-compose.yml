@@ -10,14 +10,8 @@ services:
     depends_on:
       - mongodb
       - redis
-    environment:
-      - REDIS_URIL=redis://redis:6379
-      - MONGO_URI=mongodb://mongodb:27017/portfolio
-      - OPENAI_KEY=${OPENAI_APIKEY}
-    volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
+    env_file:
+      - .env
     networks:
       - portfolio_network
 
