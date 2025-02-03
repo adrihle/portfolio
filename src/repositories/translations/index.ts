@@ -8,7 +8,7 @@ import { translateMemory } from './memory';
 type Config = {
   cache?: boolean;
   memory?: boolean;
-  ttl?: number;
+  ttl: number;
 }
 
 const DEFAULT_CONFIG: Config = {
@@ -20,7 +20,7 @@ const DEFAULT_CONFIG: Config = {
 class Repository {
   private readonly model: Model<Translation>
   private readonly logger = new ProviderLog('REPOSITORY TRANSLATES');
-  private readonly config: Config;
+  private readonly config: Config = DEFAULT_CONFIG;
 
   constructor(config: Config) {
     this.config = config;
@@ -39,7 +39,7 @@ class Repository {
     await conn();
   }
 
-  async get({ page, locale, cache = this.config.cache, memory = this.config.memory }: SearchParams & Config) {
+  async get({ page, locale, cache = this.config.cache, memory = this.config.memory }: SearchParams & Partial<Config>) {
     this.logger.debug(`Fetching ${page} | ${locale}`);
 
     if (memory) {
@@ -57,6 +57,9 @@ class Repository {
 
     const filter = { ...(page && { page }), ...(locale && { locale }) };
     const doc = await this.model.findOne(filter).lean();
+
+    if (!doc) return null;
+
     this.logger.debug(`Found ${page} | ${locale}`);
 
     const translations = doc?.translations as Translation['translations'];
@@ -79,7 +82,11 @@ class Repository {
     return doc.updatedAt;
   }
 
-  async write({ page, locale, translations, cache = this.config.cache, memory = this.config.memory }: CreateTranslation & Config) {
+  async exists({ page, locale }: SearchParams) {
+    return this.model.exists({ page, locale });
+  }
+
+  async write({ page, locale, translations, cache = this.config.cache, memory = this.config.memory }: CreateTranslation & Partial<Config>) {
     this.logger.debug(`Creating new document ${page} | ${locale}`);
 
     try {
@@ -95,7 +102,7 @@ class Repository {
     }
   }
 
-  async update({ page, locale, translations, cache = this.config.cache }: CreateTranslation & Config) {
+  async update({ page, locale, translations, cache = this.config.cache }: CreateTranslation & Partial<Config>) {
     this.logger.debug(`Updating document ${page} | ${locale}`);
 
     try {

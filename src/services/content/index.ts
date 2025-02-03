@@ -40,13 +40,13 @@ const updatePageTexts = async <T>({ page, locale, text, filePath }: TextPage<T> 
   if (!lastUpdate) return;
 
   const formattedLastFileUpdate = ProviderDate.format({ date: lastUpdate, format: 'yyyy-MM-dd' })
+
+  const existsDocument = await RepositoryTranslates.exists({ page, locale });
   const lastTranslationUpdate = await RepositoryTranslates.getLastUpdate({ page, locale });
 
-  if (!lastTranslationUpdate) return;
+  const isUpdated = lastTranslationUpdate ? ProviderDate.isBefore(formattedLastFileUpdate, lastTranslationUpdate) : true;
 
-  const isUpdated = ProviderDate.isBefore(formattedLastFileUpdate, lastTranslationUpdate);
-
-  if (isUpdated) {
+  if (isUpdated && existsDocument) {
     logger.debug(`Translates ${page} | ${locale} is up to date`);
     return;
   };
