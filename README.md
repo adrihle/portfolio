@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ADRIAN LOPEZ PORTFOLIO
 
-## Getting Started
+Welcome to my personal portfolio! This is not just another "About Me" page; it's a functional showcase of my skills as a software engineer, packed with cool features, automation, and a sprinkle of humor. 🤓
 
-First, run the development server:
+You can explore everything from articles, side projects, and libraries to my work experience and certifications on platforms like AWS. It's a living lab where I test my ideas, frameworks, and experiment with new technologies.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Check it out live at [adrilopez.dev](https://adrilopez.dev)!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Banner Image](https://res.cloudinary.com/dlj66ezaw/image/upload/v1737906092/PORTFOLIO/projects/dx7i154ohywp5qrma8ui.png)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+### Releasing Automations
+This project contains a system to analyze changes in base texts and configurations, ensuring features are updated seamlessly. It's an automation lover's dream.
 
-To learn more about Next.js, take a look at the following resources:
+### Magic Keyboard Shortcuts
+Do you love fast navigation? Try Shift + arrow keys to switch between pages. Because, honestly, who enjoys unnecessary clicking? 😎
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Bionic Reading
+Boost your reading efficiency by highlighting key parts of words. It's simple, customizable, and designed to make text easier to process. Reading should be effortless, not overwhelming.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Smart (and Cost-effective) Translations
+A storage system for managing translations efficiently. No need to maintain translation files in future versions. This keeps the bundle small, saving on both time and cost.
 
-## Deploy on Vercel
+### Modular, Elegant, and Highly Configurable Code
+No unnecessary dependencies or bloated code here. The architecture is clean, scalable, and easy to configure. Good code should be flexible, not rigid.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## How to Run the Project
+
+### Development Mode
+To spin up the project in development mode, simply run the following command:
+
+- Use `npm run up:dev`
+
+This will start the project with Docker for the development environment. Make sure you have a `.env.dev` file for your development environment variables.
+
+### Production Mode
+For production, you can use:
+
+- Use `npm run up:pro`
+
+This command will start your project in production mode with the correct environment settings.
+
+---
+
+## Environment Variables
+
+Make sure to configure the following environment variables for proper functionality:
+
+- `NODE_ENV` - Set to `development` or `production` based on the environment.
+- `DEBUG` - Debugging option for your app.
+- `OPENAI_APIKEY` - Your OpenAI API key.
+- `REDIS_URI` - Redis connection URI.
+- `MONGO_URI` - MongoDB connection URI.
+
+Additionally, for development, make sure you have a `.env.dev` file that contains the variables specific to the development environment.
+
+---
+
+## Project Architecture
+
+This project is a playground for both personal projects and as a testing ground for libraries I publish. It integrates cutting-edge architecture concepts and real-world applications like automatic translation powered by OpenAI, MongoDB for translation storage, Redis for caching, and even a memory-based system for trending locales.
+
+The system also reduces database writes and reads, ensuring that MongoDB and Redis are used efficiently, leading to a faster app that won't break the bank.
+
+---
+
+## Contributing
+
+I built this project to share knowledge, demonstrate concepts, and encourage collaboration. Feel free to explore the source code, raise issues, or contribute by forking the repository.
+
+---
+
+## License
+
+This project is open source and available under the MIT License.

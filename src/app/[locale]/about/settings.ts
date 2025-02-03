@@ -41,11 +41,5 @@ const ABOUT_PAGE: AboutPage = {
   f2: 'And yes, the source code is available for you to explore. Because great code isn’t just built to work—it’s built to inspire and invite collaboration. 😉',
 } as const;
 
-const TESTING = {
-  title: 'Magic keyboard shortcuts',
-  description: 'Love fast navigation? Try Shift + arrow keys to switch between pages. Because, honestly, who enjoys unnecessary clicking?',
-  image: ASSETS.IMAGES.shortcut,
-};
-
-export { ABOUT_PAGE, TESTING };
+export { ABOUT_PAGE };
 export type { AboutPage };
