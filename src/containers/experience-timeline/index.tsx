@@ -8,7 +8,6 @@ import { ComponentProps } from '@/interfaces';
 import { Card, Icon, List, Text } from '@/components';
 import { TECH_STACK } from '@/common';
 import styles from './style.module.scss';
-import Experience from '@/app/[locale]/experience/page';
 import React from 'react';
 
 type Experience = {
@@ -31,14 +30,19 @@ type ExperienceTimelineProps = {
   experiences: Record<string, Experience>;
 };
 
-const getOlderSection = ({ experiences }: ExperienceTimelineProps) => {
+const getOlderSection = ({ experiences }: ExperienceTimelineProps): Experience => {
   const values = Object.values(experiences);
   return values.reduce((acc, section) => {
     return ProviderDate.isBefore(acc.from, section.from) ? acc : section;
   }, values[0]);
 };
 
-const useTimeline = ({ experiences }: ExperienceTimelineProps) => {
+type UseTimelineValues = {
+  timelinePercentage: number;
+  yearFrom: string;
+};
+
+const useTimeline = ({ experiences }: ExperienceTimelineProps): UseTimelineValues => {
   const { activeSection } = useIntersection();
   const { from, to } = experiences[activeSection ?? Object.keys(experiences)[0]];
 
@@ -61,12 +65,13 @@ const useTimeline = ({ experiences }: ExperienceTimelineProps) => {
 
 const Timeline = ({ experiences }: ExperienceTimelineProps) => {
   const { timelinePercentage, yearFrom } = useTimeline({ experiences });
+  const style = { width: `${timelinePercentage}%` };
   return (
     <div className={styles.timeline} style={{ ...(!timelinePercentage && { height: 0, padding: 0 }) }}>
       <div className={styles.bar}>
-        <div className={styles.fill} style={{ width: `${timelinePercentage}%` }} />
+        <div className={styles.fill} style={style}/>
       </div>
-      <div className={styles.date} style={{ width: `${timelinePercentage}%` }}>
+      <div className={styles.date} style={style}>
         <Text size="small">Today</Text>
         <Text size="small">{yearFrom}</Text>
       </div>

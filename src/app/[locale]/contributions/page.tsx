@@ -6,21 +6,21 @@ import { LocalePageProps } from "@/interfaces";
 
 const Contributions = async ({ params }: LocalePageProps) => {
   const { locale } = await getParams(params);
-  const texts = await getContent({ locale });
+  const content = await getContent(locale);
   return (
     <Page.Layout>
-      <Page.Heading>{texts.TITLE}</Page.Heading>
+      <Page.Heading>{content.TITLE}</Page.Heading>
       <Page.Section>
-        <Page.Quote by={texts.QUOTE.AUTHOR}>{texts.QUOTE.CONTENT}</Page.Quote>
-        <Page.Paragraph bionic>{texts.DESCRIPTION}</Page.Paragraph>
+        <Page.Quote by={content.QUOTE.AUTHOR}>{content.QUOTE.CONTENT}</Page.Quote>
+        <Page.Paragraph bionic>{content.DESCRIPTION}</Page.Paragraph>
       </Page.Section>
       <Page.Section>
         <List
-          list={texts.contributions}
+          list={Object.values(content.PACKAGES)}
           renderElement={Package}
         />
       </Page.Section>
-      <Page.Paragraph bionic>{texts.CONNECT}</Page.Paragraph>
+      <Page.Paragraph bionic>{content.CONNECT}</Page.Paragraph>
     </Page.Layout>
   );
 };

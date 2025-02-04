@@ -1,8 +1,8 @@
 import { Locale } from "@/interfaces";
-import { CERTIFICATION_PAGE } from "./settings";
+import { CERTIFICATION_PAGE, CertificationPage } from "./settings";
 import { ServiceContent } from "@/services";
 
-const getContent = async (locale: Locale) => {
+const getContent = async (locale: Locale): Promise<CertificationPage> => {
   const { certifications, ...rest } = CERTIFICATION_PAGE;
 
   const { aws } = certifications;
@@ -22,7 +22,22 @@ const getContent = async (locale: Locale) => {
     fields: ['title', 'description'] as never[],
   })
 
-  return { ...result, certifications: { aws: merged }} as typeof CERTIFICATION_PAGE;
+  return { ...result, certifications: { aws: merged }};
 };
 
-export { getContent };
+const updateContent = async (locale: Locale) => {
+  const filePath = './src/app/[locale]/certificate/settings.ts';
+  const { certifications, ...rest } = CERTIFICATION_PAGE;
+
+  const { aws } = certifications;
+
+  const sanitized = ServiceContent.sanitizedTranslations({
+    text: aws,
+    fields: ['title', 'description'] as never[],
+  })
+
+  const text2Translate = { ...rest, certifications: { aws: sanitized } };
+  await ServiceContent.updatePageTexts({ page: 'certifications', locale, text: text2Translate, filePath });
+};
+
+export { getContent, updateContent };

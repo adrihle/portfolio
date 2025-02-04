@@ -6,7 +6,7 @@ import { getParams } from '@/utils/getParams';
 
 const Projects = async ({ params }: LocalePageProps) => {
   const { locale } = await getParams(params);
-  const { title, description, projects, footer } = await getContent({ locale });
+  const { title, description, projects, footer } = await getContent(locale);
   return (
     <Page.Layout>
       <Page.Heading>{title}</Page.Heading>

@@ -6,9 +6,10 @@ import styles from './style.module.scss';
 import { AppLayoutProps } from "@/interfaces";
 import type { Metadata } from "next";
 import '@/styles/global.scss';
+import PROJECT from '@/../package.json';
 
 export const metadata: Metadata = {
-  title: "Adrian Lopez",
+  title: `Adrian Lopez - v${PROJECT.version}`,
   description: "Portfolio",
 };
 
