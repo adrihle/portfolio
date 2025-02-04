@@ -12,4 +12,14 @@ type AppLayoutProps<T = object> = {
 
 type LocalePageProps = Omit<AppLayoutProps<{ locale: Locale }>, 'children'>;
 
-export type { ComponentProps, Locale, AppLayoutProps, LocalePageProps };
+type KeyOf<T> = keyof T;
+type ValueOf<T> = T[keyof T];
+
+export type {
+  ComponentProps,
+  Locale,
+  AppLayoutProps,
+  LocalePageProps,
+  KeyOf,
+  ValueOf,
+};

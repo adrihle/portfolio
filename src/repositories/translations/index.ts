@@ -14,7 +14,7 @@ type Config = {
 const DEFAULT_CONFIG: Config = {
   cache: true,
   memory: true,
-  ttl: APP_SETTINGS.CACHE.PAGES.TTL,
+  ttl: APP_SETTINGS.CACHE.PAGES_TTL,
 };
 
 class Repository {

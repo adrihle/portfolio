@@ -13,4 +13,5 @@ type Translation = CreateTranslation & {
 
 type SearchParams = Pick<CreateTranslation, 'locale' | 'page'>;
 
+
 export type { CreateTranslation, Translation, SearchParams };

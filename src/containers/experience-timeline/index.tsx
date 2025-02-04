@@ -8,7 +8,6 @@ import { ComponentProps } from '@/interfaces';
 import { Card, Icon, List, Text } from '@/components';
 import { TECH_STACK } from '@/common';
 import styles from './style.module.scss';
-import Experience from '@/app/[locale]/experience/page';
 import React from 'react';
 
 type Experience = {
