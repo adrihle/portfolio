@@ -1,0 +1,42 @@
+version: "1"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+      - redis
+    env_file:
+      - .env
+    networks:
+      - portfolio_network
+
+  mongodb:
+    image: mongo:6
+    container_name: mongodb_container
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - portfolio_network
+
+  redis:
+    image: redis:latest
+    container_name: redis_container
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - portfolio_network
+
+volumes:
+  mongo_data:
+
+networks:
+  portfolio_network:

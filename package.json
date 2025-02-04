@@ -1,19 +1,24 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:local": "dotenv -e .env.dev next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "preload": "export $(cat .env | xargs) && npx tsx src/scripts/preload.ts",
+    "up:dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up",
+    "up:pro": "docker-compose -f docker-compose.yml up"
   },
   "dependencies": {
     "@adrihfly/intersection-hook": "^1.0.1-beta.6",
     "@adrihfly/reducer-form": "^1.0.0-beta.3",
     "@adrihfly/shortcuts-hook": "^1.1.0-beta.6",
     "date-fns": "^4.1.0",
+    "dotenv-cli": "^8.0.0",
     "mongoose": "^8.9.5",
     "next": "15.1.0",
     "openai": "^4.78.1",

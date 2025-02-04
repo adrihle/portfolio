@@ -18,3 +18,6 @@ export type { ProjectInfo } from './project';
 
 export { ExperienceTimeline } from './experience-timeline';
 export type { Experience } from './experience-timeline';
+
+export { FeatureCard } from './feature';
+export type { FeatureInfo } from './feature';

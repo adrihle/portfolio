@@ -1,8 +1,8 @@
 'use client'
 
-const TRACK = '4w7G7S34drdI3Ye23nWfuH';
+import { APP_SETTINGS } from "@/settings";
 
-const URL = `https://open.spotify.com/embed/track/${TRACK}?theme=0&view=list`;
+const URL = `https://open.spotify.com/embed/track/${APP_SETTINGS.SPOTIFY_TRACK_ID}?theme=0&view=list`;
 
 const Bso = () => {
   return (

@@ -1,0 +1,37 @@
+@use 'screen';
+
+.container {
+  display: flex;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.text_container {
+  padding: 15px;
+  min-width: 100%;
+
+  @include screen.xl {
+    min-width: 550px;
+  }
+
+  @include screen.xxl {
+    min-width: 800px;
+  }
+}
+
+.version_container {
+  padding-top: 20px;
+  text-align: right;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.image_left {
+  border-radius: 10px 0 0 10px;
+}
+
+.image_right {
+  border-radius: 0 10px 10px 0;
+}

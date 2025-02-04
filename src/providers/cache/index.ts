@@ -2,7 +2,6 @@ import { createClient } from 'redis';
 import { ProviderLog } from "../log";
 
 const logger = new ProviderLog('PROVIDER CACHE');
-const IS_DEV = process.env.ENVIRONMENT === 'development';
 const DEFAULT_EXPIRE_SECONDS = 60 * 60 * 1;
 
 declare global {
@@ -15,7 +14,7 @@ type Redis = ReturnType<typeof createClient>;
 let redis: Redis;
 
 if (!global.redis) {
-  const url = IS_DEV ? process.env.REDIS_URI_LOCAL : process.env.REDIS_URI_PROD;
+  const url = process.env.REDIS_URI;
 
   redis = createClient({ url });
 

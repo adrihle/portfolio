@@ -1,9 +1,9 @@
 import { LOCALES } from "@/common";
+import { APP_SETTINGS } from "@/settings";
 import { redirect } from "next/navigation";
 import '@/styles/global.scss';
 import { AppLayoutProps, Locale } from "@/interfaces";
 import { getParams } from "@/utils/getParams";
-import { APP_SETTINGS } from "@/settings";
 
 export default async function LocaleLayout({ children, params }: AppLayoutProps<{ locale: Locale }>) {
   const { locale } = await getParams(params);

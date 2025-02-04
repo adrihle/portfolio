@@ -10,27 +10,29 @@ const { ROUTES, ICON_SIZE } = NAVIGATION_SETTINGS;
 const Navigation = () => {
   const { locale } = useParams();
 
-  const shortcutConfig: ShortcutConfig = {
-    map: Object.values(ROUTES).map(route => {
+  const { apps, map } = Object.values(ROUTES)
+    .reduce((acc, route, i) => {
       return {
-        key: route.shortcutKey,
-        modifiers: ['shiftKey'],
-        action: () => redirect(`/${locale}${route.href}`),
-        description: `Navigating to ${route.label}`,
-      }
-    }),
-  }
+        apps: [...acc.apps, (
+          <Grid.Item key={i}>
+            <Icon.App {...route} size={ICON_SIZE} href={`/${locale}${route.href}`} boldKey={route.shortcutKey} />
+          </Grid.Item>
+        )],
+        map: [...acc.map, {
+          key: route.shortcutKey,
+          // FIX: review this shitty senseless cast
+          modifiers: ['shiftKey' as ShortcutConfig['map'][number]['modifiers'][number]],
+          action: () => redirect(`/${locale}${route.href}`),
+          description: `Navigating to ${route.label}`,
+        }],
+      };
+    }, { apps: [], map: [] } as { apps: React.ReactNode[], map: ShortcutConfig['map'] });
 
-  useShortcuts(shortcutConfig);
+
+  useShortcuts({ map });
 
   return (
-    <Grid className={styles.container} minWidth={ICON_SIZE} gap={15}>
-      {Object.values(ROUTES).map((props, i) => (
-        <Grid.Item key={i}>
-          <Icon.App {...props} size={ICON_SIZE} href={`/${locale}${props.href}`} boldKey={props.shortcutKey} />
-        </Grid.Item>
-      ))}
-    </Grid>
+    <Grid className={styles.container} minWidth={ICON_SIZE} gap={15} >{apps}</Grid >
   );
 };
 

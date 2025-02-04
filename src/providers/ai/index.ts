@@ -1,5 +1,5 @@
-import { Locale } from "@/interfaces";
 import { OpenAI } from "openai";
+import { Locale } from "@/interfaces";
 import { ProviderLog } from "../log";
 
 let instance: OpenAI;

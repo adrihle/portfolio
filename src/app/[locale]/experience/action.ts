@@ -1,8 +1,8 @@
 import { ServiceContent } from '@/services';
-import { EXPERIENCE_PAGE } from './settings';
+import { EXPERIENCE_PAGE, ExperiencePage } from './settings';
 import { Locale } from '@/interfaces';
 
-const getContent = async ({ locale }: { locale: Locale }) => {
+const getContent = async (locale: Locale): Promise<ExperiencePage> => {
   const { experiences, ...rest } = EXPERIENCE_PAGE;
 
   const sanitized = ServiceContent.sanitizedTranslations({
@@ -20,7 +20,21 @@ const getContent = async ({ locale }: { locale: Locale }) => {
     fields: ['description', 'position', 'location'],
   });
 
-  return { ...result, experiences: merged }  as typeof EXPERIENCE_PAGE;
+  return { ...result, experiences: merged };
 };
 
-export { getContent };
+const updateContent = async (locale: Locale) => {
+  const filePath = './src/app/[locale]/experience/settings.ts';
+  const { experiences, ...rest } = EXPERIENCE_PAGE;
+
+  const sanitized = ServiceContent.sanitizedTranslations({
+    text: experiences,
+    fields: ['description', 'position', 'location'],
+  });
+
+  const text = { ...rest, experiences: sanitized };
+
+  await ServiceContent.updatePageTexts({ page: 'experience', locale, text, filePath });
+};
+
+export { getContent, updateContent };

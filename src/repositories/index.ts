@@ -1,1 +1,1 @@
-export {  RepositoryTranslation } from './translations';
+export {  RepositoryTranslates } from './translations';
