@@ -15,8 +15,11 @@ type LocalePageProps = Omit<AppLayoutProps<{ locale: Locale }>, 'children'>;
 type KeyOf<T> = keyof T;
 type ValueOf<T> = T[keyof T];
 
+type HTMLElementProps<T> = DetailedHTMLProps<HTMLAttributes<T>, T>;
+
 export type {
   ComponentProps,
+  HTMLElementProps,
   Locale,
   AppLayoutProps,
   LocalePageProps,
