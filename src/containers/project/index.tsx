@@ -43,7 +43,7 @@ const ProjectCard = ({ name, description, stack, logoUrl, aspectRatio, backgroun
         <div className={styles.links}>
           {infoHref && <Icon.Link href={infoHref} src="mail" />}
           {repoHref && <Icon.Link href={repoHref} src="github" />}
-          {(!infoHref && !repoHref) && <Text size="small">Comming soon</Text>}
+          {(!infoHref && !repoHref) && <Text size="small">Coming soon</Text>}
         </div>
       </div>
     </Card>

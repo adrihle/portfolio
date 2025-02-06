@@ -15,7 +15,7 @@ export const GREETING_SETTINGS: GreettingSettings = {
   IMAGE_SIZE: APP_SETTINGS.PROFILE_IMAGE_SIZE,
   WELCOME: <>Hi! My name is <strong>Adrian</strong> 👋</>,
   INTRO: {
-    FIXED: <>I´m&nbsp;</>,
+    FIXED: <>I´m a&nbsp;</>,
     SEQUENCE: [
       'Full Stack Developer',
       1000,

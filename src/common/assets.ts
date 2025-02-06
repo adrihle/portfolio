@@ -70,7 +70,7 @@ const CERTIFICATIONS = {
 
 const PROJECTS = {
   portfolio: CDN_URL("v1737906101/PORTFOLIO/projects/f370xaxobeohonxkfanz.png"),
-  roccocode: CDN_URL("v1737906146/PORTFOLIO/projects/rngfxsaxdiy1wachakcd.png"),
+  roccocode: CDN_URL("c_crop,w_500,h_380/v1738873874/PORTFOLIO/projects/tmnymwlwutwcwjewg39p.png"),
   mindmapper: CDN_URL("v1737915897/PORTFOLIO/projects/j4db49x1m1tjs1ziqgcn.png"),
   resq: CDN_URL("v1737906180/PORTFOLIO/projects/lolhg37p3hxgkq9f6lvn.png"),
   npmrunwild: CDN_URL("v1737915084/PORTFOLIO/projects/isuoijxriuazkggv2uar.png"),
