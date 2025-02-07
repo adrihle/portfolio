@@ -1,13 +1,22 @@
 import { HTMLElementProps } from "@/interfaces";
 
 type ButtonProps = HTMLElementProps<HTMLButtonElement> & {
-  onClick: () => Promise<void> | void;
+  disableEnter?: boolean;
+  onClick?: () => Promise<void> | void;
+  form?: boolean;
 };
 
-const Button = ({ onClick, children, ...props }: ButtonProps) => {
+const Button = ({ onClick, form = false, children, ...props }: ButtonProps) => {
+
+  const click = async (data: FormData) => {
+    const submitSource = data.get('submittedFrom');
+    if (submitSource !== 'submit-button' && form) return;
+    if(!form && onClick) await onClick();
+  };
+
   return (
-  <form action={onClick}>
-      <button {...props} type="submit" >
+    <form action={click}>
+      <button {...props} type="submit">
         {children}
       </button>
     </form>
