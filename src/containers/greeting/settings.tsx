@@ -19,7 +19,7 @@ export const GREETING_SETTINGS: GreettingSettings = {
     SEQUENCE: [
       'Full Stack Developer',
       1000,
-      'Curious Problem-Solver',
+      'Problem-Solver',
       1000,
       'Efficiency Addict',
       1000,
@@ -27,7 +27,7 @@ export const GREETING_SETTINGS: GreettingSettings = {
       1000,
       'Resilient Optimist',
       1000,
-      'Daydreamer',
+      'Dreamer',
       1000
     ],
   },
