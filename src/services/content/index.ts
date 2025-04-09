@@ -13,8 +13,8 @@ type TextPage<T> = {
   cache?: boolean;
 };
 
-const generatePageTexts = async <T>({ locale, text }: TextPage<T>) => {
-  if (locale === APP_SETTINGS.DEFAULT_LOCALE) return text;
+const generatePageTexts = async <T>({ text }: TextPage<T>) => {
+  return text;
 };
 
 const updatePageTexts = async <T>({ page, locale, text }: TextPage<T> & { filePath: string }) => {
