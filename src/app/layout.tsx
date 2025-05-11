@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import '@/styles/global.scss';
 import { Grid } from "@/components";
-import { Greeting, Navigation, LocaleSelector, Social, Bso } from "@/containers";
+import { Greeting, Navigation, Social, Bso } from "@/containers";
 import styles from './style.module.scss';
 import { AppLayoutProps } from "@/interfaces";
 import type { Metadata } from "next";
@@ -40,9 +40,9 @@ const Menu = () => {
       <Grid.Item className={styles.navigation}>
         <Navigation />
       </Grid.Item>
-      <Grid.Item className={styles.locale}>
-        <LocaleSelector />
-      </Grid.Item>
+      {/* <Grid.Item className={styles.locale}> */}
+      {/*   <LocaleSelector /> */}
+      {/* </Grid.Item> */}
       <Grid.Item className={styles.bso}>
         <Bso />
       </Grid.Item>
