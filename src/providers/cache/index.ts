@@ -14,17 +14,17 @@ type Redis = ReturnType<typeof createClient>;
 let redis: Redis;
 
 if (!global.redis) {
-  // const url = process.env.REDIS_URI;
-  //
-  // redis = createClient({ url });
-  //
-  // redis.on('error', (err) => logger.error('Redis client error', { err }))
-  //
-  // redis.connect()
-  //   .then(() => logger.debug('Successfull connected to redis'))
-  //   .catch((err) => logger.error('Redis connection error: ', { err }))
-  //
-  // global.redis = redis;
+  const url = process.env.REDIS_URI;
+
+  redis = createClient({ url });
+
+  redis.on('error', (err) => logger.error('Redis client error', { err }))
+
+  redis.connect()
+    .then(() => logger.debug('Successfull connected to redis'))
+    .catch((err) => logger.error('Redis connection error: ', { err }))
+
+  global.redis = redis;
 } else {
   redis = global.redis;
 }

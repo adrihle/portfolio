@@ -1,25 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { ServiceContent } from '@/services';
 import { CONTRIBUTION_PAGE, ContributionPage } from './settings';
 import { Locale } from '@/interfaces';
+import { ProviderLog } from '@/providers/log';
+
+const logger = new ProviderLog('[PAGE:CONTRIBUTIONS]');
 
 const getContent = async (locale: Locale): Promise<ContributionPage> => {
-  const { PACKAGES, ...rest } = CONTRIBUTION_PAGE;
-
-  const translation = await ServiceContent.generatePageTexts({
-    text: rest,
-    locale,
-    page: 'contributions',
-  });
-
-  return { ...translation, PACKAGES };
+  logger.debug(`Provisioning content for ${locale}`);
+  return CONTRIBUTION_PAGE;
 };
 
-const updateContent = async (locale: Locale) => {
-  const filePath = './src/app/[locale]/contributions/settings.ts';
-  const { PACKAGES, ...rest } = CONTRIBUTION_PAGE;
-
-  await ServiceContent.updatePageTexts({ page: 'contributions', locale, text: rest, filePath });
-};
-
-export { getContent, updateContent };
+export { getContent };

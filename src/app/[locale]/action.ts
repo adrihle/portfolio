@@ -1,19 +1,12 @@
 import { Locale } from "@/interfaces";
-import { ServiceContent } from "@/services";
+import { ProviderLog } from "@/providers/log";
 import { HOME_PAGE, HomePage } from "./settings";
 
+const logger = new ProviderLog('[PAGE:HOME]');
+
 const getContent = async (locale: Locale): Promise<HomePage> => {
-  const content = await ServiceContent.generatePageTexts({
-    text: HOME_PAGE,
-    locale,
-    page: 'home',
-  });
-  return content;
+  logger.debug(`Provisioning content for ${locale}`)
+  return HOME_PAGE
 };
 
-const updateContent = async (locale: Locale): Promise<void> => {
-  const filePath = './src/app/[locale]/settings.ts';
-  await ServiceContent.updatePageTexts({ page: 'home', locale, text: HOME_PAGE, filePath });
-};
-
-export { getContent, updateContent };
+export { getContent };

@@ -1,22 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { ServiceContent } from "@/services";
+import { ProviderLog } from "@/providers/log";
 import { ABOUT_PAGE, AboutPage } from "./settings";
 import { Locale } from "@/interfaces";
 
+const logger = new ProviderLog('[PAGE:ABOUT]');
+
 const getContent = async (locale: Locale): Promise<AboutPage> => {
-  const { features, ...rest } = ABOUT_PAGE;
-  const content = await ServiceContent.generatePageTexts({
-    locale,
-    page: 'about',
-    text: rest
-  });
-  return { ...content, features };
+  logger.debug(`Provisioning content for ${locale}`);
+  return ABOUT_PAGE
 };
 
-const updateContent = async (locale: Locale) => {
-  const filePath = './src/app/[locale]/about/settings.ts';
-  const { features, ...rest } = ABOUT_PAGE;
-  await ServiceContent.updatePageTexts({ page: 'about', locale, text: rest, filePath });
-}
-
-export { getContent, updateContent };
+export { getContent };

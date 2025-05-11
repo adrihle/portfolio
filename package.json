@@ -9,7 +9,6 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "preload": "export $(cat .env | xargs) && npx tsx src/scripts/preload.ts",
     "up:dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up",
     "up:pro": "docker-compose -f docker-compose.yml up"
   },
